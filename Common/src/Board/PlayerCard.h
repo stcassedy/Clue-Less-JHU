@@ -1,0 +1,30 @@
+/**
+  * @file PlayerCard.h
+  */
+#ifndef PLAYERCARD_H
+#define PLAYERCARD_H
+
+#include "Board.h"
+#include "Card.h"
+#include <QString>
+
+/**
+ * @brief The PlayerCard class represents a Clue Suspect Card
+ */
+class PlayerCard : public Card
+{
+public:
+    /**
+     * @brief PlayerCard Constructor
+     * @param identifier CardEnum
+     * @param name QString
+     */
+    PlayerCard(CardEnum identifier, QString name);
+
+    /**
+      * @brief ~PlayerCard Destructor
+      */
+    ~PlayerCard();
+};
+
+#endif // PLAYERCARD_H

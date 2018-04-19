@@ -52,33 +52,33 @@ void Board::initializeCardLookup()
     m_cardLookup[WRENCH_CARD] =
             new WeaponCard(WRENCH_CARD, "Wrench");
     m_cardLookup[SCARLET_CARD] =
-            new WeaponCard(SCARLET_CARD, "Miss Scarlet");
+            new PlayerCard(SCARLET_CARD, "Miss Scarlet");
     m_cardLookup[MUSTARD_CARD] =
-            new WeaponCard(MUSTARD_CARD, "Colonel Mustard");
+            new PlayerCard(MUSTARD_CARD, "Colonel Mustard");
     m_cardLookup[WHITE_CARD] =
-            new WeaponCard(WHITE_CARD, "Mrs. White");
+            new PlayerCard(WHITE_CARD, "Mrs. White");
     m_cardLookup[GREEN_CARD] =
-            new WeaponCard(GREEN_CARD, "Mr. Green");
+            new PlayerCard(GREEN_CARD, "Mr. Green");
     m_cardLookup[PEACOCK_CARD] =
-            new WeaponCard(PEACOCK_CARD, "Mrs. Peacock");
+            new PlayerCard(PEACOCK_CARD, "Mrs. Peacock");
     m_cardLookup[PLUM_CARD] =
-            new WeaponCard(PLUM_CARD, "Professor Plum");
+            new PlayerCard(PLUM_CARD, "Professor Plum");
     m_cardLookup[KITCHEN_CARD] =
-            new WeaponCard(KITCHEN_CARD, "Kitchen");
+            new RoomCard(KITCHEN_CARD, "Kitchen");
     m_cardLookup[BALLROOM_CARD] =
-            new WeaponCard(BALLROOM_CARD, "Ballroom");
+            new RoomCard(BALLROOM_CARD, "Ballroom");
     m_cardLookup[CONSERVATORY_CARD] =
-            new WeaponCard(CONSERVATORY_CARD, "Conservatory");
+            new RoomCard(CONSERVATORY_CARD, "Conservatory");
     m_cardLookup[DINING_ROOM_CARD] =
-            new WeaponCard(DINING_ROOM_CARD, "Dining Room");
+            new RoomCard(DINING_ROOM_CARD, "Dining Room");
     m_cardLookup[BILLIARD_ROOM_CARD] =
-            new WeaponCard(BILLIARD_ROOM_CARD, "Billiard Room");
+            new RoomCard(BILLIARD_ROOM_CARD, "Billiard Room");
     m_cardLookup[LIBRARY_CARD] =
-            new WeaponCard(LIBRARY_CARD, "Library");
+            new RoomCard(LIBRARY_CARD, "Library");
     m_cardLookup[LOUNGE_CARD] =
-            new WeaponCard(LOUNGE_CARD, "Lounge");
+            new RoomCard(LOUNGE_CARD, "Lounge");
     m_cardLookup[HALL_CARD] =
-            new WeaponCard(HALL_CARD, "Hall");
+            new RoomCard(HALL_CARD, "Hall");
     m_cardLookup[STUDY_CARD] =
-            new WeaponCard(STUDY_CARD, "Study");
+            new RoomCard(STUDY_CARD, "Study");
 }

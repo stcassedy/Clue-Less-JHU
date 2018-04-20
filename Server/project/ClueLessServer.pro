@@ -61,7 +61,8 @@ HEADERS += \
     ../../Common/src/Board/Card.h \
     ../../Common/src/Board/WeaponCard.h \
     ../../Common/src/Board/RoomCard.h \
-    ../../Common/src/Board/PlayerCard.h
+    ../../Common/src/Board/PlayerCard.h \
+    ../../Common/src/Board/BoardEnums.h
 
 FORMS += \
     ../src/UI/ServerWindow.ui

@@ -4,7 +4,7 @@
 #ifndef ROOMCARD_H
 #define ROOMCARD_H
 
-#include "Board.h"
+#include "BoardEnums.h"
 #include "Card.h"
 #include <QString>
 
@@ -15,11 +15,11 @@ class RoomCard : public Card
 {
 public:
     /**
-     * @brief RoomCard Constructor
+     * @brief RoomCard Explicit Constructor
      * @param identifier CardEnum
      * @param name QString
      */
-    RoomCard(CardEnum identifier, QString name);
+    explicit RoomCard(CardEnum identifier, QString name);
 
     /**
       * @brief ~RoomCard Destructor

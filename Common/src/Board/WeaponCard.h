@@ -4,7 +4,7 @@
 #ifndef WEAPONCARD_H
 #define WEAPONCARD_H
 
-#include "Board.h"
+#include "BoardEnums.h"
 #include "Card.h"
 #include <QString>
 
@@ -15,11 +15,11 @@ class WeaponCard : public Card
 {
 public:
     /**
-     * @brief WeaponCard Construtor
+     * @brief WeaponCard Explicit Constructor
      * @param identifier CardEnum
      * @param name QString
      */
-    WeaponCard(CardEnum identifier, QString name);
+    explicit WeaponCard(CardEnum identifier, QString name);
 
     /**
       * @brief ~WeaponCard Destructor

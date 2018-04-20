@@ -4,7 +4,7 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include "Board.h"
+#include "BoardEnums.h"
 #include <QString>
 
 /**
@@ -14,17 +14,17 @@ class Card
 {
 public:
     /**
-     * @brief Card Constructor
+     * @brief Card Explicit Constructor
      * @param type CardTypeEnum
      * @param identifier CardEnum
      * @param name QString
      */
-    Card(CardTypeEnum type, CardEnum identifier, QString name);
+    explicit Card(CardTypeEnum type, CardEnum identifier, QString name);
 
     /**
       * @brief ~Card Destructor
       */
-    ~Card();
+    virtual ~Card();
 
     /**
      * @brief getCardType returns the card type

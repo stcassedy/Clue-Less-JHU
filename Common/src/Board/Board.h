@@ -2,47 +2,11 @@
 #define BOARD_H
 
 #include <QMap>
+#include "Envelope.h"
+#include "BoardEnums.h"
 
 //Forward Declarations
 class Card;
-
-/**
- * @brief The CardTypeEnum enum
- */
-enum CardTypeEnum
-{
-    WEAPON_CARD = 0,
-    ROOM_CARD,
-    PLAYER_CARD
-};
-
-/**
- * @brief The CardEnum enum
- */
-enum CardEnum
-{
-    CANDLESTICK_CARD = 0,
-    KNIFE_CARD,
-    LEAD_PIPE_CARD,
-    REVOLVER_CARD,
-    ROPE_CARD,
-    WRENCH_CARD,
-    SCARLET_CARD,
-    MUSTARD_CARD,
-    WHITE_CARD,
-    GREEN_CARD,
-    PEACOCK_CARD,
-    PLUM_CARD,
-    KITCHEN_CARD,
-    BALLROOM_CARD,
-    CONSERVATORY_CARD,
-    DINING_ROOM_CARD,
-    BILLIARD_ROOM_CARD,
-    LIBRARY_CARD,
-    LOUNGE_CARD,
-    HALL_CARD,
-    STUDY_CARD
-};
 
 /**
  * @brief The Board class is a singleton class that primarily provides lookup
@@ -55,7 +19,7 @@ public:
      * @brief getInstance Returns a pointer to the board instance
      * @return Board*
      */
-    Board* getInstance();
+    static Board* getInstance();
 
     /**
      * @brief getCard Looks up and returns a pointer to a card object based on
@@ -64,6 +28,12 @@ public:
      * @return Card*
      */
     Card* getCard(CardEnum card);
+
+    /**
+     * @brief getHiddenEnvelope returns a pointer to the hidden evelope
+     * @return Envelope*
+     */
+    Envelope* getHiddenEnvelope();
 
 private:
     /**
@@ -83,8 +53,9 @@ private:
     void initializeCardLookup();
 
     //Member Variables
-    Board* m_instance;
+    static Board* m_instance;
     QMap<int, Card*> m_cardLookup;
+    Envelope m_envelope;
 
 };
 

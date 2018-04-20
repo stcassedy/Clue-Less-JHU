@@ -4,7 +4,7 @@
 #ifndef PLAYERCARD_H
 #define PLAYERCARD_H
 
-#include "Board.h"
+#include "BoardEnums.h"
 #include "Card.h"
 #include <QString>
 
@@ -15,11 +15,11 @@ class PlayerCard : public Card
 {
 public:
     /**
-     * @brief PlayerCard Constructor
+     * @brief PlayerCard Explicit Constructor
      * @param identifier CardEnum
      * @param name QString
      */
-    PlayerCard(CardEnum identifier, QString name);
+    explicit PlayerCard(CardEnum identifier, QString name);
 
     /**
       * @brief ~PlayerCard Destructor

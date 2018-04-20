@@ -8,6 +8,10 @@
 
 // -----------------------------------------------------------------------------
 // Constructor:
+Board* Board::m_instance = NULL;
+
+// -----------------------------------------------------------------------------
+// Constructor:
 Board::Board()
 {
     //builds the Card lookup map
@@ -27,18 +31,34 @@ Board::~Board()
 // Public Functions:
 Board* Board::getInstance()
 {
+    //determines if the instance is not yet created
+    if (m_instance == NULL)
+    {
+        //creates the board instance
+        m_instance = new Board();
+    }
+
+    //returns the board instance
     return m_instance;
 }
 
 Card* Board::getCard(CardEnum card)
 {
+    //returns a card from the lookup
     return m_cardLookup.value(card);
+}
+
+Envelope* Board::getHiddenEnvelope()
+{
+    //returns the hidden envelope
+    return &m_envelope;
 }
 
 // -----------------------------------------------------------------------------
 // Private Functions:
 void Board::initializeCardLookup()
 {
+    //maps all of the lookup keys to their respective values
     m_cardLookup[CANDLESTICK_CARD] =
             new WeaponCard(CANDLESTICK_CARD, "Candlestick");
     m_cardLookup[KNIFE_CARD] =

@@ -53,7 +53,7 @@ private:
     void initializeCardLookup();
 
     //Member Variables
-    static Board* m_instance;
+    static Board m_instance;
     QMap<int, Card*> m_cardLookup;
     Envelope m_envelope;
 

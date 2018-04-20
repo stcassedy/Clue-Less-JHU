@@ -8,7 +8,7 @@
 
 // -----------------------------------------------------------------------------
 // Constructor:
-Board* Board::m_instance = NULL;
+Board Board::m_instance;
 
 // -----------------------------------------------------------------------------
 // Constructor:
@@ -31,15 +31,8 @@ Board::~Board()
 // Public Functions:
 Board* Board::getInstance()
 {
-    //determines if the instance is not yet created
-    if (m_instance == NULL)
-    {
-        //creates the board instance
-        m_instance = new Board();
-    }
-
     //returns the board instance
-    return m_instance;
+    return &m_instance;
 }
 
 Card* Board::getCard(CardEnum card)

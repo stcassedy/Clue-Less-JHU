@@ -94,53 +94,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QScrollArea" name="ClientStudy">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QScrollArea" name="ClientLibrary">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>170</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_3">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QScrollArea" name="ClientConservatory">
+    <widget class="QTextEdit" name="Conservatory">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -149,157 +103,92 @@
        <height>71</height>
       </rect>
      </property>
-     <property name="widgetResizable">
+     <property name="readOnly">
       <bool>true</bool>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
+     <property name="textInteractionFlags">
+      <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+     </property>
     </widget>
-    <widget class="QScrollArea" name="ClientHall">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>10</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_5">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QScrollArea" name="ClientBilliardRoom">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>170</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_6">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QScrollArea" name="ClientBallroom">
+    <widget class="QTextEdit" name="Ballroom">
      <property name="geometry">
       <rect>
        <x>230</x>
        <y>320</y>
        <width>141</width>
-       <height>71</height>
+       <height>74</height>
       </rect>
      </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_7">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
     </widget>
-    <widget class="QScrollArea" name="ClientLounge">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>10</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_8">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QScrollArea" name="ClientDiningRoom">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>170</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_9">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-    <widget class="QScrollArea" name="ClientKitchen">
+    <widget class="QTextEdit" name="Kitchen">
      <property name="geometry">
       <rect>
        <x>450</x>
        <y>320</y>
        <width>141</width>
-       <height>71</height>
+       <height>74</height>
       </rect>
      </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
+    </widget>
+    <widget class="QTextEdit" name="DiningRoom">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>170</y>
+       <width>141</width>
+       <height>74</height>
+      </rect>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_10">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>139</width>
-        <height>69</height>
-       </rect>
-      </property>
-     </widget>
+    </widget>
+    <widget class="QTextEdit" name="BilliardRoom">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>170</y>
+       <width>141</width>
+       <height>74</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="Library">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>170</y>
+       <width>141</width>
+       <height>74</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="Study">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>141</width>
+       <height>74</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="Hall">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>10</y>
+       <width>141</width>
+       <height>74</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="Lounge">
+     <property name="geometry">
+      <rect>
+       <x>450</x>
+       <y>10</y>
+       <width>141</width>
+       <height>74</height>
+      </rect>
+     </property>
     </widget>
    </widget>
    <widget class="QPushButton" name="SendChat">
@@ -389,26 +278,14 @@ Mustard's turn</string>
      <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
     </property>
    </widget>
-   <widget class="QLabel" name="ChatBox">
+   <widget class="QTextEdit" name="GroupChat">
     <property name="geometry">
      <rect>
       <x>160</x>
       <y>420</y>
       <width>601</width>
-      <height>81</height>
+      <height>74</height>
      </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="text">
-     <string>Group Chat</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
     </property>
    </widget>
   </widget>

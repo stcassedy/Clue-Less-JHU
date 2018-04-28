@@ -1,20 +1,21 @@
 #include "ClientWindow.h"
 #include "ui_ClientWindow.h"
+#include "NavigateBoard.h"
 
 ClientWindow::ClientWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ClientWindow)
 {
     ui->setupUi(this);
-    ui->Ballroom->setText("BALLROOM");
-    ui->BilliardRoom->setText("BILLIARD ROOM");
-    ui->Conservatory->setText("CONSERVATORY");
-    ui->DiningRoom->setText("DINING ROOM");
-    ui->Hall->setText("HALL");
-    ui->Kitchen->setText("KITCHEN");
-    ui->Library->setText("LIBRARY");
-    ui->Lounge->setText("LOUNGE");
-    ui->Study->setText("STUDY");
+    ui->Ballroom->setText("BALLROOM\n");
+    ui->BilliardRoom->setText("BILLIARD ROOM\n");
+    ui->Conservatory->setText("CONSERVATORY\n");
+    ui->DiningRoom->setText("DINING ROOM\n");
+    ui->Hall->setText("HALL\n");
+    ui->Kitchen->setText("KITCHEN\n");
+    ui->Library->setText("LIBRARY\n");
+    ui->Lounge->setText("LOUNGE\n");
+    ui->Study->setText("STUDY\n");
 }
 
 ClientWindow::~ClientWindow()
@@ -26,7 +27,13 @@ void ClientWindow::on_NavigateBoard_clicked()
 {
     ui->GameActions->setText("You clicked\nNavigateBoard");
     QString content = ui->Conservatory->toPlainText();
-    ui->Conservatory->setText(content + "\nColonel Mustard\nRope");
+    bool isInRoom = content.contains("Colonel Mustard");
+    if ( !isInRoom )
+    {
+        ui->Conservatory->setText(content + "Colonel Mustard");
+    }
+    NavigateBoard navWindow;
+    navWindow.exec();
 }
 
 void ClientWindow::on_MakeSuggestion_clicked()

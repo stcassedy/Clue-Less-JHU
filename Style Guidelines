@@ -1,0 +1,27 @@
+As a team, we should adhere to some basic guidelines to make it easier to work with each others' code.
+
+
+File Organization:
+
+	Virtually all functionality should take place in the scope of some class, 
+	except for a single main() which launches the ClientManager or GameManager
+	objects with given input, which control the software afterwards.
+
+	Classes will be defined in a [Class].h and [Class].cpp file, where [Class]
+	should be substituted with the class name. Functions and private variables
+	should be declared in the header file, but defined in the .cpp file. Exceptions
+	include simple getter/setter functions or other similar 1-2 line functions.
+
+Style:
+	
+	Classes in camel case, such as GameManager .
+
+	Functions in lowercase snake case, such as BoardElement.get_connected_board_elements() .
+
+	Class owned variables in lower camel case with an underscore, such as BoardElement.connectedHallways_ .
+
+	Variables not owned by a class should be in lower camel case with no underscore, such as playerIndex 
+	(e.g. variable being looped over).
+
+	All names should be descriptive, and should not require comments to explain their meaning. 
+	(Do *not* use 'a', 'b', or other lazy names, except for simple uses like loop indexes.)

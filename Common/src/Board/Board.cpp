@@ -1,5 +1,5 @@
 /**
-  * @file ServerWindow.cpp
+  * @file Board.cpp
   */
 #include "Board.h"
 #include "WeaponCard.h"

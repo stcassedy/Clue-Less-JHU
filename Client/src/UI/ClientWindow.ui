@@ -6,298 +6,4953 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>789</width>
-    <height>572</height>
+    <width>844</width>
+    <height>774</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>ClientWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="NavigateBoard">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>10</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Navigate Board</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="MakeSuggestion">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>40</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Make Suggestion</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Refute">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>70</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Refute</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="MakeAccusation">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>100</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Make Accusation</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="ViewNotebook">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>130</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>View Notebook</string>
-    </property>
-   </widget>
-   <widget class="QFrame" name="ClientBoardFrame">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>10</y>
-      <width>601</width>
-      <height>401</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QTextEdit" name="Conservatory">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>320</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="Ballroom">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>320</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="Kitchen">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>320</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="DiningRoom">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>170</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="BilliardRoom">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>170</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="Library">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>170</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="Study">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="Hall">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>10</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="Lounge">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>10</y>
-       <width>141</width>
-       <height>74</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QPushButton" name="SendChat">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>480</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Send Chat</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="GameActions">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>210</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string>Game Actions</string>
-    </property>
-    <property name="textInteractionFlags">
-     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="PlayerTurn">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>270</y>
-      <width>121</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string>It's Colonel
-Mustard's turn</string>
-    </property>
-    <property name="textInteractionFlags">
-     <set>Qt::LinksAccessibleByMouse|Qt::TextEditable|Qt::TextEditorInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="EndTurn">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>160</y>
-      <width>141</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>End Turn</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="MyCards">
-    <property name="geometry">
-     <rect>
-      <x>8</x>
-      <y>335</y>
-      <width>121</width>
-      <height>141</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string>My Cards</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-    <property name="textInteractionFlags">
-     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="GroupChat">
-    <property name="geometry">
-     <rect>
-      <x>160</x>
-      <y>420</y>
-      <width>601</width>
-      <height>74</height>
-     </rect>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(112,128,144);</string>
+      </property>
+      <property name="lineWidth">
+       <number>0</number>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="pgStartPage">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="1" column="1">
+         <widget class="QFrame" name="frameStart">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+background-color: rgb(112,128,144);
+border: 2px solid black;
+border-radius: 10px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_27">
+           <item>
+            <widget class="QLabel" name="lbTeamName">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+border: none
+}</string>
+             </property>
+             <property name="text">
+              <string>MindlessLemming Gaming Presents</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lbGameName">
+             <property name="font">
+              <font>
+               <pointsize>30</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+border: none
+}</string>
+             </property>
+             <property name="text">
+              <string>Clue-Less</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <item>
+              <spacer name="horizontalSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnJoinGame">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Join Game</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="1">
+         <spacer name="verticalSpacer_22">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <spacer name="verticalSpacer_23">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pgCharacterSelection">
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="1" column="1">
+         <widget class="QGroupBox" name="gbCharacterSelection">
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QGroupBox {
+font-weight: bold;
+}</string>
+          </property>
+          <property name="title">
+           <string>Character Selection</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_29">
+           <item>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="2" column="3">
+              <widget class="QLabel" name="lbReadyPlayer3">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Not Ready Yet</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="lbSelectionPlayer3">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Player 3</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="lbSelectionPlayer1">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Player 1</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="3">
+              <widget class="QLabel" name="lbReadyPlayer5">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Not Ready Yet</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QComboBox" name="cbSelectionPlayer2">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+}
+
+QComboBox:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+}
+
+QWidget {
+color: rgb(0,0,0);
+background-color: rgb(150,160,180);
+}</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="lbSelectionPlayer6">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Player 6</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="lbSelectionPlayer4">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Player 4</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QComboBox" name="cbSelectionPlayer5">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+}
+
+QComboBox:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+}
+
+QWidget {
+color: rgb(0,0,0);
+background-color: rgb(150,160,180);
+}</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QPushButton" name="btnReadyPlayer1">
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>75</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Ready</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="3">
+              <widget class="QLabel" name="lbReadyPlayer4">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Not Ready Yet</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QPushButton" name="btnReadyPlayer5">
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>75</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Ready</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="lbSelectionPlayer2">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Player 2</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QComboBox" name="cbSelectionPlayer1">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+}
+
+QComboBox:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+}
+
+QWidget {
+color: rgb(0,0,0);
+background-color: rgb(150,160,180);
+}</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="5" column="3">
+              <widget class="QLabel" name="lbReadyPlayer6">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Not Ready Yet</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLabel" name="lbReadyPlayer1">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Not Ready Yet</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="cbSelectionPlayer4">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+}
+
+QComboBox:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+}
+
+QWidget {
+color: rgb(0,0,0);
+background-color: rgb(150,160,180);
+}</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLabel" name="lbReadyPlayer2">
+               <property name="minimumSize">
+                <size>
+                 <width>80</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Not Ready Yet</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="lbSelectionPlayer5">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Player 5</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QPushButton" name="btnReadyPlayer2">
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>75</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Ready</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QComboBox" name="cbSelectionPlayer6">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+}
+
+QComboBox:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+}
+
+QWidget {
+color: rgb(0,0,0);
+background-color: rgb(150,160,180);
+}</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QPushButton" name="btnReadyPlayer4">
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>75</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Ready</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QPushButton" name="btnReadyPlayer3">
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>75</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Ready</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QPushButton" name="btnReadyPlayer6">
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>75</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Ready</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QComboBox" name="cbSelectionPlayer3">
+               <property name="minimumSize">
+                <size>
+                 <width>150</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>150</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QComboBox {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+}
+
+QComboBox:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+}
+
+QWidget {
+color: rgb(0,0,0);
+background-color: rgb(150,160,180);
+}</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <spacer name="horizontalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnStartGame">
+               <property name="minimumSize">
+                <size>
+                 <width>75</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Start Game</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_6">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer_12">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_11">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <spacer name="verticalSpacer_24">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="1">
+         <spacer name="verticalSpacer_27">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pgBoard">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QGroupBox" name="gbPlayerActions">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>280</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>Player Actions</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="btnNavigateBoard">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Navigate Board</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnMakeSuggestion">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Make Suggestion</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnRefute">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Refute</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnMakeAccusation">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Make Accusation</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnViewNotebook">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>View Notebook</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnSendChat">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>View Chat</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnEndTurn">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>End Turn</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="gbCurrentPlayerTurn">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>Current Player Turn</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="lbCurrentPlayerScarlet">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Miss Scarlet</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbCurrentPlayerMustard">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Col. Mustard</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbCurrentPlayerWhite">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Mrs. White</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbCurrentPlayerGreen">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Mr. Green</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbCurrentPlayerPeacock">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Mrs. Peacock</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbCurrentPlayerPlum">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Prof. Plum</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="gbYourCards">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="title">
+             <string>Your Cards</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <property name="spacing">
+              <number>5</number>
+             </property>
+             <property name="leftMargin">
+              <number>5</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="rightMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <widget class="QLabel" name="lbWeapons">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Weapons</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QListWidget" name="listWeapons">
+               <property name="styleSheet">
+                <string notr="true">QListWidget {
+color: rgb(0,0,0);
+background-color: rgb(255,255,255);
+border: 1px solid rgb(0,0,0);
+}</string>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAsNeeded</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::NoSelection</enum>
+               </property>
+               <property name="textElideMode">
+                <enum>Qt::ElideRight</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbRooms">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Rooms</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QListWidget" name="listRooms">
+               <property name="styleSheet">
+                <string notr="true">QListWidget {
+color: rgb(0,0,0);
+background-color: rgb(255,255,255);
+border: 1px solid rgb(0,0,0);
+}</string>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAsNeeded</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::NoSelection</enum>
+               </property>
+               <property name="textElideMode">
+                <enum>Qt::ElideRight</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="lbSuspects">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>20</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+color: rgb(0,0,0);
+font-weight: bold;
+}</string>
+               </property>
+               <property name="text">
+                <string>Suspects</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QListWidget" name="listSuspects">
+               <property name="styleSheet">
+                <string notr="true">QListWidget {
+color: rgb(0,0,0);
+background-color: rgb(255,255,255);
+border: 1px solid rgb(0,0,0);
+}</string>
+               </property>
+               <property name="lineWidth">
+                <number>1</number>
+               </property>
+               <property name="verticalScrollBarPolicy">
+                <enum>Qt::ScrollBarAsNeeded</enum>
+               </property>
+               <property name="horizontalScrollBarPolicy">
+                <enum>Qt::ScrollBarAlwaysOff</enum>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::NoSelection</enum>
+               </property>
+               <property name="textElideMode">
+                <enum>Qt::ElideRight</enum>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="gbGameBoard">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="title">
+           <string>Game Board</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="leftMargin">
+            <number>5</number>
+           </property>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="rightMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <property name="spacing">
+            <number>5</number>
+           </property>
+           <item row="4" column="0">
+            <widget class="QGroupBox" name="gbConservatory">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Conservatory</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_20">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbConservatoryScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbConservatoryMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbConservatoryWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbConservatoryGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbConservatoryPeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbConservatoryPlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_17">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QGroupBox" name="gbHall">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hall</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallPeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallPlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QGroupBox" name="gbHallway8">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #8</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_17">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway8Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway8Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway8White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway8Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway8Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway8Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_14">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QGroupBox" name="gbLibrary">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Library</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbLibraryScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLibraryMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLibraryWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLibraryGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLibraryPeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLibraryPlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="2">
+            <widget class="QGroupBox" name="gbHallway9">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #9</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_18">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway9Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway9Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway9White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway9Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway9Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway9Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_15">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QGroupBox" name="gbLounge">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Lounge</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbLoungeScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLoungeMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLoungeWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLoungeGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLoungePeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbLoungePlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QGroupBox" name="gbHallway4">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #4</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_10">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway4Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway4Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway4White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway4Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway4Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway4Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="2">
+            <widget class="QGroupBox" name="gbBallroom">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Ballroom</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_24">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbBallroomScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBallroomMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBallroomWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBallroomGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBallroomPeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBallroomPlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_19">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="2">
+            <widget class="QGroupBox" name="gbBilliardRoom">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Billiard Room</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbBilliardRoomScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBilliardRoomMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBilliardRoomWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBilliardRoomGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBilliardRoomPeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbBilliardRoomPlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_11">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="4">
+            <widget class="QGroupBox" name="gbDiningRoom">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Dining Room</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_16">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbDiningRoomScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbDiningRoomMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbDiningRoomWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbDiningRoomGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbDiningRoomPeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbDiningRoomPlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_13">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QGroupBox" name="gbHallway11">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #11</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_21">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway11Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway11Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway11White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway11Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway11Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway11Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_18">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="4">
+            <widget class="QGroupBox" name="gbKitchen">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Kitchen</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_26">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbKitchenScarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbKitchenMustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbKitchenWhite">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbKitchenGreen">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbKitchenPeacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbKitchenPlum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_21">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="4">
+            <widget class="QGroupBox" name="gbHallway5">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #5</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_11">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway5Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway5Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway5White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway5Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway5Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway5Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_8">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="4">
+            <widget class="QGroupBox" name="gbHallway10">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #10</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_19">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway10Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway10Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway10White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway10Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway10Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway10Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_16">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="gbStudy">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="title">
+              <string>Study</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_22">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbStudyScarlet">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbStudyMustard">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbStudyWhite">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbStudyGreen">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbStudyPeacock">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbStudyPlum">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="gbHallway3">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #3</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway3Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway3Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway3White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway3Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway3Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway3Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="3">
+            <widget class="QGroupBox" name="gbHallway12">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #12</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_25">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway12Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway12Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway12White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway12Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway12Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway12Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_20">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QGroupBox" name="gbHallway6">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #6</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_13">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway6Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway6Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway6White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway6Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway6Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway6Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_10">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="3">
+            <widget class="QGroupBox" name="gbHallway7">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #7</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_15">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway7Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway7Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway7White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway7Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway7Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway7Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_12">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QGroupBox" name="gbHallway1">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #1</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_23">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway1Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway1Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway1White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway1Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway1Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway1Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QGroupBox" name="gbHallway2">
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="title">
+              <string>Hallway #2</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>5</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="lbHallway2Scarlet">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Miss Scarlet</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway2Mustard">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Col. Mustard</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway2White">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. White</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway2Green">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mr. Green</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway2Peacock">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Mrs. Peacock</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="lbHallway2Plum">
+                <property name="styleSheet">
+                 <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Prof. Plum</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="lbBlackSpace1">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+background-color: rgb(150,160,180);
+border: 1px solid rgb(150,160,180);
+border-radius: 10px;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="lbBlackSpace3">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+background-color: rgb(150,160,180);
+border: 1px solid rgb(150,160,180);
+border-radius: 10px;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="3">
+            <widget class="QLabel" name="lbBlackSpace4">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+background-color: rgb(150,160,180);
+border: 1px solid rgb(150,160,180);
+border-radius: 10px;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="3">
+            <widget class="QLabel" name="lbBlackSpace2">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+background-color: rgb(150,160,180);
+border: 1px solid rgb(150,160,180);
+border-radius: 10px;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pgNoServerConnection">
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="1" column="1" colspan="2">
+         <widget class="QFrame" name="frameStart_2">
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+background-color: rgb(112,128,144);
+border: 2px solid black;
+border-radius: 10px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_30">
+           <item>
+            <widget class="QLabel" name="lbErrorNoServer">
+             <property name="font">
+              <font>
+               <pointsize>30</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+border: none
+}</string>
+             </property>
+             <property name="text">
+              <string>ERROR</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="lbNoServer">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+border: none
+}</string>
+             </property>
+             <property name="text">
+              <string>No Server Connection</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <spacer name="horizontalSpacer_9">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="btnAckNoServer">
+               <property name="minimumSize">
+                <size>
+                 <width>100</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>10</pointsize>
+                 <weight>75</weight>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}</string>
+               </property>
+               <property name="text">
+                <string>OK</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_10">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <spacer name="horizontalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>271</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>272</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
+         <spacer name="verticalSpacer_26">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="2">
+         <spacer name="verticalSpacer_25">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>789</width>
-     <height>22</height>
+     <width>844</width>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -308,6 +4963,21 @@ Mustard's turn</string>
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionEnd_Game">
+   <property name="text">
+    <string>Save Game State</string>
+   </property>
+  </action>
+  <action name="actionEnd_Game_2">
+   <property name="text">
+    <string>End Game</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

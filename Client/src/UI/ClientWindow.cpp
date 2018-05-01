@@ -1,6 +1,8 @@
+/**
+ * @file ClientWindow.cpp
+ */
 #include "ClientWindow.h"
 #include "ui_ClientWindow.h"
-#include "NavigateBoard.h"
 
 // -----------------------------------------------------------------------------
 // Constants:
@@ -15,9 +17,13 @@ static const QString NOT_READY_TEXT = "Not Ready Yet";
 // Constructor:
 ClientWindow::ClientWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::ClientWindow)
+    ui(new Ui::ClientWindow),
+    navigateBoardDlg(parent),
+    suggestionDlg(parent)
 {
+    //sets up the UI
     ui->setupUi(this);
+    setWindowTitle("Clue-Less");
 
     //defaults to start page
     ui->stackedWidget->setCurrentIndex(START_PAGE);
@@ -143,4 +149,16 @@ void ClientWindow::on_btnReadyPlayer6_clicked()
     ui->cbSelectionPlayer6->setDisabled(true);
 
     //TODO: set player character in client and server
+}
+
+void ClientWindow::on_btnNavigateBoard_clicked()
+{
+    //shows the navigate board dialog
+    navigateBoardDlg.show();
+}
+
+void ClientWindow::on_btnMakeSuggestion_clicked()
+{
+    //shows the suggestion dialog
+    suggestionDlg.show();
 }

@@ -49,7 +49,7 @@ enum LocationTypeEnum
 {
     ROOM = 0,
     HALLWAY
-}
+};
 
 /**
  * @brief The LocationEnum enum
@@ -77,7 +77,7 @@ enum LocationEnum
     HALLWAY_10,
     HALLWAY_11,
     HALLWAY_12,
-}
+};
 
 /**
   * @brief The PlayerEnum enum
@@ -90,6 +90,6 @@ enum PlayerEnum
     MR_GREEN,
     MRS_PEACOCK,
     PROF_PLUM
-}
+};
 
 #endif // BOARDENUMS_H

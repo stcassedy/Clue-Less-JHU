@@ -4,9 +4,11 @@
 #include "Room.h"
 
 //Constructor:
-Room::Room(LocationEnum loc, QList<LocationEnum> connectedLocList)
+Room::Room(LocationEnum loc, QList<LocationEnum> connectedLocList) :
+    BoardElement()
+  //BoardElement(ROOM, loc, connectedLocList);
 {
-    BoardElement(ROOM, loc, connectedLocList);
+
 }
 
 //Deconstructor

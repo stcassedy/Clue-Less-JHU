@@ -5,9 +5,11 @@
 
 
 //Constructor:
-Hallway::Hallway(LocationEnum loc, QList<LocationEnum> connectedLocList)
+Hallway::Hallway(LocationEnum loc, QList<LocationEnum> connectedLocList) :
+    BoardElement()
+  //BoardElement(HALLWAY, loc, connectedLocList)
 {
-    BoardElement(HALLWAY, loc, connectedLocList);
+
 }
 
 //Deconstructor
@@ -19,8 +21,8 @@ Hallway::~Hallway() {
 bool Hallway::openForNewPlayer() {
 	bool newPlayedAllowed = false;
 	//Only open to other players when totally empty
-	if(getPlayers().isEmpty()) {
-		newPlayedAllowed = true;
-	}
+//	if(getPlayers().isEmpty()) {
+//		newPlayedAllowed = true;
+//	}
 	return newPlayedAllowed;
 }

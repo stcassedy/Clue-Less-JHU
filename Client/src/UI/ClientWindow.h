@@ -5,6 +5,8 @@
 #define CLIENTWINDOW_H
 
 #include <QMainWindow>
+#include "NavigateBoardDialog.h"
+#include "SuggestionDialog.h"
 
 //UI namespace definition
 namespace Ui {
@@ -85,9 +87,21 @@ private slots:
      */
     void on_btnReadyPlayer6_clicked();
 
+    /**
+     * @brief on_btnNavigateBoard_clicked shows the board navigation dialog
+     */
+    void on_btnNavigateBoard_clicked();
+
+    /**
+     * @brief on_btnMakeSuggestion_clicked shows the suggestion dialog
+     */
+    void on_btnMakeSuggestion_clicked();
+
 private:
     //Member Variables
     Ui::ClientWindow *ui;
+    NavigateBoardDialog navigateBoardDlg;
+    SuggestionDialog suggestionDlg;
 };
 
 #endif // CLIENTWINDOW_H

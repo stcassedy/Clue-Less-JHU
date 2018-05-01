@@ -48,7 +48,8 @@ SOURCES += \
     ../../Common/src/Board/WeaponCard.cpp \
     ../../Common/src/Board/RoomCard.cpp \
     ../../Common/src/Board/PlayerCard.cpp \
-    ../src/UI/NavigateBoard.cpp
+    ../src/UI/NavigateBoardDialog.cpp \
+    ../src/UI/SuggestionDialog.cpp
 
 HEADERS += \
     ../src/UI/ClientWindow.h \
@@ -64,11 +65,13 @@ HEADERS += \
     ../../Common/src/Board/RoomCard.h \
     ../../Common/src/Board/PlayerCard.h \
     ../../Common/src/Board/BoardEnums.h \
-    ../src/UI/NavigateBoard.h
+    ../src/UI/NavigateBoardDialog.h \
+    ../src/UI/SuggestionDialog.h
 
 FORMS += \
     ../src/UI/ClientWindow.ui \
-    ../src/UI/NavigateBoard.ui
+    ../src/UI/NavigateBoardDialog.ui \
+    ../src/UI/SuggestionDialog.ui
 
 INCLUDEPATH += \
     ../src/Main \

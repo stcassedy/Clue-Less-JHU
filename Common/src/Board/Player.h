@@ -1,11 +1,14 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "Hand.h";
-#include "BoardEnums.h";
-#include "BoardElement.h";
-#include <QList>;
+#include "Hand.h"
+#include "BoardEnums.h"
+#include "BoardElement.h"
+#include <QList>
 
+/**
+ * @brief The Player class holds the player board information
+ */
 class Player
 {
 public:

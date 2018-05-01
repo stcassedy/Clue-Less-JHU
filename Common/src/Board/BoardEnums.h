@@ -79,4 +79,17 @@ enum LocationEnum
     HALLWAY_12,
 }
 
+/**
+  * @brief The PlayerEnum enum
+  */
+enum PlayerEnum
+{
+    MISS_SCARLET = 0,
+    COL_MUSTARD,
+    MRS_WHITE,
+    MR_GREEN,
+    MRS_PEACOCK,
+    PROF_PLUM
+}
+
 #endif // BOARDENUMS_H

@@ -7,6 +7,7 @@
 #include <QMainWindow>
 #include "NavigateBoardDialog.h"
 #include "SuggestionDialog.h"
+#include "AccusationDialog.h"
 
 //UI namespace definition
 namespace Ui {
@@ -97,11 +98,32 @@ private slots:
      */
     void on_btnMakeSuggestion_clicked();
 
+    /**
+     * @brief on_btnRefute_clicked shows the refutation dialog
+     */
+    void on_btnRefute_clicked();
+
+    /**
+     * @brief on_btnMakeAccusation_clicked shows the accusation dialog
+     */
+    void on_btnMakeAccusation_clicked();
+
+    /**
+     * @brief on_btnViewNotebook_clicked shows the notebook dialog
+     */
+    void on_btnViewNotebook_clicked();
+
+    /**
+     * @brief on_btnSendChat_clicked shows the chat dialog
+     */
+    void on_btnSendChat_clicked();
+
 private:
     //Member Variables
     Ui::ClientWindow *ui;
     NavigateBoardDialog navigateBoardDlg;
     SuggestionDialog suggestionDlg;
+    AccusationDialog accusationDlg;
 };
 
 #endif // CLIENTWINDOW_H

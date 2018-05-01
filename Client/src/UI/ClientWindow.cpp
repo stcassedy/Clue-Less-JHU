@@ -19,7 +19,8 @@ ClientWindow::ClientWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ClientWindow),
     navigateBoardDlg(parent),
-    suggestionDlg(parent)
+    suggestionDlg(parent),
+    accusationDlg(parent)
 {
     //sets up the UI
     ui->setupUi(this);
@@ -161,4 +162,28 @@ void ClientWindow::on_btnMakeSuggestion_clicked()
 {
     //shows the suggestion dialog
     suggestionDlg.show();
+}
+
+void ClientWindow::on_btnRefute_clicked()
+{
+    //shows the refutation dialog
+
+}
+
+void ClientWindow::on_btnMakeAccusation_clicked()
+{
+    //shows the accusation dialog
+    accusationDlg.show();
+}
+
+void ClientWindow::on_btnViewNotebook_clicked()
+{
+    //shows the notebook dialog
+
+}
+
+void ClientWindow::on_btnSendChat_clicked()
+{
+    //shows the chat dialog
+
 }

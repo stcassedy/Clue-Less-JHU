@@ -49,7 +49,8 @@ SOURCES += \
     ../../Common/src/Board/RoomCard.cpp \
     ../../Common/src/Board/PlayerCard.cpp \
     ../src/UI/NavigateBoardDialog.cpp \
-    ../src/UI/SuggestionDialog.cpp
+    ../src/UI/SuggestionDialog.cpp \
+    ../src/UI/AccusationDialog.cpp
 
 HEADERS += \
     ../src/UI/ClientWindow.h \
@@ -66,12 +67,14 @@ HEADERS += \
     ../../Common/src/Board/PlayerCard.h \
     ../../Common/src/Board/BoardEnums.h \
     ../src/UI/NavigateBoardDialog.h \
-    ../src/UI/SuggestionDialog.h
+    ../src/UI/SuggestionDialog.h \
+    ../src/UI/AccusationDialog.h
 
 FORMS += \
     ../src/UI/ClientWindow.ui \
     ../src/UI/NavigateBoardDialog.ui \
-    ../src/UI/SuggestionDialog.ui
+    ../src/UI/SuggestionDialog.ui \
+    ../src/UI/AccusationDialog.ui
 
 INCLUDEPATH += \
     ../src/Main \

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SuggestionDialog</class>
- <widget class="QDialog" name="SuggestionDialog">
+ <class>AccusationDialog</class>
+ <widget class="QDialog" name="AccusationDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -75,14 +75,14 @@ border-radius: 5px;
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="gbSuggestion">
+    <widget class="QGroupBox" name="gbAccusation">
      <property name="styleSheet">
       <string notr="true">QGroupBox {
 font-weight: bold;
 }</string>
      </property>
      <property name="title">
-      <string>Suggestion</string>
+      <string>Accusation</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="2">
@@ -220,7 +220,7 @@ font-weight: bold;
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnSuggest">
+      <widget class="QPushButton" name="btnAccuse">
        <property name="minimumSize">
         <size>
          <width>120</width>
@@ -228,7 +228,7 @@ font-weight: bold;
         </size>
        </property>
        <property name="text">
-        <string>Suggest</string>
+        <string>Accuse</string>
        </property>
       </widget>
      </item>

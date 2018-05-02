@@ -17,7 +17,7 @@ public:
      * @param playerNum PlayerEnum
      * @param loc LocationEnum
      */
-    explicit Player(PlayerEnum playerNum, LocationEnum loc);
+    explicit Player(PlayerEnum playerNumIn, LocationEnum loc);
 
     /**
       * @brief Player desconstructor
@@ -89,7 +89,7 @@ public:
      * @brief setConnected changes the connection bool to the parameter
      * @param connected bool
      */
-    void setConnected(bool connected);
+    void setConnected(bool connectedIn);
 private:
     //Member variables
     PlayerEnum playerNum;

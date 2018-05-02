@@ -1,6 +1,7 @@
 #include "BoardElement.h"
 #include "QList"
 
+bool BoardElement::occupied = false;
 
 // -----------------------------------------------------------------------------
 //Constructor

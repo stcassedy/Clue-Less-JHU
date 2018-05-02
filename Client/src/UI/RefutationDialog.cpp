@@ -20,7 +20,10 @@ RefutationDialog::RefutationDialog(QWidget *parent) :
     QDialog(parent),
     m_ui(new Ui::RefutationDialog)
 {
+    //sets up the UI
     m_ui->setupUi(this);
+    setModal(true);
+    setWindowTitle("Refutation");
 }
 
 // -----------------------------------------------------------------------------

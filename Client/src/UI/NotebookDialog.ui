@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NotebookDialog</class>
+ <widget class="QDialog" name="NotebookDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>589</width>
+    <height>457</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+background-color: rgb(112,128,144);
+}
+
+QLabel {
+color: black;
+font-weight: bold;
+}
+
+QComboBox {
+color: black;
+background-color:  rgb(150,160,180) ;
+border-width: 1px;
+border-style: solid;
+padding: 1px 0px 1px 3px;
+}
+
+QPushButton {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(150,160,180);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:hover {
+color: rgb(0,0,0);
+font-weight: bold;
+background-color: rgb(250,250,250);
+border: 1px solid black;
+border-radius: 5px;
+}
+
+QPushButton:disabled {
+color: darkgrey;
+font-weight: bold;
+background-color:lightgrey;
+border: 1px solid darkgrey;
+border-radius: 5px;
+}
+
+QGroupBox {
+font-weight: bold;
+}
+
+QCheckBox {
+font-weight: bold;
+}
+
+QCheckBox:checked {
+color: darkgrey; 
+}
+
+QCheckBox:unchecked {
+color: black; 
+}
+
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QGroupBox" name="gbNotebook">
+     <property name="title">
+      <string>Notebook</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QGroupBox" name="gbTrackItems">
+        <property name="title">
+         <string>Track Items</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="6" column="1">
+          <widget class="QCheckBox" name="chDiningRoom">
+           <property name="text">
+            <string>Dining Room</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="QCheckBox" name="chBallroom">
+           <property name="text">
+            <string>Ballroom</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QCheckBox" name="chLibrary">
+           <property name="text">
+            <string>Library</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QCheckBox" name="chConservatory">
+           <property name="text">
+            <string>Conservatory</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QCheckBox" name="chBilliardRoom">
+           <property name="text">
+            <string>Billiard Room</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QCheckBox" name="chCandlestick">
+           <property name="text">
+            <string>Candlestick</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QCheckBox" name="chStudy">
+           <property name="text">
+            <string>Study</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
+          <widget class="QCheckBox" name="chMrsWihte">
+           <property name="text">
+            <string>Mrs. White</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2">
+          <widget class="QCheckBox" name="chMrGreen">
+           <property name="text">
+            <string>Mr. Green</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="2">
+          <widget class="QCheckBox" name="chMrsPeacock">
+           <property name="text">
+            <string>Mrs. Peacock</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QCheckBox" name="chMissScarlet">
+           <property name="text">
+            <string>Miss Scarlet</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="lbRoom">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="text">
+            <string>Room</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="lbWeapon">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="text">
+            <string>Weapon</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QCheckBox" name="chColMustard">
+           <property name="text">
+            <string>Col. Mustard</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="lbSuspect">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+             <underline>true</underline>
+            </font>
+           </property>
+           <property name="text">
+            <string>Suspect</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2">
+          <widget class="QCheckBox" name="chProfPlum">
+           <property name="text">
+            <string>Prof. Plum</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QCheckBox" name="chHall">
+           <property name="text">
+            <string>Hall</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="chLounge">
+           <property name="text">
+            <string>Lounge</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QCheckBox" name="chKitchen">
+           <property name="text">
+            <string>Kitchen</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QCheckBox" name="chKnife">
+           <property name="text">
+            <string>Knife</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QCheckBox" name="chLeadPipe">
+           <property name="text">
+            <string>Lead Pipe</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QCheckBox" name="chRevolver">
+           <property name="text">
+            <string>Revolver</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QCheckBox" name="chRope">
+           <property name="text">
+            <string>Rope</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QCheckBox" name="chWrench">
+           <property name="text">
+            <string>Wrench</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="gbNotes">
+        <property name="title">
+         <string>Notes</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QTextEdit" name="teNotes">
+           <property name="styleSheet">
+            <string notr="true">QTextEdit {
+color: black;
+background-color: white;
+border: 1px solid black;
+}</string>
+           </property>
+           <property name="horizontalScrollBarPolicy">
+            <enum>Qt::ScrollBarAlwaysOff</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose">
+       <property name="minimumSize">
+        <size>
+         <width>120</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

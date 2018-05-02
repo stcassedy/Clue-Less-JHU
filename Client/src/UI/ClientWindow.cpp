@@ -21,7 +21,8 @@ ClientWindow::ClientWindow(QWidget *parent) :
     navigateBoardDlg(parent),
     suggestionDlg(parent),
     accusationDlg(parent),
-    refutationDlg(parent)
+    refutationDlg(parent),
+    notebookDlg(parent)
 {
     //sets up the UI
     ui->setupUi(this);
@@ -180,7 +181,7 @@ void ClientWindow::on_btnMakeAccusation_clicked()
 void ClientWindow::on_btnViewNotebook_clicked()
 {
     //shows the notebook dialog
-
+    notebookDlg.show();
 }
 
 void ClientWindow::on_btnSendChat_clicked()

@@ -51,7 +51,8 @@ SOURCES += \
     ../src/UI/NavigateBoardDialog.cpp \
     ../src/UI/SuggestionDialog.cpp \
     ../src/UI/AccusationDialog.cpp \
-    ../src/UI/RefutationDialog.cpp
+    ../src/UI/RefutationDialog.cpp \
+    ../src/UI/NotebookDialog.cpp
 
 HEADERS += \
     ../src/UI/ClientWindow.h \
@@ -70,14 +71,16 @@ HEADERS += \
     ../src/UI/NavigateBoardDialog.h \
     ../src/UI/SuggestionDialog.h \
     ../src/UI/AccusationDialog.h \
-    ../src/UI/RefutationDialog.h
+    ../src/UI/RefutationDialog.h \
+    ../src/UI/NotebookDialog.h
 
 FORMS += \
     ../src/UI/ClientWindow.ui \
     ../src/UI/NavigateBoardDialog.ui \
     ../src/UI/SuggestionDialog.ui \
     ../src/UI/AccusationDialog.ui \
-    ../src/UI/RefutationDialog.ui
+    ../src/UI/RefutationDialog.ui \
+    ../src/UI/NotebookDialog.ui
 
 INCLUDEPATH += \
     ../src/Main \

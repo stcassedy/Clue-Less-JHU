@@ -9,6 +9,7 @@
 #include "SuggestionDialog.h"
 #include "AccusationDialog.h"
 #include "RefutationDialog.h"
+#include "NotebookDialog.h"
 
 //UI namespace definition
 namespace Ui {
@@ -126,6 +127,7 @@ private:
     SuggestionDialog suggestionDlg;
     AccusationDialog accusationDlg;
     RefutationDialog refutationDlg;
+    NotebookDialog notebookDlg;
 };
 
 #endif // CLIENTWINDOW_H

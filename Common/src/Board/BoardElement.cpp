@@ -9,6 +9,8 @@ BoardElement::BoardElement(LocationTypeEnum typ, LocationEnum loc, QList<Locatio
     type = typ;
     location = loc;
     locId = locId;
+    occupied = false;
+
 }
 
 // -----------------------------------------------------------------------------
@@ -29,6 +31,16 @@ LocationTypeEnum BoardElement::getBoardElementType()
 LocationEnum BoardElement::getBoardElementEnum()
 {
     return location;
+}
+
+bool BoardElement::openForNewPlayer()
+{
+    return occupied;
+}
+
+void BoardElement::setOccupied(bool set)
+{
+    occupied = set;
 }
 
 bool BoardElement::isBoardElementConnected(LocationEnum destination)

@@ -10,11 +10,11 @@
 class BoardElement
 {
 private:
-    int type, location;
+    LocationTypeEnum type;
+    LocationEnum location;
     QList<LocationEnum> locId;
 
 public:
-
     /**
      * @brief BoardElement Explicit Constructor
      * @param type LocationTypeEnum
@@ -29,11 +29,19 @@ public:
     ~BoardElement();
 
 
+    LocationTypeEnum getBoardElementType();
+
+    LocationEnum getBoardElementEnum();
+
+
     /**
      * @brief isBoardElementConnected, returns true if LocationEnum supplied is connected to BoardElement
      * @param loc LocationEnum
      */
     bool isBoardElementConnected(LocationEnum loc);
+
 };
+
+
 
 #endif // BOARDELEMENT_H

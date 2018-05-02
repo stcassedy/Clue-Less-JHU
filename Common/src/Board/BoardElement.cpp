@@ -21,6 +21,16 @@ BoardElement::~BoardElement()
 // -----------------------------------------------------------------------------
 //Public Functions
 
+LocationTypeEnum BoardElement::getBoardElementType()
+{
+    return type;
+}
+
+LocationEnum BoardElement::getBoardElementEnum()
+{
+    return location;
+}
+
 bool BoardElement::isBoardElementConnected(LocationEnum destination)
 {
 

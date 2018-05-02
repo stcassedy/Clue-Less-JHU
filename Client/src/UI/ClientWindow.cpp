@@ -20,7 +20,8 @@ ClientWindow::ClientWindow(QWidget *parent) :
     ui(new Ui::ClientWindow),
     navigateBoardDlg(parent),
     suggestionDlg(parent),
-    accusationDlg(parent)
+    accusationDlg(parent),
+    refutationDlg(parent)
 {
     //sets up the UI
     ui->setupUi(this);
@@ -167,7 +168,7 @@ void ClientWindow::on_btnMakeSuggestion_clicked()
 void ClientWindow::on_btnRefute_clicked()
 {
     //shows the refutation dialog
-
+    refutationDlg.show();
 }
 
 void ClientWindow::on_btnMakeAccusation_clicked()

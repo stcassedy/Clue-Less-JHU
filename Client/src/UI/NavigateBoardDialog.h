@@ -1,3 +1,6 @@
+/**
+  * @file NavigateBoardDialog.h
+  */
 #ifndef NAVIGATEBOARDDIALOG_H
 #define NAVIGATEBOARDDIALOG_H
 

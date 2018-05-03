@@ -155,7 +155,7 @@ bool BoardElement::isBoardElementConnected(LocationEnum destination)
     return connected.contains(destination);
 }
 
-bool BoardElement::isSpaceAvailable(LocationEnum)
+bool BoardElement::isSpaceAvailable()
 {
     bool available = false;
     if(type == ROOM || (type == HALLWAY && players.isEmpty() == true))

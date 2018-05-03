@@ -176,3 +176,7 @@ void BoardElement::removePlayer(PlayerEnum player)
     players.removeAll(player);
 }
 
+QList<PlayerEnum> BoardElement::playersInElement()
+{
+    return players;
+}

@@ -64,6 +64,12 @@ public:
      */
     bool isBoardElementConnected(LocationEnum loc);
 
+
+    /**
+      * @brief playersInElement returs the players in the element
+      */
+    QList<PlayerEnum> playersInElement();
+
 };
 
 

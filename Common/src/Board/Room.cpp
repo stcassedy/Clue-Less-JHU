@@ -5,7 +5,7 @@
 
 //Constructor:
 Room::Room(LocationEnum loc, QList<LocationEnum> connectedLocList) :
-    BoardElement(ROOM, loc, connectedLocList)
+    BoardElement(ROOM, loc)
 {
 
 }

@@ -56,7 +56,7 @@ public:
     /**
       * @brief isSpaceAvailable returns true if the player can move there
       */
-    bool isSpaceAvailable(LocationEnum);
+    bool isSpaceAvailable();
 
     /**
      * @brief isBoardElementConnected, returns true if LocationEnum supplied a valid move

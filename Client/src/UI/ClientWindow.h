@@ -55,42 +55,6 @@ private slots:
     void on_btnAckNoServer_clicked();
 
     /**
-     * @brief on_btnReadyPlayer1_clicked handles the ready button for player 1
-     * being clicked
-     */
-    void on_btnReadyPlayer1_clicked();
-
-    /**
-     * @brief on_btnReadyPlayer2_clicked handles the ready button for player 2
-     * being clicked
-     */
-    void on_btnReadyPlayer2_clicked();
-
-    /**
-     * @brief on_btnReadyPlayer3_clicked handles the ready button for player 3
-     * being clicked
-     */
-    void on_btnReadyPlayer3_clicked();
-
-    /**
-     * @brief on_btnReadyPlayer4_clicked handles the ready button for player 4
-     * being clicked
-     */
-    void on_btnReadyPlayer4_clicked();
-
-    /**
-     * @brief on_btnReadyPlayer5_clicked handles the ready button for player 5
-     * being clicked
-     */
-    void on_btnReadyPlayer5_clicked();
-
-    /**
-     * @brief on_btnReadyPlayer6_clicked handles the ready button for player 6
-     * being clicked
-     */
-    void on_btnReadyPlayer6_clicked();
-
-    /**
      * @brief on_btnNavigateBoard_clicked shows the board navigation dialog
      */
     void on_btnNavigateBoard_clicked();

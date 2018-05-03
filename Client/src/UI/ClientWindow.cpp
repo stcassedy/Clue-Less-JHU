@@ -55,25 +55,7 @@ void ClientWindow::on_btnJoinGame_clicked()
 //        ui->stackedWidget->setCurrentIndex(CONNECTION_ERROR_PAGE);
 //    }
 
-    //Prepares the selection widgets
-//    ui->lbReadyPlayer1->setText(NOT_READY_TEXT);
-//    ui->btnReadyPlayer1->setDisabled(true);
-//    ui->cbSelectionPlayer1->setDisabled(true);
-    ui->lbReadyPlayer2->setText(NOT_READY_TEXT);
-    ui->btnReadyPlayer2->setDisabled(true);
-    ui->cbSelectionPlayer2->setDisabled(true);
-    ui->lbReadyPlayer3->setText(NOT_READY_TEXT);
-    ui->btnReadyPlayer3->setDisabled(true);
-    ui->cbSelectionPlayer3->setDisabled(true);
-    ui->lbReadyPlayer4->setText(NOT_READY_TEXT);
-    ui->btnReadyPlayer4->setDisabled(true);
-    ui->cbSelectionPlayer4->setDisabled(true);
-    ui->lbReadyPlayer5->setText(NOT_READY_TEXT);
-    ui->btnReadyPlayer5->setDisabled(true);
-    ui->cbSelectionPlayer5->setDisabled(true);
-    ui->lbReadyPlayer6->setText(NOT_READY_TEXT);
-    ui->btnReadyPlayer6->setDisabled(true);
-    ui->cbSelectionPlayer6->setDisabled(true);
+    //Prepares the start game widgets
 //    ui->btnStartGame->setDisabled(true);
 
     //TODO: determine player number from server
@@ -92,66 +74,6 @@ void ClientWindow::on_btnAckNoServer_clicked()
 {
     //show the start page
     ui->stackedWidget->setCurrentIndex(START_PAGE);
-}
-
-void ClientWindow::on_btnReadyPlayer1_clicked()
-{
-    //updates the player ready status
-    ui->lbReadyPlayer1->setText(READY_TEXT);
-    ui->btnReadyPlayer1->setDisabled(true);
-    ui->cbSelectionPlayer1->setDisabled(true);
-
-    //TODO: set player character in client and server
-}
-
-void ClientWindow::on_btnReadyPlayer2_clicked()
-{
-    //updates the player ready status
-    ui->lbReadyPlayer2->setText(READY_TEXT);
-    ui->btnReadyPlayer2->setDisabled(true);
-    ui->cbSelectionPlayer2->setDisabled(true);
-
-    //TODO: set player character in client and server
-}
-
-void ClientWindow::on_btnReadyPlayer3_clicked()
-{
-    //updates the player ready status
-    ui->lbReadyPlayer3->setText(READY_TEXT);
-    ui->btnReadyPlayer3->setDisabled(true);
-    ui->cbSelectionPlayer3->setDisabled(true);
-
-    //TODO: set player character in client and server
-}
-
-void ClientWindow::on_btnReadyPlayer4_clicked()
-{
-    //updates the player ready status
-    ui->lbReadyPlayer4->setText(READY_TEXT);
-    ui->btnReadyPlayer4->setDisabled(true);
-    ui->cbSelectionPlayer4->setDisabled(true);
-
-    //TODO: set player character in client and server
-}
-
-void ClientWindow::on_btnReadyPlayer5_clicked()
-{
-    //updates the player ready status
-    ui->lbReadyPlayer5->setText(READY_TEXT);
-    ui->btnReadyPlayer5->setDisabled(true);
-    ui->cbSelectionPlayer5->setDisabled(true);
-
-    //TODO: set player character in client and server
-}
-
-void ClientWindow::on_btnReadyPlayer6_clicked()
-{
-    //updates the player ready status
-    ui->lbReadyPlayer6->setText(READY_TEXT);
-    ui->btnReadyPlayer6->setDisabled(true);
-    ui->cbSelectionPlayer6->setDisabled(true);
-
-    //TODO: set player character in client and server
 }
 
 void ClientWindow::on_btnNavigateBoard_clicked()

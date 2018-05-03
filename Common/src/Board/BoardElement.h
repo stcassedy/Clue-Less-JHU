@@ -12,17 +12,16 @@ class BoardElement
 private:
     LocationTypeEnum type;
     LocationEnum location;
-    QList<LocationEnum> locId;
-    static bool occupied;
+    QList<LocationEnum> connected;
+    QList<PlayerEnum> players;
 
 public:
     /**
      * @brief BoardElement Explicit Constructor
      * @param type LocationTypeEnum
      * @param loc LocationEnum
-     * @param locId QList<LocationEnum>
      */
-    explicit BoardElement(LocationTypeEnum type, LocationEnum loc, QList<LocationEnum> locId);
+    explicit BoardElement(LocationTypeEnum type, LocationEnum loc);
 
     /**
      * @brief BoardElement Destructor
@@ -39,26 +38,25 @@ public:
      */
     LocationEnum getBoardElementEnum();
 
-    /*
-     * I dont think this is necessary, we only need isBoardElementConnected
+    /**
+     * @brief getConnectedElements returns list of connected elements
+     */
     QList<LocationEnum> getConnectedElements();
-    */
-
-    /*
-     * I dont think we need this since its basically the same as getBoardElementType
-    bool isRoom();
-    */
-
 
     /**
-     * @brief openForNewPlayer, true if someone is in element
-     */
-    bool openForNewPlayer();
+      * @brief addPlayer adds a player to player list
+      */
+    void addPlayer(PlayerEnum);
 
     /**
-     * @brief setOccupied, sets if BoardElement is occupied
-     */
-    void setOccupied(bool set);
+      * @brief removePlayer removes a player from player list
+      */
+    void removePlayer(PlayerEnum);
+
+    /**
+      * @brief isSpaceAvailable returns true if the player can move there
+      */
+    bool isSpaceAvailable(LocationEnum);
 
     /**
      * @brief isBoardElementConnected, returns true if LocationEnum supplied a valid move

@@ -4,3 +4,27 @@
 *.pro~
 
 *.obj
+
+*moc_*
+
+*.rcc
+
+*ui_*
+
+*.o
+
+*.stash
+
+*Makefile
+
+*Makefile.Debug
+
+*Makefile.Release
+
+*.Debug
+
+*.Release
+
+*.exe
+
+

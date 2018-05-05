@@ -12,6 +12,7 @@ private:
     PlayerEnum currentPlayer;
     bool currentPlayerTurn;
 
+
 public:
 
     /**
@@ -32,21 +33,25 @@ public:
 
     /**
      * @brief makeSuggestion
+     * @param room
+     * @param player
+     * @param weapon
      * @param env
+     * @return true if game is won and false if suggestion was wrong
      */
-    void makeSuggestion(Envelope* env);
+    bool makeSuggestion(CardEnum room, CardEnum player, CardEnum weapon, Envelope env);
 
     /**
      * @brief refuteSuggestion
      * @param card
      */
-    void refuteSuggestion(Card* card);
+    void refuteSuggestion();
 
     /**
      * @brief makeAccusation
      * @param env
      */
-    void makeAccusation(Envelope* env);
+    bool makeAccusation(CardEnum room, CardEnum player, CardEnum weapon, Envelope env);
 
     /**
      * @brief changePlayerCharacter

@@ -68,6 +68,24 @@ BoardElement* Board::getBoardElement(LocationEnum loc)
     return m_boardElementLookup.value(loc);
 }
 
+QList<Card*> Board::getAllCards()
+{
+    //returns all of the card objects in a list
+    return m_cardLookup.values();
+}
+
+QList<Player*> Board::getAllPlayers()
+{
+    //returns all of the player objects in a list
+    return m_playerLookup.values();
+}
+
+QList<BoardElement*> Board::getAllBoardElements()
+{
+    //returns all of the board element objects in a list
+    return m_boardElementLookup.values();
+}
+
 Envelope* Board::getHiddenEnvelope()
 {
     //returns the hidden envelope

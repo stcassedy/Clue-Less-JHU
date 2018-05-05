@@ -2,7 +2,8 @@
   * @file Hallway.h
   */
 #include "Hallway.h"
-
+#include "Board.h"
+#include "Player.h"
 
 //Constructor:
 Hallway::Hallway(LocationEnum loc) :
@@ -12,16 +13,30 @@ Hallway::Hallway(LocationEnum loc) :
 }
 
 //Deconstructor
-Hallway::~Hallway() {
+Hallway::~Hallway()
+{
 
 }
 
 //Public functions
 bool Hallway::openForNewPlayer() {
-	bool newPlayedAllowed = false;
-	//Only open to other players when totally empty
-//	if(getPlayers().isEmpty()) {
-//		newPlayedAllowed = true;
-//	}
-	return newPlayedAllowed;
+    //gets a list of the players
+    QList<Player*> playerList = Board::getInstance()->getAllPlayers();
+
+    //iterates through the players
+    for (int i = 0; i < playerList.size(); ++i)
+    {
+        //gets a players current location enum
+        BoardElement* bElem = playerList.at(i)->getCurrentLocation();
+        LocationEnum location = bElem->getBoardElementEnum();
+
+        //checks if a player is in this hallway
+        if (location == getBoardElementEnum())
+        {
+            return false;
+        }
+    }
+
+    //none of the players were in this hallway
+    return true;
 }

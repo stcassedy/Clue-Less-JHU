@@ -11,11 +11,13 @@ Room::Room(LocationEnum loc) :
 }
 
 //Deconstructor
-Room::~Room() {
+Room::~Room()
+{
 
 }
 
-bool Room::openForNewPlayer() {
+bool Room::openForNewPlayer()
+{
 	//No limit to number of players in the room (asides from max num of players)
 	return true;
 }

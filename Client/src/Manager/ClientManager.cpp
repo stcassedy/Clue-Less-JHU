@@ -5,6 +5,11 @@
 #include "Envelope.h"
 #include "Card.h"
 #include "Hand.h"
+#include "PlayerCard.h"
+#include "RoomCard.h"
+#include "WeaponCard.h"
+#include "Player.h"
+#include "Board.h"
 
 //---------------------------------------------------------------
 //Constructor:
@@ -22,19 +27,35 @@ ClientManager::~ClientManager()
 
 //---------------------------------------------------------------
 //Public Functions:
-void ClientManager::movePlayer(BoardElement destination, BoardElement location)
+void ClientManager::movePlayer(BoardElement* destination, BoardElement* location)
 {
-    if(destination.isSpaceAvailable() == true && location.isBoardElementConnected(destination.getBoardElementEnum()) == true)
+    //Note: if checks can be removed, the UI will enforce these checks
+    if(destination->openForNewPlayer() == true && location->isBoardElementConnected(destination->getBoardElementEnum()) == true)
     {
-        destination.addPlayer(currentPlayer);
-        location.removePlayer(currentPlayer);
+        destination->addPlayer(currentPlayer);
+        location->removePlayer(currentPlayer);
     }
 }
 
-bool ClientManager::makeSuggestion(CardEnum room, CardEnum player, CardEnum weapon, Envelope env)
+bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
+                                   WeaponCard* weapon)
 {
+    //NOTE: Win game logic belongs more in the server manager than client
+    //we should just be sending the suggestion information to the server
+
     bool win_game = false;
-    if(room == env.getRoomCard() && player == env.getPlayerCard() && weapon == env.getWeaponCard())
+
+    //creates suggestion envelope
+    Envelope suggestionEnv;
+    suggestionEnv.setRoomCard(room);
+    suggestionEnv.setPlayerCard(player);
+    suggestionEnv.setWeaponCard(weapon);
+
+    //gets the hidden envelope
+    Envelope* env = Board::getInstance()->getHiddenEnvelope();
+
+    //compares suggestion to hidden envelope
+    if(env->isAccusationCorrect(&suggestionEnv))
     {
         win_game = true;
     }
@@ -43,10 +64,25 @@ bool ClientManager::makeSuggestion(CardEnum room, CardEnum player, CardEnum weap
 
 
 
-bool ClientManager::makeAccusation(CardEnum room, CardEnum player, CardEnum weapon, Envelope env)
+bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
+                                   WeaponCard *weapon)
 {
+    //NOTE: Win game logic belongs more in the server manager than client
+    //we should just be sending the accusation information to the server
+
     bool win_game = false;
-    if(room == env.getRoomCard() && player == env.getPlayerCard() && weapon == env.getWeaponCard())
+
+    //creates accusation envelope
+    Envelope accusationEnv;
+    accusationEnv.setRoomCard(room);
+    accusationEnv.setPlayerCard(player);
+    accusationEnv.setWeaponCard(weapon);
+
+    //gets the hidden envelope
+    Envelope* env = Board::getInstance()->getHiddenEnvelope();
+
+    //compares suggestion to hidden envelope
+    if(env->isAccusationCorrect(&accusationEnv))
     {
         win_game = true;
     }

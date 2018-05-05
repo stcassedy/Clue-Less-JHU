@@ -8,12 +8,12 @@
  * @brief The BoardElements class represents a board element, either a Room or Hallway
  */
 class BoardElement
-{
+{ 
 private:
-    LocationTypeEnum type;
-    LocationEnum location;
-    QList<LocationEnum> connected;
-    QList<PlayerEnum> players;
+    LocationTypeEnum m_type;
+    LocationEnum m_location;
+    QList<LocationEnum> m_connected;
+    QList<PlayerEnum> m_players;
 
 public:
     /**
@@ -26,7 +26,7 @@ public:
     /**
      * @brief BoardElement Destructor
      */
-    ~BoardElement();
+    virtual ~BoardElement();
 
     /**
      * @brief getBoardElementType returns LocationTypeEnum
@@ -69,6 +69,13 @@ public:
       * @brief playersInElement returs the players in the element
       */
     QList<PlayerEnum> playersInElement();
+
+    /**
+     * @brief openForNewPlayer (Abstract) Determines if a player can move into
+     * the board element
+     * @return bool true if the location can accept a player, false otherwise
+     */
+    virtual bool openForNewPlayer() = 0;
 
 };
 

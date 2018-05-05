@@ -26,20 +26,20 @@ public:
     ~ClientManager();
 
     /**
-     * @brief movePlayer moves player to new location
-     * @param loc destination location
+     * @brief movePlayer
+     * @param destination
+     * @param location
      */
-    void movePlayer(BoardElement destination, BoardElement location);
+    void movePlayer(BoardElement* destination, BoardElement* location);
 
     /**
      * @brief makeSuggestion
      * @param room
      * @param player
      * @param weapon
-     * @param env
-     * @return true if game is won and false if suggestion was wrong
+     * @return
      */
-    bool makeSuggestion(CardEnum room, CardEnum player, CardEnum weapon, Envelope env);
+    bool makeSuggestion(RoomCard *room, PlayerCard *player, WeaponCard *weapon);
 
     /**
      * @brief refuteSuggestion
@@ -49,9 +49,12 @@ public:
 
     /**
      * @brief makeAccusation
-     * @param env
+     * @param room
+     * @param player
+     * @param weapon
+     * @return
      */
-    bool makeAccusation(CardEnum room, CardEnum player, CardEnum weapon, Envelope env);
+    bool makeAccusation(RoomCard* room, PlayerCard* player, WeaponCard* weapon);
 
     /**
      * @brief changePlayerCharacter

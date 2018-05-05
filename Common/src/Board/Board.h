@@ -51,6 +51,24 @@ public:
     BoardElement* getBoardElement(LocationEnum loc);
 
     /**
+     * @brief getAllCards returns all of the cards in a list
+     * @return QList<Card*>
+     */
+    QList<Card*> getAllCards();
+
+    /**
+     * @brief getAllPlayers returns all of the players in a list
+     * @return QList<Player*>
+     */
+    QList<Player*> getAllPlayers();
+
+    /**
+     * @brief getAllBoardElements returns all of the board elements in a list
+     * @return QList<BoardElement*>
+     */
+    QList<BoardElement*> getAllBoardElements();
+
+    /**
      * @brief getHiddenEnvelope returns a pointer to the hidden evelope
      * @return Envelope*
      */

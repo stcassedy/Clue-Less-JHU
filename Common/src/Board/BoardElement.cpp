@@ -6,121 +6,121 @@
 //Constructor
 BoardElement::BoardElement(LocationTypeEnum typ, LocationEnum loc)
 {
-    type = typ;
-    location = loc;
+    m_type = typ;
+    m_location = loc;
     if(loc == STUDY)
     {
-        connected.append(HALLWAY_1);
-        connected.append(HALLWAY_3);
-        connected.append(KITCHEN);
+        m_connected.append(HALLWAY_1);
+        m_connected.append(HALLWAY_3);
+        m_connected.append(KITCHEN);
     }
     else if(loc == HALLWAY_1)
     {
-        connected.append(STUDY);
-        connected.append(HALL);
+        m_connected.append(STUDY);
+        m_connected.append(HALL);
     }
     else if(loc == HALL)
     {
-         connected.append(HALLWAY_1);
-         connected.append(HALLWAY_2);
-         connected.append(HALLWAY_4);
+         m_connected.append(HALLWAY_1);
+         m_connected.append(HALLWAY_2);
+         m_connected.append(HALLWAY_4);
     }
     else if(loc == HALLWAY_2)
     {
-         connected.append(HALL);
-         connected.append(LOUNGE);
+         m_connected.append(HALL);
+         m_connected.append(LOUNGE);
     }
     else if(loc == LOUNGE)
     {
-         connected.append(HALLWAY_5);
-         connected.append(HALLWAY_2);
-         connected.append(CONSERVATORY);
+         m_connected.append(HALLWAY_5);
+         m_connected.append(HALLWAY_2);
+         m_connected.append(CONSERVATORY);
     }
     else if(loc == HALLWAY_3)
     {
-         connected.append(STUDY);
-         connected.append(LIBRARY);
+         m_connected.append(STUDY);
+         m_connected.append(LIBRARY);
     }
     else if(loc == HALLWAY_4)
     {
-         connected.append(BILLIARD_ROOM);
-         connected.append(HALL);
+         m_connected.append(BILLIARD_ROOM);
+         m_connected.append(HALL);
     }
     else if(loc == HALLWAY_5)
     {
-         connected.append(LOUNGE);
-         connected.append(DINING_ROOM);
+         m_connected.append(LOUNGE);
+         m_connected.append(DINING_ROOM);
     }
     else if(loc == LIBRARY)
     {
-         connected.append(HALLWAY_3);
-         connected.append(HALLWAY_6);
-         connected.append(HALLWAY_8);
+         m_connected.append(HALLWAY_3);
+         m_connected.append(HALLWAY_6);
+         m_connected.append(HALLWAY_8);
     }
     else if(loc == HALLWAY_6)
     {
-         connected.append(LIBRARY);
-         connected.append(BILLIARD_ROOM);
+         m_connected.append(LIBRARY);
+         m_connected.append(BILLIARD_ROOM);
     }
     else if(loc == BILLIARD_ROOM)
     {
-         connected.append(HALLWAY_4);
-         connected.append(HALLWAY_6);
-         connected.append(HALLWAY_7);
-         connected.append(HALLWAY_9);
+         m_connected.append(HALLWAY_4);
+         m_connected.append(HALLWAY_6);
+         m_connected.append(HALLWAY_7);
+         m_connected.append(HALLWAY_9);
     }
     else if(loc == HALLWAY_7)
     {
-         connected.append(BILLIARD_ROOM);
-         connected.append(DINING_ROOM);
+         m_connected.append(BILLIARD_ROOM);
+         m_connected.append(DINING_ROOM);
     }
     else if(loc == DINING_ROOM)
     {
-         connected.append(HALLWAY_5);
-         connected.append(HALLWAY_7);
-         connected.append(HALLWAY_10);
+         m_connected.append(HALLWAY_5);
+         m_connected.append(HALLWAY_7);
+         m_connected.append(HALLWAY_10);
     }
     else if(loc == HALLWAY_8)
     {
-         connected.append(LIBRARY);
-         connected.append(CONSERVATORY);
+         m_connected.append(LIBRARY);
+         m_connected.append(CONSERVATORY);
     }
     else if(loc == HALLWAY_9)
     {
-         connected.append(BILLIARD_ROOM);
-         connected.append(BALLROOM);
+         m_connected.append(BILLIARD_ROOM);
+         m_connected.append(BALLROOM);
     }
     else if(loc == HALLWAY_10)
     {
-         connected.append(DINING_ROOM);
-         connected.append(KITCHEN);
+         m_connected.append(DINING_ROOM);
+         m_connected.append(KITCHEN);
     }
     else if(loc == CONSERVATORY)
     {
-         connected.append(HALLWAY_8);
-         connected.append(HALLWAY_11);
-         connected.append(LOUNGE);
+         m_connected.append(HALLWAY_8);
+         m_connected.append(HALLWAY_11);
+         m_connected.append(LOUNGE);
     }
     else if(loc == HALLWAY_11)
     {
-         connected.append(CONSERVATORY);
-         connected.append(BALLROOM);
+         m_connected.append(CONSERVATORY);
+         m_connected.append(BALLROOM);
     }
     else if(loc == BALLROOM)
     {
-         connected.append(HALLWAY_11);
-         connected.append(HALLWAY_12);
+         m_connected.append(HALLWAY_11);
+         m_connected.append(HALLWAY_12);
     }
     else if(loc == HALLWAY_12)
     {
-         connected.append(BALLROOM);
-         connected.append(KITCHEN);
+         m_connected.append(BALLROOM);
+         m_connected.append(KITCHEN);
     }
     else if(loc == KITCHEN)
     {
-         connected.append(HALLWAY_10);
-         connected.append(HALLWAY_12);
-         connected.append(STUDY);
+         m_connected.append(HALLWAY_10);
+         m_connected.append(HALLWAY_12);
+         m_connected.append(STUDY);
     }
 
 }
@@ -137,28 +137,28 @@ BoardElement::~BoardElement()
 
 LocationTypeEnum BoardElement::getBoardElementType()
 {
-    return type;
+    return m_type;
 }
 
 LocationEnum BoardElement::getBoardElementEnum()
 {
-    return location;
+    return m_location;
 }
 
 QList<LocationEnum> BoardElement::getConnectedElements()
 {
-    return connected;
+    return m_connected;
 }
 
 bool BoardElement::isBoardElementConnected(LocationEnum destination)
 {
-    return connected.contains(destination);
+    return m_connected.contains(destination);
 }
 
 bool BoardElement::isSpaceAvailable()
 {
     bool available = false;
-    if(type == ROOM || (type == HALLWAY && players.isEmpty() == true))
+    if(m_type == ROOM || (m_type == HALLWAY && m_players.isEmpty() == true))
     {
         available = true;
     }
@@ -167,16 +167,16 @@ bool BoardElement::isSpaceAvailable()
 
 void BoardElement::addPlayer(PlayerEnum player)
 {
-    players.append(player);
+    m_players.append(player);
 
 }
 
 void BoardElement::removePlayer(PlayerEnum player)
 {
-    players.removeAll(player);
+    m_players.removeAll(player);
 }
 
 QList<PlayerEnum> BoardElement::playersInElement()
 {
-    return players;
+    return m_players;
 }

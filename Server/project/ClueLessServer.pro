@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -47,7 +48,8 @@ SOURCES += \
     ../../Common/src/Board/Card.cpp \
     ../../Common/src/Board/WeaponCard.cpp \
     ../../Common/src/Board/RoomCard.cpp \
-    ../../Common/src/Board/PlayerCard.cpp
+    ../../Common/src/Board/PlayerCard.cpp \
+    ../src/Server/Server.cpp
 
 HEADERS += \
     ../src/UI/ServerWindow.h \
@@ -62,7 +64,8 @@ HEADERS += \
     ../../Common/src/Board/WeaponCard.h \
     ../../Common/src/Board/RoomCard.h \
     ../../Common/src/Board/PlayerCard.h \
-    ../../Common/src/Board/BoardEnums.h
+    ../../Common/src/Board/BoardEnums.h \
+    ../src/Server/Server.h
 
 FORMS += \
     ../src/UI/ServerWindow.ui

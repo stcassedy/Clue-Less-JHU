@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -52,7 +53,8 @@ SOURCES += \
     ../src/UI/SuggestionDialog.cpp \
     ../src/UI/AccusationDialog.cpp \
     ../src/UI/RefutationDialog.cpp \
-    ../src/UI/NotebookDialog.cpp
+    ../src/UI/NotebookDialog.cpp \
+    ../src/Connection/Connection.cpp
 
 HEADERS += \
     ../src/UI/ClientWindow.h \
@@ -72,7 +74,8 @@ HEADERS += \
     ../src/UI/SuggestionDialog.h \
     ../src/UI/AccusationDialog.h \
     ../src/UI/RefutationDialog.h \
-    ../src/UI/NotebookDialog.h
+    ../src/UI/NotebookDialog.h \
+    ../src/Connection/Connection.h
 
 FORMS += \
     ../src/UI/ClientWindow.ui \

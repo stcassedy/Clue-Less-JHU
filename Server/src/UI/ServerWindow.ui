@@ -7,23 +7,29 @@
     <x>0</x>
     <y>0</y>
     <width>200</width>
-    <height>50</height>
+    <height>200</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>200</width>
-    <height>50</height>
+    <height>200</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>200</width>
-    <height>50</height>
+    <height>200</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>ServerWindow</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow {
@@ -33,17 +39,60 @@ border: 1px solid white;
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <widget class="QPushButton" name="btnStartStop">
-      <property name="minimumSize">
-       <size>
-        <width>50</width>
-        <height>30</height>
-       </size>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QPushButton:checked{
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <widget class="QSlider" name="numPlayers">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>70</y>
+      <width>150</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>2</number>
+    </property>
+    <property name="maximum">
+     <number>6</number>
+    </property>
+    <property name="pageStep">
+     <number>1</number>
+    </property>
+    <property name="value">
+     <number>2</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="tickPosition">
+     <enum>QSlider::TicksBothSides</enum>
+    </property>
+    <property name="tickInterval">
+     <number>1</number>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="serverStartStop">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>5</y>
+      <width>100</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>50</width>
+      <height>30</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton:checked{
 color: rgb(150, 0, 0);
 background-color: rgb(255, 175, 175);
 border: 1px solid rgb(150, 0, 0);
@@ -56,19 +105,187 @@ background-color: rgb(200, 255, 200);
 border: 1px solid rgb(0, 150, 0);
 border-radius: 10px;
 }</string>
-      </property>
-      <property name="text">
-       <string>Start</string>
-      </property>
-      <property name="checkable">
-       <bool>true</bool>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
+    </property>
+    <property name="text">
+     <string>Start</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="AddressText">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>50</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string>Address:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="numPlayers_2">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>56</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="numPlayers_3">
+    <property name="geometry">
+     <rect>
+      <x>62</x>
+      <y>56</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="numPlayers_4">
+    <property name="geometry">
+     <rect>
+      <x>97</x>
+      <y>56</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="numPlayers_5">
+    <property name="geometry">
+     <rect>
+      <x>132</x>
+      <y>56</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="numPlayers_6">
+    <property name="geometry">
+     <rect>
+      <x>167</x>
+      <y>56</y>
+      <width>15</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PortText">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>125</y>
+      <width>30</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string>Port:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="serverPort">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>125</y>
+      <width>30</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="serverAddress">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>110</y>
+      <width>120</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NumPlayersText">
+    <property name="geometry">
+     <rect>
+      <x>35</x>
+      <y>40</y>
+      <width>130</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string>Number of Players:</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Notifications">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>145</y>
+      <width>160</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+    <property name="textInteractionFlags">
+     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+    </property>
+   </widget>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

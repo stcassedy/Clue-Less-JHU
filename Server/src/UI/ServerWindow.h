@@ -33,10 +33,11 @@ public:
 
 private slots:
     /**
-     * @brief on_btnStartStop_toggled Handles the user toggling start/stop
+     * @brief on_serverStartStop_toggled Handles the user toggling start/stop
      * @param checked bool true if checked, false otherwise
      */
-    void on_btnStartStop_toggled(bool checked);
+    void on_serverStartStop_toggled(bool checked);
+    void on_numPlayers_valueChanged(int value);
 
 private:
     //Member Variables

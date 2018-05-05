@@ -1,5 +1,6 @@
 #include "ClientWindow.h"
 #include <QApplication>
+#include "ClientManager.h"
 
 int main(int argc, char *argv[])
 {
@@ -8,6 +9,7 @@ int main(int argc, char *argv[])
     a.setApplicationDisplayName("Clue-Less");
 
     ClientWindow w;
+    ClientManager::getInstance()->setClientWindow(&w);
     w.show();
 
     return a.exec();

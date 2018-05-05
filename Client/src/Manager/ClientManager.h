@@ -9,6 +9,7 @@
 
 //Foward Declarations
 class Player;
+class ClientWindow;
 
 class ClientManager
 {
@@ -29,6 +30,7 @@ private:
     bool m_currentPlayerTurn;
     GamePhaseEnum m_currentPhase;
     int m_numberOfPlayers;
+    ClientWindow* m_clientWindow;
 
 public:
     /**
@@ -36,6 +38,12 @@ public:
      * @return ClientManager*
      */
     static ClientManager* getInstance();
+
+    /**
+     * @brief setClientWindow sets a pointer to the client window
+     * @param clientWindow*
+     */
+    void setClientWindow(ClientWindow* clientWindow);
 
     /**
      * @brief movePlayer

@@ -19,19 +19,19 @@ static const QString NOT_READY_TEXT = "Not Ready Yet";
 // Constructor:
 ClientWindow::ClientWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::ClientWindow),
-    navigateBoardDlg(parent),
-    suggestionDlg(parent),
-    accusationDlg(parent),
-    refutationDlg(parent),
-    notebookDlg(parent)
+    m_ui(new Ui::ClientWindow),
+    m_navigateBoardDlg(parent),
+    m_suggestionDlg(parent),
+    m_accusationDlg(parent),
+    m_refutationDlg(parent),
+    m_notebookDlg(parent)
 {
     //sets up the UI
-    ui->setupUi(this);
+    m_ui->setupUi(this);
     setWindowTitle("Clue-Less");
 
     //defaults to start page
-    ui->stackedWidget->setCurrentIndex(START_PAGE);
+    m_ui->stackedWidget->setCurrentIndex(START_PAGE);
 
     //updates board elements with pointers to UI elements
     updateBoardElementUI();
@@ -47,7 +47,7 @@ ClientWindow::ClientWindow(QWidget *parent) :
 // Destructor:
 ClientWindow::~ClientWindow()
 {
-    delete ui; 
+    delete m_ui;
 }
 
 // -----------------------------------------------------------------------------
@@ -74,7 +74,7 @@ void ClientWindow::on_btnJoinGame_clicked()
 //    if ()
 //    {
         //show character selection page
-    ui->stackedWidget->setCurrentIndex(CHARACTER_SELECTION_PAGE);
+    m_ui->stackedWidget->setCurrentIndex(CHARACTER_SELECTION_PAGE);
 //    }
 //    else
 //    {
@@ -92,7 +92,7 @@ void ClientWindow::on_btnJoinGame_clicked()
 void ClientWindow::on_btnStartGame_clicked()
 {
     //show game board page
-    ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
+    m_ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
 
     //TODO: load current board state
 
@@ -101,37 +101,37 @@ void ClientWindow::on_btnStartGame_clicked()
 void ClientWindow::on_btnAckNoServer_clicked()
 {
     //show the start page
-    ui->stackedWidget->setCurrentIndex(START_PAGE);
+    m_ui->stackedWidget->setCurrentIndex(START_PAGE);
 }
 
 void ClientWindow::on_btnNavigateBoard_clicked()
 {
     //shows the navigate board dialog
-    navigateBoardDlg.show();
+    m_navigateBoardDlg.show();
 }
 
 void ClientWindow::on_btnMakeSuggestion_clicked()
 {
     //shows the suggestion dialog
-    suggestionDlg.show();
+    m_suggestionDlg.show();
 }
 
 void ClientWindow::on_btnRefute_clicked()
 {
     //shows the refutation dialog
-    refutationDlg.show();
+    m_refutationDlg.show();
 }
 
 void ClientWindow::on_btnMakeAccusation_clicked()
 {
     //shows the accusation dialog
-    accusationDlg.show();
+    m_accusationDlg.show();
 }
 
 void ClientWindow::on_btnViewNotebook_clicked()
 {
     //shows the notebook dialog
-    notebookDlg.show();
+    m_notebookDlg.show();
 }
 
 // -----------------------------------------------------------------------------
@@ -205,191 +205,191 @@ void ClientWindow::updateBoardElementUI()
 
     //gets Study elements and sets UI
     elem = Board::getInstance()->getBoardElement(STUDY);
-    elem->setScarletLabel(ui->lbStudyScarlet);
-    elem->setMustardLabel(ui->lbStudyMustard);
-    elem->setWhiteLabel(ui->lbStudyWhite);
-    elem->setGreenLabel(ui->lbStudyGreen);
-    elem->setPeacockLabel(ui->lbStudyPeacock);
-    elem->setPlumLabel(ui->lbStudyPlum);
+    elem->setScarletLabel(m_ui->lbStudyScarlet);
+    elem->setMustardLabel(m_ui->lbStudyMustard);
+    elem->setWhiteLabel(m_ui->lbStudyWhite);
+    elem->setGreenLabel(m_ui->lbStudyGreen);
+    elem->setPeacockLabel(m_ui->lbStudyPeacock);
+    elem->setPlumLabel(m_ui->lbStudyPlum);
 
     //gets Lounge elements and sets UI
     elem = Board::getInstance()->getBoardElement(LOUNGE);
-    elem->setScarletLabel(ui->lbLoungeScarlet);
-    elem->setMustardLabel(ui->lbLoungeMustard);
-    elem->setWhiteLabel(ui->lbLoungeWhite);
-    elem->setGreenLabel(ui->lbLoungeGreen);
-    elem->setPeacockLabel(ui->lbLoungePeacock);
-    elem->setPlumLabel(ui->lbLoungePlum);
+    elem->setScarletLabel(m_ui->lbLoungeScarlet);
+    elem->setMustardLabel(m_ui->lbLoungeMustard);
+    elem->setWhiteLabel(m_ui->lbLoungeWhite);
+    elem->setGreenLabel(m_ui->lbLoungeGreen);
+    elem->setPeacockLabel(m_ui->lbLoungePeacock);
+    elem->setPlumLabel(m_ui->lbLoungePlum);
 
     //gets BilliardRoom elements and sets UI
     elem = Board::getInstance()->getBoardElement(BILLIARD_ROOM);
-    elem->setScarletLabel(ui->lbBilliardRoomScarlet);
-    elem->setMustardLabel(ui->lbBilliardRoomMustard);
-    elem->setWhiteLabel(ui->lbBilliardRoomWhite);
-    elem->setGreenLabel(ui->lbBilliardRoomGreen);
-    elem->setPeacockLabel(ui->lbBilliardRoomPeacock);
-    elem->setPlumLabel(ui->lbBilliardRoomPlum);
+    elem->setScarletLabel(m_ui->lbBilliardRoomScarlet);
+    elem->setMustardLabel(m_ui->lbBilliardRoomMustard);
+    elem->setWhiteLabel(m_ui->lbBilliardRoomWhite);
+    elem->setGreenLabel(m_ui->lbBilliardRoomGreen);
+    elem->setPeacockLabel(m_ui->lbBilliardRoomPeacock);
+    elem->setPlumLabel(m_ui->lbBilliardRoomPlum);
 
     //gets Library elements and sets UI
     elem = Board::getInstance()->getBoardElement(LIBRARY);
-    elem->setScarletLabel(ui->lbLibraryScarlet);
-    elem->setMustardLabel(ui->lbLibraryMustard);
-    elem->setWhiteLabel(ui->lbLibraryWhite);
-    elem->setGreenLabel(ui->lbLibraryGreen);
-    elem->setPeacockLabel(ui->lbLibraryPeacock);
-    elem->setPlumLabel(ui->lbLibraryPlum);
+    elem->setScarletLabel(m_ui->lbLibraryScarlet);
+    elem->setMustardLabel(m_ui->lbLibraryMustard);
+    elem->setWhiteLabel(m_ui->lbLibraryWhite);
+    elem->setGreenLabel(m_ui->lbLibraryGreen);
+    elem->setPeacockLabel(m_ui->lbLibraryPeacock);
+    elem->setPlumLabel(m_ui->lbLibraryPlum);
 
     //gets Hall elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALL);
-    elem->setScarletLabel(ui->lbHallScarlet);
-    elem->setMustardLabel(ui->lbHallMustard);
-    elem->setWhiteLabel(ui->lbHallWhite);
-    elem->setGreenLabel(ui->lbHallGreen);
-    elem->setPeacockLabel(ui->lbHallPeacock);
-    elem->setPlumLabel(ui->lbHallPlum);
+    elem->setScarletLabel(m_ui->lbHallScarlet);
+    elem->setMustardLabel(m_ui->lbHallMustard);
+    elem->setWhiteLabel(m_ui->lbHallWhite);
+    elem->setGreenLabel(m_ui->lbHallGreen);
+    elem->setPeacockLabel(m_ui->lbHallPeacock);
+    elem->setPlumLabel(m_ui->lbHallPlum);
 
     //gets DiningRoom elements and sets UI
     elem = Board::getInstance()->getBoardElement(DINING_ROOM);
-    elem->setScarletLabel(ui->lbDiningRoomScarlet);
-    elem->setMustardLabel(ui->lbDiningRoomMustard);
-    elem->setWhiteLabel(ui->lbDiningRoomWhite);
-    elem->setGreenLabel(ui->lbDiningRoomGreen);
-    elem->setPeacockLabel(ui->lbDiningRoomPeacock);
-    elem->setPlumLabel(ui->lbDiningRoomPlum);
+    elem->setScarletLabel(m_ui->lbDiningRoomScarlet);
+    elem->setMustardLabel(m_ui->lbDiningRoomMustard);
+    elem->setWhiteLabel(m_ui->lbDiningRoomWhite);
+    elem->setGreenLabel(m_ui->lbDiningRoomGreen);
+    elem->setPeacockLabel(m_ui->lbDiningRoomPeacock);
+    elem->setPlumLabel(m_ui->lbDiningRoomPlum);
 
     //gets Conservatory elements and sets UI
     elem = Board::getInstance()->getBoardElement(CONSERVATORY);
-    elem->setScarletLabel(ui->lbConservatoryScarlet);
-    elem->setMustardLabel(ui->lbConservatoryMustard);
-    elem->setWhiteLabel(ui->lbConservatoryWhite);
-    elem->setGreenLabel(ui->lbConservatoryGreen);
-    elem->setPeacockLabel(ui->lbConservatoryPeacock);
-    elem->setPlumLabel(ui->lbConservatoryPlum);
+    elem->setScarletLabel(m_ui->lbConservatoryScarlet);
+    elem->setMustardLabel(m_ui->lbConservatoryMustard);
+    elem->setWhiteLabel(m_ui->lbConservatoryWhite);
+    elem->setGreenLabel(m_ui->lbConservatoryGreen);
+    elem->setPeacockLabel(m_ui->lbConservatoryPeacock);
+    elem->setPlumLabel(m_ui->lbConservatoryPlum);
 
     //gets Ballroom elements and sets UI
     elem = Board::getInstance()->getBoardElement(BALLROOM);
-    elem->setScarletLabel(ui->lbBallroomScarlet);
-    elem->setMustardLabel(ui->lbBallroomMustard);
-    elem->setWhiteLabel(ui->lbBallroomWhite);
-    elem->setGreenLabel(ui->lbBallroomGreen);
-    elem->setPeacockLabel(ui->lbBallroomPeacock);
-    elem->setPlumLabel(ui->lbBallroomPlum);
+    elem->setScarletLabel(m_ui->lbBallroomScarlet);
+    elem->setMustardLabel(m_ui->lbBallroomMustard);
+    elem->setWhiteLabel(m_ui->lbBallroomWhite);
+    elem->setGreenLabel(m_ui->lbBallroomGreen);
+    elem->setPeacockLabel(m_ui->lbBallroomPeacock);
+    elem->setPlumLabel(m_ui->lbBallroomPlum);
 
     //gets Kitchen elements and sets UI
     elem = Board::getInstance()->getBoardElement(KITCHEN);
-    elem->setScarletLabel(ui->lbKitchenScarlet);
-    elem->setMustardLabel(ui->lbKitchenMustard);
-    elem->setWhiteLabel(ui->lbKitchenWhite);
-    elem->setGreenLabel(ui->lbKitchenGreen);
-    elem->setPeacockLabel(ui->lbKitchenPeacock);
-    elem->setPlumLabel(ui->lbKitchenPlum);
+    elem->setScarletLabel(m_ui->lbKitchenScarlet);
+    elem->setMustardLabel(m_ui->lbKitchenMustard);
+    elem->setWhiteLabel(m_ui->lbKitchenWhite);
+    elem->setGreenLabel(m_ui->lbKitchenGreen);
+    elem->setPeacockLabel(m_ui->lbKitchenPeacock);
+    elem->setPlumLabel(m_ui->lbKitchenPlum);
 
     //gets Hallway1 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_1);
-    elem->setScarletLabel(ui->lbHallway1Scarlet);
-    elem->setMustardLabel(ui->lbHallway1Mustard);
-    elem->setWhiteLabel(ui->lbHallway1White);
-    elem->setGreenLabel(ui->lbHallway1Green);
-    elem->setPeacockLabel(ui->lbHallway1Peacock);
-    elem->setPlumLabel(ui->lbHallway1Plum);
+    elem->setScarletLabel(m_ui->lbHallway1Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway1Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway1White);
+    elem->setGreenLabel(m_ui->lbHallway1Green);
+    elem->setPeacockLabel(m_ui->lbHallway1Peacock);
+    elem->setPlumLabel(m_ui->lbHallway1Plum);
 
     //gets Hallway2 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_2);
-    elem->setScarletLabel(ui->lbHallway2Scarlet);
-    elem->setMustardLabel(ui->lbHallway2Mustard);
-    elem->setWhiteLabel(ui->lbHallway2White);
-    elem->setGreenLabel(ui->lbHallway2Green);
-    elem->setPeacockLabel(ui->lbHallway2Peacock);
-    elem->setPlumLabel(ui->lbHallway2Plum);
+    elem->setScarletLabel(m_ui->lbHallway2Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway2Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway2White);
+    elem->setGreenLabel(m_ui->lbHallway2Green);
+    elem->setPeacockLabel(m_ui->lbHallway2Peacock);
+    elem->setPlumLabel(m_ui->lbHallway2Plum);
 
     //gets Hallway3 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_3);
-    elem->setScarletLabel(ui->lbHallway3Scarlet);
-    elem->setMustardLabel(ui->lbHallway3Mustard);
-    elem->setWhiteLabel(ui->lbHallway3White);
-    elem->setGreenLabel(ui->lbHallway3Green);
-    elem->setPeacockLabel(ui->lbHallway3Peacock);
-    elem->setPlumLabel(ui->lbHallway3Plum);
+    elem->setScarletLabel(m_ui->lbHallway3Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway3Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway3White);
+    elem->setGreenLabel(m_ui->lbHallway3Green);
+    elem->setPeacockLabel(m_ui->lbHallway3Peacock);
+    elem->setPlumLabel(m_ui->lbHallway3Plum);
 
     //gets Hallway4 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_4);
-    elem->setScarletLabel(ui->lbHallway4Scarlet);
-    elem->setMustardLabel(ui->lbHallway4Mustard);
-    elem->setWhiteLabel(ui->lbHallway4White);
-    elem->setGreenLabel(ui->lbHallway4Green);
-    elem->setPeacockLabel(ui->lbHallway4Peacock);
-    elem->setPlumLabel(ui->lbHallway4Plum);
+    elem->setScarletLabel(m_ui->lbHallway4Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway4Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway4White);
+    elem->setGreenLabel(m_ui->lbHallway4Green);
+    elem->setPeacockLabel(m_ui->lbHallway4Peacock);
+    elem->setPlumLabel(m_ui->lbHallway4Plum);
 
     //gets Hallway5 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_5);
-    elem->setScarletLabel(ui->lbHallway5Scarlet);
-    elem->setMustardLabel(ui->lbHallway5Mustard);
-    elem->setWhiteLabel(ui->lbHallway5White);
-    elem->setGreenLabel(ui->lbHallway5Green);
-    elem->setPeacockLabel(ui->lbHallway5Peacock);
-    elem->setPlumLabel(ui->lbHallway5Plum);
+    elem->setScarletLabel(m_ui->lbHallway5Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway5Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway5White);
+    elem->setGreenLabel(m_ui->lbHallway5Green);
+    elem->setPeacockLabel(m_ui->lbHallway5Peacock);
+    elem->setPlumLabel(m_ui->lbHallway5Plum);
 
     //gets Hallway6 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_6);
-    elem->setScarletLabel(ui->lbHallway6Scarlet);
-    elem->setMustardLabel(ui->lbHallway6Mustard);
-    elem->setWhiteLabel(ui->lbHallway6White);
-    elem->setGreenLabel(ui->lbHallway6Green);
-    elem->setPeacockLabel(ui->lbHallway6Peacock);
-    elem->setPlumLabel(ui->lbHallway6Plum);
+    elem->setScarletLabel(m_ui->lbHallway6Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway6Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway6White);
+    elem->setGreenLabel(m_ui->lbHallway6Green);
+    elem->setPeacockLabel(m_ui->lbHallway6Peacock);
+    elem->setPlumLabel(m_ui->lbHallway6Plum);
 
     //gets Hallway7 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_7);
-    elem->setScarletLabel(ui->lbHallway7Scarlet);
-    elem->setMustardLabel(ui->lbHallway7Mustard);
-    elem->setWhiteLabel(ui->lbHallway7White);
-    elem->setGreenLabel(ui->lbHallway7Green);
-    elem->setPeacockLabel(ui->lbHallway7Peacock);
-    elem->setPlumLabel(ui->lbHallway7Plum);
+    elem->setScarletLabel(m_ui->lbHallway7Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway7Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway7White);
+    elem->setGreenLabel(m_ui->lbHallway7Green);
+    elem->setPeacockLabel(m_ui->lbHallway7Peacock);
+    elem->setPlumLabel(m_ui->lbHallway7Plum);
 
     //gets Hallway8 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_8);
-    elem->setScarletLabel(ui->lbHallway8Scarlet);
-    elem->setMustardLabel(ui->lbHallway8Mustard);
-    elem->setWhiteLabel(ui->lbHallway8White);
-    elem->setGreenLabel(ui->lbHallway8Green);
-    elem->setPeacockLabel(ui->lbHallway8Peacock);
-    elem->setPlumLabel(ui->lbHallway8Plum);
+    elem->setScarletLabel(m_ui->lbHallway8Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway8Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway8White);
+    elem->setGreenLabel(m_ui->lbHallway8Green);
+    elem->setPeacockLabel(m_ui->lbHallway8Peacock);
+    elem->setPlumLabel(m_ui->lbHallway8Plum);
 
     //gets Hallway9 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_9);
-    elem->setScarletLabel(ui->lbHallway9Scarlet);
-    elem->setMustardLabel(ui->lbHallway9Mustard);
-    elem->setWhiteLabel(ui->lbHallway9White);
-    elem->setGreenLabel(ui->lbHallway9Green);
-    elem->setPeacockLabel(ui->lbHallway9Peacock);
-    elem->setPlumLabel(ui->lbHallway9Plum);
+    elem->setScarletLabel(m_ui->lbHallway9Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway9Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway9White);
+    elem->setGreenLabel(m_ui->lbHallway9Green);
+    elem->setPeacockLabel(m_ui->lbHallway9Peacock);
+    elem->setPlumLabel(m_ui->lbHallway9Plum);
 
     //gets Hallway10 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_10);
-    elem->setScarletLabel(ui->lbHallway10Scarlet);
-    elem->setMustardLabel(ui->lbHallway10Mustard);
-    elem->setWhiteLabel(ui->lbHallway10White);
-    elem->setGreenLabel(ui->lbHallway10Green);
-    elem->setPeacockLabel(ui->lbHallway10Peacock);
-    elem->setPlumLabel(ui->lbHallway10Plum);
+    elem->setScarletLabel(m_ui->lbHallway10Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway10Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway10White);
+    elem->setGreenLabel(m_ui->lbHallway10Green);
+    elem->setPeacockLabel(m_ui->lbHallway10Peacock);
+    elem->setPlumLabel(m_ui->lbHallway10Plum);
 
     //gets Hallway11 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_11);
-    elem->setScarletLabel(ui->lbHallway11Scarlet);
-    elem->setMustardLabel(ui->lbHallway11Mustard);
-    elem->setWhiteLabel(ui->lbHallway11White);
-    elem->setGreenLabel(ui->lbHallway11Green);
-    elem->setPeacockLabel(ui->lbHallway11Peacock);
-    elem->setPlumLabel(ui->lbHallway11Plum);
+    elem->setScarletLabel(m_ui->lbHallway11Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway11Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway11White);
+    elem->setGreenLabel(m_ui->lbHallway11Green);
+    elem->setPeacockLabel(m_ui->lbHallway11Peacock);
+    elem->setPlumLabel(m_ui->lbHallway11Plum);
 
     //gets Hallway12 elements and sets UI
     elem = Board::getInstance()->getBoardElement(HALLWAY_12);
-    elem->setScarletLabel(ui->lbHallway12Scarlet);
-    elem->setMustardLabel(ui->lbHallway12Mustard);
-    elem->setWhiteLabel(ui->lbHallway12White);
-    elem->setGreenLabel(ui->lbHallway12Green);
-    elem->setPeacockLabel(ui->lbHallway12Peacock);
-    elem->setPlumLabel(ui->lbHallway12Plum);
+    elem->setScarletLabel(m_ui->lbHallway12Scarlet);
+    elem->setMustardLabel(m_ui->lbHallway12Mustard);
+    elem->setWhiteLabel(m_ui->lbHallway12White);
+    elem->setGreenLabel(m_ui->lbHallway12Green);
+    elem->setPeacockLabel(m_ui->lbHallway12Peacock);
+    elem->setPlumLabel(m_ui->lbHallway12Plum);
 
 }

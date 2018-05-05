@@ -127,12 +127,12 @@ private:
     void updateBoardElementUI();
 
     //Member Variables
-    Ui::ClientWindow *ui;
-    NavigateBoardDialog navigateBoardDlg;
-    SuggestionDialog suggestionDlg;
-    AccusationDialog accusationDlg;
-    RefutationDialog refutationDlg;
-    NotebookDialog notebookDlg;
+    Ui::ClientWindow *m_ui;
+    NavigateBoardDialog m_navigateBoardDlg;
+    SuggestionDialog m_suggestionDlg;
+    AccusationDialog m_accusationDlg;
+    RefutationDialog m_refutationDlg;
+    NotebookDialog m_notebookDlg;
 };
 
 #endif // CLIENTWINDOW_H

@@ -6,6 +6,9 @@
 
 #include <QDialog>
 
+//Forward Declaration
+class BoardElement;
+
 //UI namespace definition
 namespace Ui {
 class NavigateBoardDialog;
@@ -297,6 +300,13 @@ private:
      * @return bool true if move is valid, false otherwise
      */
     bool hallway12IsValid();
+
+    /**
+     * @brief isValidMove checks if a board element is a valid move
+     * @param elem BoardElement*
+     * @return bool true if valid move, false otherwise
+     */
+    bool isValidMove(BoardElement* elem);
 
     //member variables
     Ui::NavigateBoardDialog *m_ui;

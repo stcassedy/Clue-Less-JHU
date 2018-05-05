@@ -10,6 +10,7 @@
 #include "WeaponCard.h"
 #include "Player.h"
 #include "Board.h"
+#include "ClientWindow.h"
 
 //---------------------------------------------------------------
 //Static Variables:
@@ -17,7 +18,12 @@ ClientManager ClientManager::m_instance;
 
 //---------------------------------------------------------------
 //Constructor:
-ClientManager::ClientManager()
+ClientManager::ClientManager() :
+    m_currentPlayer(MISS_SCARLET),
+    m_currentPlayerTurn(false),
+    m_currentPhase(GAME_LOBBY),
+    m_numberOfPlayers(1),
+    m_clientWindow(NULL)
 {
 
 }
@@ -33,7 +39,14 @@ ClientManager::~ClientManager()
 //Public Functions:
 ClientManager* ClientManager::getInstance()
 {
+    //returns a pointer to the ClientManager instance
     return &m_instance;
+}
+
+void ClientManager::setClientWindow(ClientWindow* clientWindow)
+{
+    //sets the pointer to the client window
+    m_clientWindow = clientWindow;
 }
 
 void ClientManager::movePlayer(BoardElement* destination)
@@ -41,6 +54,7 @@ void ClientManager::movePlayer(BoardElement* destination)
     //gets the current player object
     Player* player = Board::getInstance()->getPlayer(m_currentPlayer);
     player->move(destination);
+    m_clientWindow->updateUI();
 
     //NOTE: Notify Server of the move player action
     //we should probably wait to move the player until we get a reponse from

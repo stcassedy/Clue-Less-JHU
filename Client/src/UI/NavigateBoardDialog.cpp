@@ -4,6 +4,9 @@
 #include "NavigateBoardDialog.h"
 #include "ui_NavigateBoardDialog.h"
 #include "Board.h"
+#include "ClientManager.h"
+#include "Player.h"
+#include "BoardElement.h"
 
 // -----------------------------------------------------------------------------
 // Constructor:
@@ -60,7 +63,9 @@ void NavigateBoardDialog::show()
 // Private Slots:
 void NavigateBoardDialog::on_btnStudy_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(STUDY);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -68,7 +73,9 @@ void NavigateBoardDialog::on_btnStudy_clicked()
 
 void NavigateBoardDialog::on_btnHall_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALL);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -76,7 +83,9 @@ void NavigateBoardDialog::on_btnHall_clicked()
 
 void NavigateBoardDialog::on_btnLounge_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(LOUNGE);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -84,7 +93,9 @@ void NavigateBoardDialog::on_btnLounge_clicked()
 
 void NavigateBoardDialog::on_btnLibrary_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(LIBRARY);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -92,7 +103,9 @@ void NavigateBoardDialog::on_btnLibrary_clicked()
 
 void NavigateBoardDialog::on_btnBilliardRoom_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(BILLIARD_ROOM);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -100,7 +113,9 @@ void NavigateBoardDialog::on_btnBilliardRoom_clicked()
 
 void NavigateBoardDialog::on_btnDiningRoom_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(DINING_ROOM);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -108,7 +123,9 @@ void NavigateBoardDialog::on_btnDiningRoom_clicked()
 
 void NavigateBoardDialog::on_btnConservatory_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(CONSERVATORY);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -116,7 +133,9 @@ void NavigateBoardDialog::on_btnConservatory_clicked()
 
 void NavigateBoardDialog::on_btnBallroom_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(BALLROOM);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -124,7 +143,9 @@ void NavigateBoardDialog::on_btnBallroom_clicked()
 
 void NavigateBoardDialog::on_btnKitchen_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(KITCHEN);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -132,7 +153,9 @@ void NavigateBoardDialog::on_btnKitchen_clicked()
 
 void NavigateBoardDialog::on_btnHallway1_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_1);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -140,7 +163,9 @@ void NavigateBoardDialog::on_btnHallway1_clicked()
 
 void NavigateBoardDialog::on_btnHallway2_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_2);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -148,7 +173,9 @@ void NavigateBoardDialog::on_btnHallway2_clicked()
 
 void NavigateBoardDialog::on_btnHallway3_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_3);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -156,7 +183,9 @@ void NavigateBoardDialog::on_btnHallway3_clicked()
 
 void NavigateBoardDialog::on_btnHallway4_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_4);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -164,7 +193,9 @@ void NavigateBoardDialog::on_btnHallway4_clicked()
 
 void NavigateBoardDialog::on_btnHallway5_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_5);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -172,7 +203,9 @@ void NavigateBoardDialog::on_btnHallway5_clicked()
 
 void NavigateBoardDialog::on_btnHallway6_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_6);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -180,7 +213,9 @@ void NavigateBoardDialog::on_btnHallway6_clicked()
 
 void NavigateBoardDialog::on_btnHallway7_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_7);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -188,7 +223,9 @@ void NavigateBoardDialog::on_btnHallway7_clicked()
 
 void NavigateBoardDialog::on_btnHallway8_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_8);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -196,7 +233,9 @@ void NavigateBoardDialog::on_btnHallway8_clicked()
 
 void NavigateBoardDialog::on_btnHallway9_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_9);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -204,7 +243,9 @@ void NavigateBoardDialog::on_btnHallway9_clicked()
 
 void NavigateBoardDialog::on_btnHallway10_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_10);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -212,7 +253,9 @@ void NavigateBoardDialog::on_btnHallway10_clicked()
 
 void NavigateBoardDialog::on_btnHallway11_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_11);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -220,7 +263,9 @@ void NavigateBoardDialog::on_btnHallway11_clicked()
 
 void NavigateBoardDialog::on_btnHallway12_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_12);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -228,7 +273,9 @@ void NavigateBoardDialog::on_btnHallway12_clicked()
 
 void NavigateBoardDialog::on_btnCancel_clicked()
 {
-    //TODO: tells client manager of the selected move
+    //tells the client manager to move the player to a new location
+    BoardElement* elem = Board::getInstance()->getBoardElement(STUDY);
+    ClientManager::getInstance()->movePlayer(elem);
 
     //closes the dialog
     close();
@@ -238,210 +285,158 @@ void NavigateBoardDialog::on_btnCancel_clicked()
 // Private Functions:
 bool NavigateBoardDialog::studyIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(STUDY);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALL);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::loungeIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(LOUNGE);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::libraryIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(LIBRARY);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::billiardRoomIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(BILLIARD_ROOM);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::diningRoomIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(DINING_ROOM);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::conservatoryIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(CONSERVATORY);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::ballroomIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(BALLROOM);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::kitchenIsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(KITCHEN);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway1IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_1);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway2IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_2);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway3IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_3);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway4IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_4);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway5IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_5);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway6IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_6);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway7IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_7);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway8IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_8);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway9IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_9);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway10IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_10);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway11IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
-
-    //TODO: determine if the move is valid for the player
-
-    return valid;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_11);
+    return isValidMove(elem);
 }
 
 bool NavigateBoardDialog::hallway12IsValid()
 {
-    //tracks if the move is valid
-    bool valid = false;
+    //Determines if the location is a valid move
+    BoardElement* elem = Board::getInstance()->getBoardElement(HALLWAY_12);
+    return isValidMove(elem);
+}
 
-    //TODO: determine if the move is valid for the player
+bool NavigateBoardDialog::isValidMove(BoardElement* elem)
+{
+    //gets the connected location list
+    Player* player = ClientManager::getInstance()->getCurrentPlayer();
+    BoardElement* currentLocation = player->getCurrentLocation();
+    QList<BoardElement*> elemList = currentLocation->getConnectedElements();
 
-    return valid;
+    //checks if the board element is connected and open for a new player
+    return elemList.contains(elem) && elem->openForNewPlayer();
 }

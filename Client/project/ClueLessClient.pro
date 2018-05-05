@@ -52,7 +52,8 @@ SOURCES += \
     ../src/UI/SuggestionDialog.cpp \
     ../src/UI/AccusationDialog.cpp \
     ../src/UI/RefutationDialog.cpp \
-    ../src/UI/NotebookDialog.cpp
+    ../src/UI/NotebookDialog.cpp \
+    ../src/Manager/ClientManager.cpp
 
 HEADERS += \
     ../src/UI/ClientWindow.h \
@@ -72,7 +73,9 @@ HEADERS += \
     ../src/UI/SuggestionDialog.h \
     ../src/UI/AccusationDialog.h \
     ../src/UI/RefutationDialog.h \
-    ../src/UI/NotebookDialog.h
+    ../src/UI/NotebookDialog.h \
+    ../src/Manager/ClientManager.h \
+    ../../Common/src/Board/GamePhaseEnums.h
 
 FORMS += \
     ../src/UI/ClientWindow.ui \
@@ -85,5 +88,5 @@ FORMS += \
 INCLUDEPATH += \
     ../src/Main \
     ../src/UI \
-    ../src/Managers \
+    ../src/Manager \
     ../../Common/src/Board/

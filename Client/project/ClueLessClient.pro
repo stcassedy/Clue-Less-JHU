@@ -78,7 +78,8 @@ HEADERS += \
     ../src/UI/NotebookDialog.h \
     ../src/Connection/Connection.h \
     ../src/Manager/ClientManager.h \
-    ../../Common/src/Board/GamePhaseEnums.h
+    ../../Common/src/Board/GamePhaseEnums.h \
+    ../../Common/src/ServerProtocol.h
 
 FORMS += \
     ../src/UI/ClientWindow.ui \

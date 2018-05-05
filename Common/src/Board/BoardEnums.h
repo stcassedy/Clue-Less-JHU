@@ -92,4 +92,17 @@ enum PlayerEnum
     PROF_PLUM
 };
 
+/**
+  * @brief The WeaponEnum enum
+  */
+enum WeaponEnum
+{
+    CANDLESTICK = 0,
+    KNIFE,
+    LEAD_PIPE,
+    REVOLVER,
+    ROPE,
+    WRENCH
+};
+
 #endif // BOARDENUMS_H

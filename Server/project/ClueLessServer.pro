@@ -68,7 +68,8 @@ HEADERS += \
     ../../Common/src/Board/BoardEnums.h \
     ../src/Server/Server.h \
     ../../Common/src/Board/GamePhaseEnums.h \
-    ../../Server/src/Manager/ServerManager.h
+    ../../Server/src/Manager/ServerManager.h \
+    ../../Common/src/ServerProtocol.h
 
 FORMS += \
     ../src/UI/ServerWindow.ui

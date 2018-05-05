@@ -89,7 +89,8 @@ enum PlayerEnum
     MRS_WHITE,
     MR_GREEN,
     MRS_PEACOCK,
-    PROF_PLUM
+    PROF_PLUM,
+    SERVER
 };
 
 /**

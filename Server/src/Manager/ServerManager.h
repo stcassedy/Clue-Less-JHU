@@ -5,7 +5,9 @@
 class ServerManager
 {
 public:
-    ServerManager();
+    ServerManager(int numPlayers);
+
+private:
 };
 
 #endif // SERVERMANAGER_H

@@ -55,6 +55,7 @@ SOURCES += \
     ../src/UI/RefutationDialog.cpp \
     ../src/UI/NotebookDialog.cpp \
     ../src/Connection/Connection.cpp
+    ../src/Manager/ClientManager.cpp
 
 HEADERS += \
     ../src/UI/ClientWindow.h \
@@ -76,6 +77,8 @@ HEADERS += \
     ../src/UI/RefutationDialog.h \
     ../src/UI/NotebookDialog.h \
     ../src/Connection/Connection.h
+    ../src/Manager/ClientManager.h \
+    ../../Common/src/Board/GamePhaseEnums.h
 
 FORMS += \
     ../src/UI/ClientWindow.ui \
@@ -88,5 +91,5 @@ FORMS += \
 INCLUDEPATH += \
     ../src/Main \
     ../src/UI \
-    ../src/Managers \
+    ../src/Manager \
     ../../Common/src/Board/

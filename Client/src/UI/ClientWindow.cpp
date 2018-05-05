@@ -105,9 +105,3 @@ void ClientWindow::on_btnViewNotebook_clicked()
     //shows the notebook dialog
     notebookDlg.show();
 }
-
-void ClientWindow::on_btnSendChat_clicked()
-{
-    //shows the chat dialog
-
-}

@@ -79,11 +79,6 @@ private slots:
      */
     void on_btnViewNotebook_clicked();
 
-    /**
-     * @brief on_btnSendChat_clicked shows the chat dialog
-     */
-    void on_btnSendChat_clicked();
-
 private:
     //Member Variables
     Ui::ClientWindow *ui;

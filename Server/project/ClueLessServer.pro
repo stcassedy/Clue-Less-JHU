@@ -50,6 +50,7 @@ SOURCES += \
     ../../Common/src/Board/RoomCard.cpp \
     ../../Common/src/Board/PlayerCard.cpp \
     ../src/Server/Server.cpp
+    ../../Server/src/Manager/ServerManager.cpp
 
 HEADERS += \
     ../src/UI/ServerWindow.h \
@@ -66,6 +67,8 @@ HEADERS += \
     ../../Common/src/Board/PlayerCard.h \
     ../../Common/src/Board/BoardEnums.h \
     ../src/Server/Server.h
+    ../../Common/src/Board/GamePhaseEnums.h \
+    ../../Server/src/Manager/ServerManager.h
 
 FORMS += \
     ../src/UI/ServerWindow.ui
@@ -73,5 +76,5 @@ FORMS += \
 INCLUDEPATH += \
     ../src/Main \
     ../src/UI \
-    ../src/Managers \
+    ../src/Manager \
     ../../Common/src/Board/

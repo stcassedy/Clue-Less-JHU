@@ -8,6 +8,9 @@
 #include "RoomCard.h"
 #include "PlayerCard.h"
 #include "Board.h"
+#include "ClientManager.h"
+#include "Player.h"
+#include "BoardElement.h"
 
 // -----------------------------------------------------------------------------
 // Constructor:
@@ -47,14 +50,8 @@ void SuggestionDialog::on_btnSuggest_clicked()
     card = Board::getInstance()->getCard(getPlayerCardEnum());
     PlayerCard* player = dynamic_cast<PlayerCard*>(card);
 
-
-    //builds envelope to pass to the client manager
-    Envelope env;
-    env.setWeaponCard(weapon);
-    env.setRoomCard(room);
-    env.setPlayerCard(player);
-
-    //TODO: pass envelope to the client manager
+    //makes a suggestion to the client manager
+    ClientManager::getInstance()->makeSuggestion(room, player, weapon);
 
     //closes the dialog
     close();
@@ -98,9 +95,47 @@ CardEnum SuggestionDialog::getWeaponCardEnum()
 
 CardEnum SuggestionDialog::getRoomCardEnum()
 {
-    //TODO: get current location from player
+    //returns the room card for the current player's location
+    Player* player = ClientManager::getInstance()->getCurrentPlayer();
+    BoardElement* elem = player->getCurrentLocation();
 
-    return STUDY_CARD;
+    //determines the card based on the room
+    if(elem->getBoardElementEnum() == STUDY)
+    {
+        return STUDY_CARD;
+    }
+    else if (elem->getBoardElementEnum() == HALL)
+    {
+        return HALL_CARD;
+    }
+    else if (elem->getBoardElementEnum() == LOUNGE)
+    {
+        return LOUNGE_CARD;
+    }
+    else if (elem->getBoardElementEnum() == LIBRARY)
+    {
+        return LIBRARY_CARD;
+    }
+    else if (elem->getBoardElementEnum() == BILLIARD_ROOM)
+    {
+        return BILLIARD_ROOM_CARD;
+    }
+    else if (elem->getBoardElementEnum() == DINING_ROOM)
+    {
+        return DINING_ROOM_CARD;
+    }
+    else if (elem->getBoardElementEnum() == CONSERVATORY)
+    {
+        return CONSERVATORY_CARD;
+    }
+    else if (elem->getBoardElementEnum() == BALLROOM)
+    {
+        return BALLROOM_CARD;
+    }
+    else
+    {
+        return KITCHEN_CARD;
+    }
 }
 
 CardEnum SuggestionDialog::getPlayerCardEnum()

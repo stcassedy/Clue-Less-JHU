@@ -52,6 +52,12 @@ public:
      */
     bool isAccusationCorrect(Envelope* env);
 
+    int getWeaponCard();
+
+    int getRoomCard();
+
+    int getPlayerCard();
+
 protected:
     //Member Variables
     int m_weapon;

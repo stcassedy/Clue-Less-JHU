@@ -40,6 +40,21 @@ void Envelope::setPlayerCard(PlayerCard* card)
     m_player = card->getCardIdentifier();
 }
 
+int Envelope::getPlayerCard()
+{
+    return m_player;
+}
+
+int Envelope::getRoomCard()
+{
+    return m_room;
+}
+
+int Envelope::getWeaponCard()
+{
+    return m_weapon;
+}
+
 bool Envelope::isAccusationCorrect(Envelope* env)
 {
     //checks if all of the cards in the accusation match

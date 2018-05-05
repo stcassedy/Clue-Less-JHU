@@ -1,10 +1,17 @@
 #include "BoardElement.h"
 #include "QList"
+#include "Board.h"
 
 
 // -----------------------------------------------------------------------------
 //Constructor
-BoardElement::BoardElement(LocationTypeEnum typ, LocationEnum loc)
+BoardElement::BoardElement(LocationTypeEnum typ, LocationEnum loc) :
+    m_scarletLabel(NULL),
+    m_mustardLabel(NULL),
+    m_whiteLabel(NULL),
+    m_greenLabel(NULL),
+    m_peacockLabel(NULL),
+    m_plumLabel(NULL)
 {
     m_type = typ;
     m_location = loc;
@@ -145,9 +152,21 @@ LocationEnum BoardElement::getBoardElementEnum()
     return m_location;
 }
 
-QList<LocationEnum> BoardElement::getConnectedElements()
+QList<BoardElement*> BoardElement::getConnectedElements()
 {
-    return m_connected;
+    //creates the return list
+    QList<BoardElement*> elemList;
+
+    for (int i = 0; i < m_connected.size(); ++i)
+    {
+        //gets a pointer to the board element object and adds it to the list
+        BoardElement* elem =
+                Board::getInstance()->getBoardElement(m_connected.at(i));
+        elemList.append(elem);
+    }
+
+    //returns a list of connected BoardElement objects
+    return elemList;
 }
 
 bool BoardElement::isBoardElementConnected(LocationEnum destination)
@@ -155,28 +174,86 @@ bool BoardElement::isBoardElementConnected(LocationEnum destination)
     return m_connected.contains(destination);
 }
 
-bool BoardElement::isSpaceAvailable()
+
+void BoardElement::setScarletLabel(QLabel* lb)
 {
-    bool available = false;
-    if(m_type == ROOM || (m_type == HALLWAY && m_players.isEmpty() == true))
-    {
-        available = true;
-    }
-    return available;
+    //sets pointer to the label
+    m_scarletLabel = lb;
 }
 
-void BoardElement::addPlayer(PlayerEnum player)
+void BoardElement::setMustardLabel(QLabel* lb)
 {
-    m_players.append(player);
-
+    //sets pointer to the label
+    m_mustardLabel = lb;
 }
 
-void BoardElement::removePlayer(PlayerEnum player)
+void BoardElement::setWhiteLabel(QLabel* lb)
 {
-    m_players.removeAll(player);
+    //sets pointer to the label
+    m_whiteLabel = lb;
 }
 
-QList<PlayerEnum> BoardElement::playersInElement()
+void BoardElement::setGreenLabel(QLabel* lb)
 {
-    return m_players;
+    //sets pointer to the label
+    m_greenLabel = lb;
+}
+
+void BoardElement::setPeacockLabel(QLabel* lb)
+{
+    //sets pointer to the label
+    m_peacockLabel = lb;
+}
+
+void BoardElement::setPlumLabel(QLabel* lb)
+{
+    //sets pointer to the label
+    m_plumLabel = lb;
+}
+
+QLabel* BoardElement::getScarletLabel()
+{
+    //returns pointer to the label
+    return m_scarletLabel;
+}
+
+QLabel* BoardElement::getMustardLabel()
+{
+    //returns pointer to the label
+    return m_mustardLabel;
+}
+
+QLabel* BoardElement::getWhiteLabel()
+{
+    //returns pointer to the label
+    return m_whiteLabel;
+}
+
+QLabel* BoardElement::getGreenLabel()
+{
+    //returns pointer to the label
+    return m_greenLabel;
+}
+
+QLabel* BoardElement::getPeacockLabel()
+{
+    //returns pointer to the label
+    return m_peacockLabel;
+}
+
+QLabel* BoardElement::getPlumLabel()
+{
+    //returns pointer to the label
+    return m_plumLabel;
+}
+
+void BoardElement::hideAllLabels()
+{
+    //hides all of the board element labels
+    m_scarletLabel->hide();
+    m_mustardLabel->hide();
+    m_whiteLabel->hide();
+    m_greenLabel->hide();
+    m_peacockLabel->hide();
+    m_plumLabel->hide();
 }

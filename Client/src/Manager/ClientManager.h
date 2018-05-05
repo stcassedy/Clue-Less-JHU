@@ -5,16 +5,14 @@
 #include "BoardElement.h"
 #include "Envelope.h"
 #include "Card.h"
+#include "GamePhaseEnums.h"
+
+//Foward Declarations
+class Player;
 
 class ClientManager
 {
 private:
-    PlayerEnum currentPlayer;
-    bool currentPlayerTurn;
-
-
-public:
-
     /**
      * @brief ClientManager consturctor
      */
@@ -25,12 +23,25 @@ public:
      */
     ~ClientManager();
 
+    // Member Variables
+    static ClientManager m_instance;
+    PlayerEnum m_currentPlayer;
+    bool m_currentPlayerTurn;
+    GamePhaseEnum m_currentPhase;
+    int m_numberOfPlayers;
+
+public:
+    /**
+     * @brief getInstance returns pointer to the instance
+     * @return ClientManager*
+     */
+    static ClientManager* getInstance();
+
     /**
      * @brief movePlayer
      * @param destination
-     * @param location
      */
-    void movePlayer(BoardElement* destination, BoardElement* location);
+    void movePlayer(BoardElement* destination);
 
     /**
      * @brief makeSuggestion
@@ -84,6 +95,24 @@ public:
      * @brief connectToServer
      */
     void connectToServer();
+
+    /**
+     * @brief getCurrentPlayer returns the client player
+     * @return Player*
+     */
+    Player* getCurrentPlayer();
+
+    /**
+     * @brief getCurrentGamePhase returns the current game phase
+     * @return GamePhaseEnum
+     */
+    GamePhaseEnum getCurrentGamePhase();
+
+    /**
+     * @brief getNumberOfPlayers returns the number of game players
+     * @return int
+     */
+    int getNumberOfPlayers();
 
 };
 

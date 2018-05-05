@@ -36,6 +36,11 @@ public:
       */
     ~ClientWindow();
 
+    /**
+     * @brief updateUI updates the UI based on the current board state
+     */
+    void updateUI();
+
 private slots:
     /**
      * @brief on_btnJoinGame_clicked handles the join button being clicked
@@ -80,6 +85,47 @@ private slots:
     void on_btnViewNotebook_clicked();
 
 private:
+    /**
+     * @brief hideAllPlayerLabels hides all of the player labels
+     */
+    void hideAllPlayerLabels();
+
+    /**
+     * @brief updateScarletLocation updates Miss Scarlet's Location
+     */
+    void updateScarletLocation();
+
+    /**
+     * @brief updateMustardLocation updates Col. Mustard's Location
+     */
+    void updateMustardLocation();
+
+    /**
+     * @brief updateWhiteLocation updates Mrs. White's Location
+     */
+    void updateWhiteLocation();
+
+    /**
+     * @brief updateGreenLocation updates Mr. Green's Location
+     */
+    void updateGreenLocation();
+
+    /**
+     * @brief updatePeacockLocation updates Mrs. Peacock's Location
+     */
+    void updatePeacockLocation();
+
+    /**
+     * @brief updatePlumLocation updates Prof. Plum's Location
+     */
+    void updatePlumLocation();
+
+    /**
+     * @brief updateBoardElementUI sets pointers to UI elements in the
+     * BoardElement objects
+     */
+    void updateBoardElementUI();
+
     //Member Variables
     Ui::ClientWindow *ui;
     NavigateBoardDialog navigateBoardDlg;

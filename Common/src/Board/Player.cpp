@@ -30,9 +30,9 @@ PlayerEnum Player::getPlayerNum()
 BoardElement* Player::getCurrentLocation()
 {
     //Look up BoardElement from Board instance
-    //BoardElement* currentElement = Board::getLocation(currentLocation)
-    //return currentElement;
-    return nullptr;
+    BoardElement* currentElement =
+            Board::getInstance()->getBoardElement(currentLocation);
+    return currentElement;
 }
 
 
@@ -77,9 +77,7 @@ QList<RoomCard*> Player::getRoomCards()
 void Player::move(BoardElement* loc)
 {
     //Update player location
-    //BoardElement nextLocation = *loc;
-    //nextLocation.getLocationEnum;
-    //currentLocation = *loc;
+    currentLocation = loc->getBoardElementEnum();
 }
 
 

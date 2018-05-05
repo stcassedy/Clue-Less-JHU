@@ -12,6 +12,10 @@
 #include "Board.h"
 
 //---------------------------------------------------------------
+//Static Variables:
+ClientManager ClientManager::m_instance;
+
+//---------------------------------------------------------------
 //Constructor:
 ClientManager::ClientManager()
 {
@@ -27,14 +31,20 @@ ClientManager::~ClientManager()
 
 //---------------------------------------------------------------
 //Public Functions:
-void ClientManager::movePlayer(BoardElement* destination, BoardElement* location)
+ClientManager* ClientManager::getInstance()
 {
-    //Note: if checks can be removed, the UI will enforce these checks
-    if(destination->openForNewPlayer() == true && location->isBoardElementConnected(destination->getBoardElementEnum()) == true)
-    {
-        destination->addPlayer(currentPlayer);
-        location->removePlayer(currentPlayer);
-    }
+    return &m_instance;
+}
+
+void ClientManager::movePlayer(BoardElement* destination)
+{
+    //gets the current player object
+    Player* player = Board::getInstance()->getPlayer(m_currentPlayer);
+    player->move(destination);
+
+    //NOTE: Notify Server of the move player action
+    //we should probably wait to move the player until we get a reponse from
+    //the server
 }
 
 bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
@@ -87,4 +97,17 @@ bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
         win_game = true;
     }
     return win_game;
+}
+
+Player* ClientManager::getCurrentPlayer()
+{
+    //returns the client player
+    Player* player = Board::getInstance()->getPlayer(m_currentPlayer);
+    return player;
+}
+
+GamePhaseEnum ClientManager::getCurrentGamePhase()
+{
+    //returns the current game phase
+    return m_currentPhase;
 }

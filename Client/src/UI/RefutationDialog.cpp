@@ -7,6 +7,7 @@
 #include "RoomCard.h"
 #include "PlayerCard.h"
 #include "Player.h"
+#include "ClientManager.h"
 
 // -----------------------------------------------------------------------------
 // Static Member Variables:
@@ -51,6 +52,7 @@ void RefutationDialog::show()
     //TODO: Add valid refutation cards to the combo box
     //TODO: if no valid refutation cards enable Pass button, otherwise disable
     //TODO: if valid refucation cards enable Refute button, otherwise disable
+
 
     //shows the dialog
     QWidget::show();

@@ -17,9 +17,8 @@ public:
     /**
 	* @brief Hallway explicit constructor
 	* @param loc LocationEnum
-	* @param connectedLocList QList<LocationEnum>
 	*/
-    explicit Hallway(LocationEnum loc, QList<LocationEnum> connectedLocList);
+    explicit Hallway(LocationEnum loc);
 
     /**
       * @brief ~Hallway Destructor
@@ -27,15 +26,11 @@ public:
     ~Hallway();
 
 	/**
-     * @brief openForNewPlayer returns if a new player can occupy the space or not
+     * @brief openForNewPlayer returns if a new player can occupy the space
+     * or not
      * @return CardEnum
      */
     bool openForNewPlayer();
-
-
-private:
-	//Member Variables
-	QList<LocationEnum> connectedRooms_;    
 };
 
 #endif // HALLWAY_H

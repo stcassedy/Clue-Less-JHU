@@ -5,7 +5,7 @@
 
 
 //Constructor:
-Hallway::Hallway(LocationEnum loc, QList<LocationEnum> connectedLocList) :
+Hallway::Hallway(LocationEnum loc) :
     BoardElement(HALLWAY, loc)
 {
 

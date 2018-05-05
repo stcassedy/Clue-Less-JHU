@@ -47,7 +47,8 @@ SOURCES += \
     ../../Common/src/Board/Card.cpp \
     ../../Common/src/Board/WeaponCard.cpp \
     ../../Common/src/Board/RoomCard.cpp \
-    ../../Common/src/Board/PlayerCard.cpp
+    ../../Common/src/Board/PlayerCard.cpp \
+    ../../Server/src/Manager/ServerManager.cpp
 
 HEADERS += \
     ../src/UI/ServerWindow.h \
@@ -63,7 +64,8 @@ HEADERS += \
     ../../Common/src/Board/RoomCard.h \
     ../../Common/src/Board/PlayerCard.h \
     ../../Common/src/Board/BoardEnums.h \
-    ../../Common/src/Board/GamePhaseEnums.h
+    ../../Common/src/Board/GamePhaseEnums.h \
+    ../../Server/src/Manager/ServerManager.h
 
 FORMS += \
     ../src/UI/ServerWindow.ui
@@ -71,5 +73,5 @@ FORMS += \
 INCLUDEPATH += \
     ../src/Main \
     ../src/UI \
-    ../src/Managers \
+    ../src/Manager \
     ../../Common/src/Board/

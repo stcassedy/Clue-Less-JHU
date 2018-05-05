@@ -54,7 +54,7 @@ SOURCES += \
     ../src/UI/AccusationDialog.cpp \
     ../src/UI/RefutationDialog.cpp \
     ../src/UI/NotebookDialog.cpp \
-    ../src/Connection/Connection.cpp
+    ../src/Connection/Connection.cpp \
     ../src/Manager/ClientManager.cpp
 
 HEADERS += \
@@ -76,7 +76,7 @@ HEADERS += \
     ../src/UI/AccusationDialog.h \
     ../src/UI/RefutationDialog.h \
     ../src/UI/NotebookDialog.h \
-    ../src/Connection/Connection.h
+    ../src/Connection/Connection.h \
     ../src/Manager/ClientManager.h \
     ../../Common/src/Board/GamePhaseEnums.h
 

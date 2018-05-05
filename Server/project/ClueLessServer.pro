@@ -49,7 +49,7 @@ SOURCES += \
     ../../Common/src/Board/WeaponCard.cpp \
     ../../Common/src/Board/RoomCard.cpp \
     ../../Common/src/Board/PlayerCard.cpp \
-    ../src/Server/Server.cpp
+    ../src/Server/Server.cpp \
     ../../Server/src/Manager/ServerManager.cpp
 
 HEADERS += \
@@ -66,7 +66,7 @@ HEADERS += \
     ../../Common/src/Board/RoomCard.h \
     ../../Common/src/Board/PlayerCard.h \
     ../../Common/src/Board/BoardEnums.h \
-    ../src/Server/Server.h
+    ../src/Server/Server.h \
     ../../Common/src/Board/GamePhaseEnums.h \
     ../../Server/src/Manager/ServerManager.h
 

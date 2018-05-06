@@ -14,7 +14,8 @@ namespace protocol
         SUGGESTION,
         ACCUSATION,
         REFUTATION,
-        INITIALIZATION = 0x20
+        INITIALIZATION = 0x20,
+        PLAYER_CONNECT
     };
 
     class Action
@@ -66,6 +67,13 @@ namespace protocol
         int numConnected;
         Player * players[6];
     };
+
+    class PlayerConnect : public Action
+    {
+        PlayerConnect(PlayerEnum playerAssignment)
+            : Action(PlayerEnum::SERVER, MessageType::PLAYER_CONNECT), playerAssignment(playerAssignment) {}
+        PlayerEnum playerAssignment;
+    }
 
     QByteArray form_movement(Movement movement)
     {
@@ -136,7 +144,16 @@ namespace protocol
             ba[7+5*i] = init.players[i]->isConnected(); // boolean gives 0 or 1 (false, true).
         }
         ba[38] = init.numConnected;
+    }
 
+    QByteArray form_player_connect(PlayerConnect conn)
+    {
+        QByteArray ba;
+        ba[0] = 0x04;
+        ba[1] = 0x00;
+        ba[2] = MessageType::PLAYER_CONNECT;
+        ba[3] = conn.playerAssignment;
+        return ba;
     }
 
     // Use DerivedClass * c = static_cast<DerivedClass>(baseClassPointer) to retrieve the derived class
@@ -197,6 +214,12 @@ namespace protocol
             }
             init->numConnected = ba[38];
             action = &init;
+        case MessageType::PLAYER_CONNECT :
+            if (messageLength < 4)
+            {
+                return action;
+            }
+            action = new PlayerConnect(ba[3]);
         default:
             return action;
     }

@@ -16,6 +16,7 @@ public:
     void send_all(QString data);
     int read_sockets();
     void disconnect(int playerIndex);
+    int num_connected() {return numConnected_;}
 
 signals:
     void error(QTcpSocket::SocketError socketError);
@@ -26,6 +27,7 @@ protected:
 private:
     QTcpSocket * sockets_[6];
     bool socketUsed_[6] {};
+    int numConnected_;
     QByteArray buffer_;
 
 };

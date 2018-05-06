@@ -20,6 +20,13 @@ class BoardElement;
 class Board
 {
 public:
+
+    /**
+     * @brief getInstance Creates the board instance and returns pointer.
+     * @return Board*
+     */
+    static Board* remakeInstance();
+
     /**
      * @brief getInstance Returns a pointer to the board instance
      * @return Board*

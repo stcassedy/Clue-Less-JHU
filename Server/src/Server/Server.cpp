@@ -6,6 +6,7 @@ Server::Server()
     {
         sockets_[i] = new QTcpSocket(this);
     }
+    numConnected_ = 0;
 }
 
 void Server::incomingConnection(qintptr socketDescriptor)
@@ -30,6 +31,7 @@ void Server::incomingConnection(qintptr socketDescriptor)
         return;
     }
     socketUsed_[openSlot] = true;
+    ++numConnected_;
 
 }
 

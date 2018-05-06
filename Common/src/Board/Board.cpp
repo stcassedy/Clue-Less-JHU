@@ -17,6 +17,14 @@ Board Board::m_instance;
 
 // -----------------------------------------------------------------------------
 // Constructor:
+Board* Board::remakeInstance()
+{
+    m_instance = Board::Board();
+    return &m_instance;
+}
+
+// -----------------------------------------------------------------------------
+// Constructor:
 Board::Board()
 {
     //builds the Card lookup map

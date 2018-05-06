@@ -79,4 +79,5 @@ INCLUDEPATH += \
     ../src/UI \
     ../src/Manager \
     ../src/Server \
-    ../../Common/src/Board/
+    ../../Common/src/Board/ \
+    ../../Common/src

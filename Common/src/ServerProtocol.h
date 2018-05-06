@@ -28,8 +28,8 @@ namespace protocol
 
     class Movement : public Action
     {
-        Movement(PlayerEnum playerIndex, LocationTypeEnum locationType, LocationEnum location)
-            : Action(playerSource, MessageType::MOVEMENT), playerIndex(playerIndex), locationType(locationType), location(location) {}
+        Movement(PlayerEnum playerSource, LocationTypeEnum locationType, LocationEnum location)
+            : Action(playerSource, MessageType::MOVEMENT), locationType(locationType), location(location) {}
         LocationTypeEnum locationType;
         LocationEnum location;
     };
@@ -37,7 +37,7 @@ namespace protocol
     class Suggestion : public Action
     {
         Suggestion(PlayerEnum playerSource, PlayerEnum playerSuggested, LocationEnum location, WeaponEnum weapon)
-            : Action(playerSource, MessageType::MOVEMENT), playerSource(playerSource), playerSuggested(playerSuggested), location(location), weapon(weapon) {}
+            : Action(playerSource, MessageType::SUGGESTION), playerSource(playerSource), playerSuggested(playerSuggested), location(location), weapon(weapon) {}
         PlayerEnum playerSuggested;
         LocationEnum location;
         WeaponEnum weapon;
@@ -46,7 +46,7 @@ namespace protocol
     class Accusation : public Action
     {
         Accusation(PlayerEnum playerSource, PlayerEnum playerAccused, LocationEnum location, WeaponEnum weapon)
-            : Action(playerSource, MessageType::MOVEMENT), playerSource(playerSource), playerAccused(playerAccused), location(location), weapon(weapon) {}
+            : Action(playerSource, MessageType::ACCUSATION), playerSource(playerSource), playerAccused(playerAccused), location(location), weapon(weapon) {}
         PlayerEnum playerAccused;
         LocationEnum location;
         WeaponEnum weapon;
@@ -55,7 +55,7 @@ namespace protocol
     class Refutation : public Action
     {
         Refutation(PlayerEnum playerSource, PlayerEnum playerRefuted, CardEnum card)
-            : Action(playerSource, MessageType::MOVEMENT), playerSource(playerSource), playerRefuted(playerRefuted), card(card) {}
+            : Action(playerSource, MessageType::REFUTATION), playerSource(playerSource), playerRefuted(playerRefuted), card(card) {}
         PlayerEnum playerRefuted;
         CardEnum card;
     };
@@ -73,7 +73,7 @@ namespace protocol
         PlayerConnect(PlayerEnum playerAssignment)
             : Action(PlayerEnum::SERVER, MessageType::PLAYER_CONNECT), playerAssignment(playerAssignment) {}
         PlayerEnum playerAssignment;
-    }
+    };
 
     QByteArray form_movement(Movement movement)
     {

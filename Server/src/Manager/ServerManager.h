@@ -3,6 +3,9 @@
 
 #include <Server.h>
 #include <Board.h>
+#include <ServerWindow.h>
+
+class ServerWindow;
 
 class ServerManager
 {
@@ -11,14 +14,17 @@ public:
 
     static ServerManager* get_instance() {return &instance_;}
 
+    static void set_window_pointer(ServerWindow * serverWindow);
+
 private:
-    ServerManager(int numPlayers); // This constructor should continue until victory or end.
+    ServerManager(int numPlayers = 0); // This constructor should continue until victory or end.
     void wait_for_players();
 
     int numPlayers_;
     Server * server_;
     Board * board_;
     static ServerManager instance_;
+    static ServerWindow * window_;
 };
 
 #endif // SERVERMANAGER_H

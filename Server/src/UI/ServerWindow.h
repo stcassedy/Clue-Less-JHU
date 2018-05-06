@@ -12,6 +12,8 @@ namespace Ui {
 class ServerWindow;
 }
 
+class ServerManager;
+
 /**
  * @brief The ServerWindow class is a simple UI class for starting and stopping
  * the Server Application.
@@ -31,6 +33,10 @@ public:
       * @brief ~ServerWindow Destructor
       */
     ~ServerWindow();
+
+    void Notify(QString note);
+    void setAddress(QString address);
+    void setPort(QString port);
 
 private slots:
     /**

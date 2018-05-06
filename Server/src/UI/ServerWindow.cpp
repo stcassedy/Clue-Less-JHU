@@ -34,6 +34,7 @@ void ServerWindow::on_serverStartStop_toggled(bool checked)
         //TODO: Start Server
         m_ui->serverStartStop->setText("Stop");
         m_ui->numPlayers->setDisabled(true);
+        ServerManager::set_window_pointer(this);
         serverManager_ = ServerManager::start_server_manager(m_ui->numPlayers->value());
     }
     else
@@ -42,6 +43,22 @@ void ServerWindow::on_serverStartStop_toggled(bool checked)
         //TODO: Stop Server
         m_ui->serverStartStop->setText("Start");
         m_ui->numPlayers->setDisabled(false);
-        delete(serverManager_);
+        //delete(serverManager_);
     }
+}
+
+
+void ServerWindow::Notify(QString note)
+{
+    m_ui->Notifications->append(note);
+}
+
+void ServerWindow::setAddress(QString address)
+{
+    m_ui->serverAddress->setText(address);
+}
+
+void ServerWindow::setPort(QString port)
+{
+    m_ui->serverPort->setText(port);
 }

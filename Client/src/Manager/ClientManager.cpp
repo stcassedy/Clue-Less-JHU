@@ -73,14 +73,20 @@ void ClientManager::startGame()
 
 void ClientManager::movePlayer(BoardElement* destination)
 {
-    //gets the current player object
+    //Get current player info
     Player* player = Board::getInstance()->getPlayer(m_currentPlayer);
-    player->move(destination);
-    m_clientWindow->updateUI();
 
-    //NOTE: Notify Server of the move player action
-    //we should probably wait to move the player until we get a reponse from
-    //the server
+    qDebug() << "Player: " << player->getPlayerNum();
+    qDebug() << "Destination Type: " << destination->getBoardElementType();
+    qDebug() << "Destination: " << destination->getBoardElementEnum();
+
+    //Form movement message to send to server
+    protocol::Movement* move
+            = new protocol::Movement(player->getPlayerNum(), destination->getBoardElementType(), destination->getBoardElementEnum());
+    QByteArray moveMessage = protocol::form_movement(*move);
+
+    //Send message through connection
+    m_tcpConnection->send(moveMessage);
 }
 
 bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,

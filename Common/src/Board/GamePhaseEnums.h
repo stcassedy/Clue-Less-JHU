@@ -14,6 +14,7 @@ enum GamePhaseEnum
     ACCUSATION,
     REFUTATION,
     START_GAME,
+    NOT_JOINED,
     WIN_GAME
 };
 

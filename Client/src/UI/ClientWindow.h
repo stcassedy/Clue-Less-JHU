@@ -166,6 +166,11 @@ private:
      */
     void updateActionButtons();
 
+    /**
+     * @brief updatePage updates the UI page shown
+     */
+    void updatePage();
+
     //Member Variables
     Ui::ClientWindow *m_ui;
     NavigateBoardDialog m_navigateBoardDlg;

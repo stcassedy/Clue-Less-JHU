@@ -28,7 +28,7 @@ ClientManager::ClientManager() :
     m_clientWindow(NULL),
     m_serverConnection(true)
 {
-    //TODO: game phase should start in GAME START phase
+    //TODO: game phase should start in NOT_JOINED phase
     //TODO: number of players should not start at 3
     //TODO: server connection should not start as true
 }
@@ -145,6 +145,11 @@ void ClientManager::endTurn()
 {
     //TODO: Notify server the player ends their turn without an accusation
     qDebug() << "End Turn.";
+}
+
+void ClientManager::connectToServer()
+{
+
 }
 
 Player* ClientManager::getCurrentPlayer()

@@ -85,13 +85,20 @@ void ClientWindow::updateUI()
 
     //updates the action buttons
     updateActionButtons();
+
+    //update the UI page
+    //TODO: Enable Update Page once games phases are implemented
+    //updatePage();
 }
 
 // -----------------------------------------------------------------------------
 // Private Slots:
 void ClientWindow::on_btnJoinGame_clicked()
 {
-    //TODO: makes sure a connection to the server is established
+    //Attempts to connect to the server
+    ClientManager::getInstance()->connectToServer();
+
+    //Updates page depending on connection status
     if (ClientManager::getInstance()->serverConnected())
     {
         //shows start game page
@@ -657,5 +664,24 @@ void ClientWindow::updateActionButtons()
             //enables the end turn button
             m_ui->btnEndTurn->setEnabled(true);
         }
+    }
+}
+
+void ClientWindow::updatePage()
+{
+    //gets the current page
+    int page = m_ui->stackedWidget->currentIndex();
+    GamePhaseEnum phase = ClientManager::getInstance()->getCurrentGamePhase();
+
+    //determines if the UI needs to transition to the Game Board Page
+    //(needed because only one client will start the game, so the other
+    //clients need to transition to gameboard page on game phase change)
+    if (page == START_GAME_PAGE &&
+        (phase == MOVE ||
+         phase == SUGGESTION ||
+         phase == REFUTATION ||
+         phase == ACCUSATION))
+    {
+        m_ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
     }
 }

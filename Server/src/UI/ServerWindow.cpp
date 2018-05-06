@@ -43,7 +43,7 @@ void ServerWindow::on_serverStartStop_toggled(bool checked)
         //TODO: Stop Server
         m_ui->serverStartStop->setText("Start");
         m_ui->numPlayers->setDisabled(false);
-        //delete(serverManager_);
+        serverManager_->stop();
     }
 }
 

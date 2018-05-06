@@ -30,3 +30,9 @@ void ServerManager::set_window_pointer(ServerWindow * serverWindow)
 {
     window_ = serverWindow;
 }
+
+void ServerManager::stop()
+{
+    server_->disconnect_all();
+    window_->Notify("Disconnected.");
+}

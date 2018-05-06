@@ -33,6 +33,11 @@ void Server::incomingConnection(qintptr socketDescriptor)
     socketUsed_[openSlot] = true;
     ++numConnected_;
 
+    if (numConnected_ == maxPlayers_)
+    {
+        close();
+    }
+
 }
 
 void Server::send(QString data, int playerIndex)
@@ -79,8 +84,19 @@ int Server::read_sockets()
 
 void Server::disconnect(int playerIndex)
 {
-    sockets_[playerIndex]->disconnectFromHost();
-    sockets_[playerIndex]->waitForDisconnected();
-    socketUsed_[playerIndex] = false;
-    --numConnected_;
+    if (socketUsed_[playerIndex])
+    {
+        sockets_[playerIndex]->disconnectFromHost();
+        sockets_[playerIndex]->waitForDisconnected();
+        socketUsed_[playerIndex] = false;
+        --numConnected_;
+    }
+}
+
+void Server::disconnect_all()
+{
+    for (int i = 0; i < maxPlayers_; ++i)
+    {
+        disconnect(i);
+    }
 }

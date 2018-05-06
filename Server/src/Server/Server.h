@@ -17,6 +17,7 @@ public:
     void send_all(QString data);
     int read_sockets();
     void disconnect(int playerIndex);
+    void disconnect_all();
     int num_connected() {return numConnected_;}
 
 signals:

@@ -94,4 +94,5 @@ INCLUDEPATH += \
     ../src/UI \
     ../src/Manager \
     ../../Common/src/Board/ \
-    ../../Common/src
+    ../../Common/src \
+    ../src/Connection

@@ -6,10 +6,12 @@
 #include "Envelope.h"
 #include "Card.h"
 #include "GamePhaseEnums.h"
+#include "ServerProtocol.h"
 
 //Foward Declarations
 class Player;
 class ClientWindow;
+class Connection;
 
 class ClientManager
 {
@@ -32,6 +34,8 @@ private:
     int m_numberOfPlayers;
     ClientWindow* m_clientWindow;
     bool m_serverConnection;
+    Connection* m_tcpConnection;
+
 
 public:
     /**
@@ -145,6 +149,48 @@ public:
      * @return bool true if server is connected, false otherwise
      */
     bool serverConnected();
+
+    /**
+     * @brief processServerAction processes incoming actions from the Server
+     * @param act protocol::Action*
+     */
+    void processServerAction(protocol::Action* act);
+
+    /**
+     * @brief processMovement process movement action from server
+     * @param mov protocol::Movement*
+     */
+    void processMovement(protocol::Movement* mov);
+
+    /**
+     * @brief processSuggestion process suggestion action from server
+     * @param sug protocol::Suggestion*
+     */
+    void processSuggestion(protocol::Suggestion* sug);
+
+    /**
+     * @brief processAccusation process accusation action from server
+     * @param acc protocol::Accusation*
+     */
+    void processAccusation(protocol::Accusation* acc);
+
+    /**
+     * @brief processRefutation process refutation action from server
+     * @param ref protocol::Refutation*
+     */
+    void processRefutation(protocol::Refutation* ref);
+
+    /**
+     * @brief processInitialization process initialization action from server
+     * @param init protocol::Initialization*
+     */
+    void processInitialization(protocol::Initialization* init);
+
+    /**
+     * @brief processPlayerConnect process player connection action from server
+     * @param con protocol::PlayerConnect*
+     */
+    void processPlayerConnect(protocol::PlayerConnect* con);
 
 };
 

@@ -11,7 +11,8 @@
 #include "Player.h"
 #include "Board.h"
 #include "ClientWindow.h"
-#include "../../Common/src/ServerProtocol.h"
+#include "ServerProtocol.h"
+#include "Connection.h"
 
 #include <QDebug>
 
@@ -38,7 +39,11 @@ ClientManager::ClientManager() :
 //Constructor:
 ClientManager::~ClientManager()
 {
-
+    //deletes tcp connection
+    if (m_tcpConnection != NULL)
+    {
+        delete m_tcpConnection;
+    }
 }
 
 //---------------------------------------------------------------
@@ -150,7 +155,19 @@ void ClientManager::endTurn()
 
 void ClientManager::connectToServer()
 {
+    QString host = "placeholder";
+    int port = 12321;
 
+    //deletes the old connection
+    if (m_tcpConnection != NULL)
+    {
+        delete m_tcpConnection;
+        m_tcpConnection = NULL;
+    }
+
+    //creates a new connection and attempts to open the connection
+    m_tcpConnection = new Connection(host, port);
+    m_serverConnection = m_tcpConnection->openConnection();
 }
 
 Player* ClientManager::getCurrentPlayer()
@@ -183,4 +200,78 @@ bool ClientManager::serverConnected()
 {
     //returns the server connection status
     return m_serverConnection;
+}
+
+void ClientManager::processServerAction(protocol::Action* act)
+{
+    //Determine message type
+    protocol::MessageType type = act->messageType;
+
+    //process message based on type
+    if (type == protocol::MOVEMENT)
+    {
+        protocol::Movement* mov =
+                reinterpret_cast<protocol::Movement*>(act);
+        processMovement(mov);
+    }
+    else if (type == protocol::SUGGESTION)
+    {
+        protocol::Suggestion* sug =
+                reinterpret_cast<protocol::Suggestion*>(act);
+        processSuggestion(sug);
+    }
+    else if (type == protocol::ACCUSATION)
+    {
+        protocol::Accusation* acc =
+                reinterpret_cast<protocol::Accusation*>(act);
+        processAccusation(acc);
+    }
+    else if (type == protocol::REFUTATION)
+    {
+        protocol::Refutation* ref =
+                reinterpret_cast<protocol::Refutation*>(act);
+        processRefutation(ref);
+    }
+    else if (type == protocol::INITIALIZATION)
+    {
+        protocol::Initialization* init =
+                reinterpret_cast<protocol::Initialization*>(act);
+        processInitialization(init);
+    }
+    else if (type == protocol::PLAYER_CONNECT)
+    {
+        protocol::PlayerConnect* con =
+                reinterpret_cast<protocol::PlayerConnect*>(act);
+        processPlayerConnect(con);
+    }
+}
+
+void ClientManager::processMovement(protocol::Movement* mov)
+{
+
+}
+
+void ClientManager::processSuggestion(protocol::Suggestion* sug)
+{
+
+}
+
+void ClientManager::processAccusation(protocol::Accusation* acc)
+{
+
+}
+
+void ClientManager::processRefutation(protocol::Refutation* ref)
+{
+
+}
+
+void ClientManager::processInitialization(protocol::Initialization* init)
+{
+
+}
+
+void ClientManager::processPlayerConnect(protocol::PlayerConnect* con)
+{
+
 }

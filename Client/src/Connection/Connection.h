@@ -12,13 +12,20 @@ class Connection : public QDialog
 
 public:
     Connection(QString host, int port);
+    ~Connection();
     void send(QString data);
-    void read();
     QByteArray get_buffer() {return buffer_;}
+    bool openConnection();
+
+private slots:
+    void error(QAbstractSocket::SocketError err);
+    void read();
 
 private:
     QTcpSocket *socket_ = nullptr;
     QByteArray buffer_;
+    QString host_;
+    int port_;
 };
 
 #endif // CONNECTION_H

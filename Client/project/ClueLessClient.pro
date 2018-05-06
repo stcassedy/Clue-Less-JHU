@@ -55,7 +55,8 @@ SOURCES += \
     ../src/UI/RefutationDialog.cpp \
     ../src/UI/NotebookDialog.cpp \
     ../src/Connection/Connection.cpp \
-    ../src/Manager/ClientManager.cpp
+    ../src/Manager/ClientManager.cpp \
+    ../../Common/src/ServerProtocol.cpp
 
 HEADERS += \
     ../src/UI/ClientWindow.h \

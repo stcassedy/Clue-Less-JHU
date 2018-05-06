@@ -11,7 +11,6 @@
 #include "Player.h"
 #include "Board.h"
 #include "ClientWindow.h"
-#include "ServerProtocol.h"
 #include "Connection.h"
 
 #include <QDebug>

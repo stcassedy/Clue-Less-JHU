@@ -27,7 +27,7 @@ ClientManager::ClientManager() :
     m_currentPhase(MOVE),
     m_numberOfPlayers(4),
     m_clientWindow(NULL),
-    m_serverConnection(true)
+    m_serverConnection(false)
 {
     //TODO: game phase should start in NOT_JOINED phase
     //TODO: number of players should not start at 3
@@ -198,6 +198,8 @@ int ClientManager::getNumberOfPlayers()
 bool ClientManager::serverConnected()
 {
     //returns the server connection status
+    //TODO: REMOVE FORCE TO TRUE (for testing purposes)
+    m_serverConnection = true;
     return m_serverConnection;
 }
 
@@ -247,7 +249,11 @@ void ClientManager::processServerAction(protocol::Action* act)
 
 void ClientManager::processMovement(protocol::Movement* mov)
 {
-
+    //moves the player and updates the UI
+    Player* player = Board::getInstance()->getPlayer(mov->playerSource);
+    BoardElement* elem = Board::getInstance()->getBoardElement(mov->location);
+    player->move(elem);
+    m_clientWindow->updateUI();
 }
 
 void ClientManager::processSuggestion(protocol::Suggestion* sug)

@@ -273,10 +273,6 @@ void NavigateBoardDialog::on_btnHallway12_clicked()
 
 void NavigateBoardDialog::on_btnCancel_clicked()
 {
-    //tells the client manager to move the player to a new location
-    BoardElement* elem = Board::getInstance()->getBoardElement(STUDY);
-    ClientManager::getInstance()->movePlayer(elem);
-
     //closes the dialog
     close();
 }

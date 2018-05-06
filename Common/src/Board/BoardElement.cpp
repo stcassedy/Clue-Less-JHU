@@ -115,6 +115,7 @@ BoardElement::BoardElement(LocationTypeEnum typ, LocationEnum loc) :
     }
     else if(loc == BALLROOM)
     {
+         m_connected.append(HALLWAY_9);
          m_connected.append(HALLWAY_11);
          m_connected.append(HALLWAY_12);
     }

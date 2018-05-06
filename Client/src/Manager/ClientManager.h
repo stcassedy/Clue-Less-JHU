@@ -46,6 +46,12 @@ public:
     void setClientWindow(ClientWindow* clientWindow);
 
     /**
+     * @brief getClientWindow returns a pointer to the client window
+     * @return clientWindow*
+     */
+    ClientWindow* getClientWindow();
+
+    /**
      * @brief movePlayer
      * @param destination
      */
@@ -64,7 +70,7 @@ public:
      * @brief refuteSuggestion
      * @param card
      */
-    void refuteSuggestion();
+    void refuteSuggestion(Card* card);
 
     /**
      * @brief makeAccusation

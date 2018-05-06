@@ -170,19 +170,6 @@ font-weight: bold;
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnPass">
-       <property name="minimumSize">
-        <size>
-         <width>120</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Pass</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QPushButton" name="btnCancel">
        <property name="minimumSize">
         <size>

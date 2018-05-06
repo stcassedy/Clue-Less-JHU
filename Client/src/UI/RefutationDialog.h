@@ -5,6 +5,7 @@
 #define REFUTATIONDIALOG_H
 
 #include <QDialog>
+#include <BoardEnums.h>
 
 //Forward Declaration
 class WeaponCard;
@@ -58,17 +59,18 @@ private slots:
     void on_btnRefute_clicked();
 
     /**
-     * @brief on_btnPass_clicked notifies client manager a refutation could
-     * not be made and closes the dialog
-     */
-    void on_btnPass_clicked();
-
-    /**
      * @brief on_btnCancel_clicked closes the dialog
      */
     void on_btnCancel_clicked();
 
 private:
+    /**
+     * @brief getCardEnumFromName returns a card enum based on a card name
+     * @param name QString
+     * @return CardEnum
+     */
+    CardEnum getCardEnumFromName(QString name);
+
     //Member Variables
     Ui::RefutationDialog *m_ui;
     static WeaponCard* m_weaponCard;

@@ -19,7 +19,7 @@ Board Board::m_instance;
 // Constructor:
 Board* Board::remakeInstance()
 {
-    m_instance = Board::Board();
+    m_instance = Board();
     return &m_instance;
 }
 

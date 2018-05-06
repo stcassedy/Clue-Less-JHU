@@ -12,6 +12,8 @@
 #include "Board.h"
 #include "ClientWindow.h"
 
+#include <QDebug>
+
 //---------------------------------------------------------------
 //Static Variables:
 ClientManager ClientManager::m_instance;
@@ -49,6 +51,12 @@ void ClientManager::setClientWindow(ClientWindow* clientWindow)
     m_clientWindow = clientWindow;
 }
 
+ClientWindow* ClientManager::getClientWindow()
+{
+    //returns a pointer to the client window
+    return m_clientWindow;
+}
+
 void ClientManager::movePlayer(BoardElement* destination)
 {
     //gets the current player object
@@ -75,6 +83,10 @@ bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
     suggestionEnv.setPlayerCard(player);
     suggestionEnv.setWeaponCard(weapon);
 
+    qDebug() << "Accused Room: " << room->getCardName();
+    qDebug() << "Accused Player: " << player->getCardName();
+    qDebug() << "Accused Weapon: " << weapon->getCardName();
+
     //gets the hidden envelope
     Envelope* env = Board::getInstance()->getHiddenEnvelope();
 
@@ -86,7 +98,10 @@ bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
     return win_game;
 }
 
-
+void ClientManager::refuteSuggestion(Card* card)
+{
+    qDebug() << "Refute Card: " << card->getCardName();
+}
 
 bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
                                    WeaponCard *weapon)
@@ -101,6 +116,10 @@ bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
     accusationEnv.setRoomCard(room);
     accusationEnv.setPlayerCard(player);
     accusationEnv.setWeaponCard(weapon);
+
+    qDebug() << "Accused Room: " << room->getCardName();
+    qDebug() << "Accused Player: " << player->getCardName();
+    qDebug() << "Accused Weapon: " << weapon->getCardName();
 
     //gets the hidden envelope
     Envelope* env = Board::getInstance()->getHiddenEnvelope();

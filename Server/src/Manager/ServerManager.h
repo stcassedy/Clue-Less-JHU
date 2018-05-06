@@ -4,6 +4,7 @@
 #include <Server.h>
 #include <Board.h>
 #include <ServerWindow.h>
+#include <ServerProtocol.h>
 
 class ServerWindow;
 

@@ -4,6 +4,7 @@
 #include <QDataStream>
 #include <QTcpSocket>
 #include <QTcpServer>
+#include <QVector>
 #include <stdlib.h>
 
 class Server : public QTcpServer
@@ -11,7 +12,7 @@ class Server : public QTcpServer
     Q_OBJECT
 
 public:
-    Server();
+    Server(int maxPlayers);
     void send(QString data, int playerIndex);
     void send_all(QString data);
     int read_sockets();
@@ -25,9 +26,10 @@ protected:
     void incomingConnection(qintptr socketDescriptor) override;
 
 private:
-    QTcpSocket * sockets_[6];
-    bool socketUsed_[6] {};
+    QVector<QTcpSocket*> sockets_;
+    QVector<bool> socketUsed_;
     int numConnected_;
+    int maxPlayers_;
     QByteArray buffer_;
 
 };

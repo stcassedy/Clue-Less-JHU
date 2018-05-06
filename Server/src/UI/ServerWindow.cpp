@@ -34,6 +34,7 @@ void ServerWindow::on_serverStartStop_toggled(bool checked)
         //TODO: Start Server
         m_ui->serverStartStop->setText("Stop");
         m_ui->numPlayers->setDisabled(true);
+        serverManager_ = ServerManager::start_server_manager(m_ui->numPlayers->value());
     }
     else
     {
@@ -41,10 +42,6 @@ void ServerWindow::on_serverStartStop_toggled(bool checked)
         //TODO: Stop Server
         m_ui->serverStartStop->setText("Start");
         m_ui->numPlayers->setDisabled(false);
+        delete(serverManager_);
     }
-}
-
-void ServerWindow::on_numPlayers_valueChanged(int value)
-{
-    //TODO: Change numPlayers in ServerManager
 }

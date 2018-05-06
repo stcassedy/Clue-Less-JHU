@@ -5,6 +5,7 @@
 #define SERVERWINDOW_H
 
 #include <QMainWindow>
+#include <ServerManager.h>
 
 //declares UI namespace
 namespace Ui {
@@ -37,11 +38,11 @@ private slots:
      * @param checked bool true if checked, false otherwise
      */
     void on_serverStartStop_toggled(bool checked);
-    void on_numPlayers_valueChanged(int value);
 
 private:
     //Member Variables
     Ui::ServerWindow *m_ui;
+    ServerManager * serverManager_;
 };
 
 #endif // SERVERWINDOW_H

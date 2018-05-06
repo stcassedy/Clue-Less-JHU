@@ -1,30 +1,30 @@
 #include "Server.h"
 
-Server::Server()
+Server::Server(int maxPlayers) : maxPlayers_(maxPlayers)
 {
-    for (int i = 0; i < 6; ++i)
+    for (int i = 0; i < maxPlayers_; ++i)
     {
-        sockets_[i] = new QTcpSocket(this);
+        sockets_.append(new QTcpSocket(this));
+        socketUsed_.append(false);
     }
     numConnected_ = 0;
 }
 
 void Server::incomingConnection(qintptr socketDescriptor)
 {
+    if (numConnected_ == maxPlayers_)
+    {
+        return;
+    }
     int openSlot = 0;
-    for (int i = 0; i < 6; ++i)
+    for (int i = 0; i < maxPlayers_; ++i)
     {
         if (!socketUsed_[i])
         {
             openSlot = i;
             break;
         }
-        if (i == 5)
-        {
-            return;
-        }
     }
-
     if (!sockets_[openSlot]->setSocketDescriptor(socketDescriptor))
     {
         emit error(sockets_[openSlot]->error());
@@ -46,7 +46,7 @@ void Server::send(QString data, int playerIndex)
 
 void Server::send_all(QString data)
 {
-    for (int playerIndex = 0; playerIndex < 6; ++playerIndex)
+    for (int playerIndex = 0; playerIndex < maxPlayers_; ++playerIndex)
     {
         if (socketUsed_[playerIndex])
         {
@@ -57,7 +57,7 @@ void Server::send_all(QString data)
 
 int Server::read_sockets()
 {
-    for (int playerIndex = 0; playerIndex < 6; ++playerIndex)
+    for (int playerIndex = 0; playerIndex < maxPlayers_; ++playerIndex)
     {
         if (!socketUsed_[playerIndex])
         {
@@ -82,4 +82,5 @@ void Server::disconnect(int playerIndex)
     sockets_[playerIndex]->disconnectFromHost();
     sockets_[playerIndex]->waitForDisconnected();
     socketUsed_[playerIndex] = false;
+    --numConnected_;
 }

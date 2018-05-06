@@ -50,7 +50,8 @@ SOURCES += \
     ../../Common/src/Board/RoomCard.cpp \
     ../../Common/src/Board/PlayerCard.cpp \
     ../src/Server/Server.cpp \
-    ../../Server/src/Manager/ServerManager.cpp
+    ../../Server/src/Manager/ServerManager.cpp \
+    ../../Common/src/ServerProtocol.cpp
 
 HEADERS += \
     ../src/UI/ServerWindow.h \

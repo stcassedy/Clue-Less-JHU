@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>858</width>
-    <height>653</height>
+    <width>972</width>
+    <height>723</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -681,7 +681,7 @@ border-radius: 5px;
        </layout>
       </widget>
       <widget class="QWidget" name="pgBoard">
-       <layout class="QVBoxLayout" name="verticalLayout_28">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <widget class="QScrollArea" name="scrollArea">
           <property name="widgetResizable">
@@ -692,7 +692,7 @@ border-radius: 5px;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>803</width>
+             <width>917</width>
              <height>728</height>
             </rect>
            </property>
@@ -1032,6 +1032,111 @@ border-radius: 5px;
                    </property>
                    <property name="text">
                     <string>End Turn</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="gbYourCharacter">
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>200</width>
+                  <height>50</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="title">
+                 <string>Your Character</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_28">
+                 <item>
+                  <widget class="QLabel" name="lbCharacterScarlet">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel {
+color: rgb(255,36,0);
+font-weight: bold;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Miss Scarlet</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbCharacterMustard">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel {
+color: rgb(255,219,88);
+font-weight: bold;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Col. Mustard</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbCharacterWhite">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel {
+color: rgb(255,255,255);
+font-weight: bold;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Mrs. White</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbCharacterGreen">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel {
+color: rgb(34,200,34);
+font-weight: bold;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Mr. Green</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbCharacterPeacock">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel {
+color: rgb(50,160,180);
+font-weight: bold;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Mrs. Peacock</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="lbCharacterPlum">
+                   <property name="styleSheet">
+                    <string notr="true">QLabel {
+color: rgb(255,187,255);
+font-weight: bold;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Prof. Plum</string>
                    </property>
                   </widget>
                  </item>
@@ -4132,7 +4237,7 @@ border: none
 }</string>
              </property>
              <property name="text">
-              <string>ERROR</string>
+              <string>Sorry :(</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -4154,7 +4259,7 @@ border: none
 }</string>
              </property>
              <property name="text">
-              <string>No Server Connection</string>
+              <string>No Server Connection or Server is Busy</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -4308,7 +4413,7 @@ border-radius: 5px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>858</width>
+     <width>972</width>
      <height>21</height>
     </rect>
    </property>

@@ -84,6 +84,11 @@ private slots:
      */
     void on_btnViewNotebook_clicked();
 
+    /**
+     * @brief on_btnEndTurn_clicked handles the end turn button being pressed
+     */
+    void on_btnEndTurn_clicked();
+
 private:
     /**
      * @brief hideAllPlayerLabels hides all of the player labels
@@ -125,6 +130,41 @@ private:
      * BoardElement objects
      */
     void updateBoardElementUI();
+
+    /**
+     * @brief updateWeaponCardList updates the weapon card list
+     */
+    void updateWeaponCardList();
+
+    /**
+     * @brief updateRoomCardList updates the room card list
+     */
+    void updateRoomCardList();
+
+    /**
+     * @brief updatePlayerCardList updates the player card list
+     */
+    void updatePlayerCardList();
+
+    /**
+     * @brief updatePlayerCharacter updates the player's character
+     */
+    void updatePlayerCharacter();
+
+    /**
+     * @brief updatePlayerTurn updates the player turn shown
+     */
+    void updatePlayerTurn();
+
+    /**
+     * @brief updateStartGamePage updates the start game phase
+     */
+    void updateStartGamePage();
+
+    /**
+     * @brief updateActionButtons enables/disables action buttons
+     */
+    void updateActionButtons();
 
     //Member Variables
     Ui::ClientWindow *m_ui;

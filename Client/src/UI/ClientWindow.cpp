@@ -5,11 +5,15 @@
 #include "ui_ClientWindow.h"
 #include "Board.h"
 #include "Player.h"
+#include "ClientManager.h"
+#include "WeaponCard.h"
+#include "RoomCard.h"
+#include "PlayerCard.h"
 
 // -----------------------------------------------------------------------------
 // Constants:
 static const int START_PAGE = 0;
-static const int CHARACTER_SELECTION_PAGE = 1;
+static const int START_GAME_PAGE = 1;
 static const int GAME_BOARD_PAGE = 2;
 static const int CONNECTION_ERROR_PAGE = 3;
 static const QString READY_TEXT = "Ready!";
@@ -54,6 +58,9 @@ ClientWindow::~ClientWindow()
 // Public:
 void ClientWindow::updateUI()
 {
+    //update start game page
+    updateStartGamePage();
+
     //hides all of the player location labels
     hideAllPlayerLabels();
 
@@ -64,29 +71,43 @@ void ClientWindow::updateUI()
     updateGreenLocation();
     updatePeacockLocation();
     updatePlumLocation();
+
+    //updates card lists
+    updateWeaponCardList();
+    updateRoomCardList();
+    updatePlayerCardList();
+
+    //updates the player character
+    updatePlayerCharacter();
+
+    //updates player turn
+    updatePlayerTurn();
+
+    //updates the action buttons
+    updateActionButtons();
 }
 
 // -----------------------------------------------------------------------------
 // Private Slots:
 void ClientWindow::on_btnJoinGame_clicked()
 {
-    //if there is a connection to the server
-//    if ()
-//    {
-        //show character selection page
-    m_ui->stackedWidget->setCurrentIndex(CHARACTER_SELECTION_PAGE);
-//    }
-//    else
-//    {
-//        //show connection error page
-//        ui->stackedWidget->setCurrentIndex(CONNECTION_ERROR_PAGE);
-//    }
+    //TODO: makes sure a connection to the server is established
+    if (ClientManager::getInstance()->serverConnected())
+    {
+        //shows start game page
+        m_ui->stackedWidget->setCurrentIndex(START_GAME_PAGE);
+    }
+    else
+    {
+        //shows connection error
+        m_ui->stackedWidget->setCurrentIndex(CONNECTION_ERROR_PAGE);
+    }
 
     //Prepares the start game widgets
-//    ui->btnStartGame->setDisabled(true);
+    m_ui->btnStartGame->setDisabled(true);
 
-    //TODO: determine player number from server
-    //enables the combo box and ready button for the player
+    //updates the UI
+    updateUI();
 }
 
 void ClientWindow::on_btnStartGame_clicked()
@@ -94,8 +115,11 @@ void ClientWindow::on_btnStartGame_clicked()
     //show game board page
     m_ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
 
-    //TODO: load current board state
+    //notifies ClientManager of start command
+    ClientManager::getInstance()->startGame();
 
+    //updates the UI
+    updateUI();
 }
 
 void ClientWindow::on_btnAckNoServer_clicked()
@@ -132,6 +156,12 @@ void ClientWindow::on_btnViewNotebook_clicked()
 {
     //shows the notebook dialog
     m_notebookDlg.show();
+}
+
+void ClientWindow::on_btnEndTurn_clicked()
+{
+    //notifies the client manager that the player ends their turn
+    ClientManager::getInstance()->endTurn();
 }
 
 // -----------------------------------------------------------------------------
@@ -391,5 +421,241 @@ void ClientWindow::updateBoardElementUI()
     elem->setGreenLabel(m_ui->lbHallway12Green);
     elem->setPeacockLabel(m_ui->lbHallway12Peacock);
     elem->setPlumLabel(m_ui->lbHallway12Plum);
+}
 
+void ClientWindow::updateWeaponCardList()
+{
+    //gets the player weapon cards
+    Player* player = ClientManager::getInstance()->getCurrentPlayer();
+    QList<WeaponCard*> weaponList = player->getWeaponCards();
+
+    //clears old list
+    m_ui->listWeapons->clear();
+
+    //iterates through the weapon list
+    for (int i = 0; i < weaponList.size(); ++i)
+    {
+        //gets the weapon card name and adds it to the list widget
+        QString weaponString = weaponList.at(i)->getCardName();
+        m_ui->listWeapons->addItem(weaponString);
+    }
+}
+
+void ClientWindow::updateRoomCardList()
+{
+    //gets the player room cards
+    Player* player = ClientManager::getInstance()->getCurrentPlayer();
+    QList<RoomCard*> roomList = player->getRoomCards();
+
+    //clears old list
+    m_ui->listRooms->clear();
+
+    //iterates through the room list
+    for (int i = 0; i < roomList.size(); ++i)
+    {
+        //gets the room card name and adds it to the list widget
+        QString roomString = roomList.at(i)->getCardName();
+        m_ui->listRooms->addItem(roomString);
+    }
+}
+
+void ClientWindow::updatePlayerCardList()
+{
+    //gets the player suspect cards
+    Player* player = ClientManager::getInstance()->getCurrentPlayer();
+    QList<PlayerCard*> suspectList = player->getPlayerCards();
+
+    //clears old list
+    m_ui->listSuspects->clear();
+
+    //iterates through the suspect list
+    for (int i = 0; i < suspectList.size(); ++i)
+    {
+        //gets the suspect card name and adds it to the list widget
+        QString suspectString = suspectList.at(i)->getCardName();
+        m_ui->listSuspects->addItem(suspectString);
+    }
+}
+
+void ClientWindow::updatePlayerCharacter()
+{
+    //gets the player whose turn it is
+    Player* player = ClientManager::getInstance()->getCurrentPlayer();
+
+    //hides all of the player labels
+    m_ui->lbCharacterScarlet->hide();
+    m_ui->lbCharacterMustard->hide();
+    m_ui->lbCharacterWhite->hide();
+    m_ui->lbCharacterGreen->hide();
+    m_ui->lbCharacterPeacock->hide();
+    m_ui->lbCharacterPlum->hide();
+
+    //determines player label to show
+    if (player->getPlayerNum() == MISS_SCARLET)
+    {
+        m_ui->lbCharacterScarlet->show();
+    }
+    else if (player->getPlayerNum() == COL_MUSTARD)
+    {
+        m_ui->lbCharacterMustard->show();
+    }
+    else if (player->getPlayerNum() == MRS_WHITE)
+    {
+        m_ui->lbCharacterWhite->show();
+    }
+    else if (player->getPlayerNum() == MR_GREEN)
+    {
+        m_ui->lbCharacterGreen->show();
+    }
+    else if (player->getPlayerNum() == MRS_PEACOCK)
+    {
+        m_ui->lbCharacterPeacock->show();
+    }
+    else
+    {
+        m_ui->lbCharacterPlum->show();
+    }
+}
+
+void ClientWindow::updatePlayerTurn()
+{
+    //gets the player whose turn it is
+    Player* player = ClientManager::getInstance()->getCurrentPlayerTurn();
+
+    //hides all of the player labels
+    m_ui->lbCurrentPlayerScarlet->hide();
+    m_ui->lbCurrentPlayerMustard->hide();
+    m_ui->lbCurrentPlayerWhite->hide();
+    m_ui->lbCurrentPlayerGreen->hide();
+    m_ui->lbCurrentPlayerPeacock->hide();
+    m_ui->lbCurrentPlayerPlum->hide();
+
+    //determines player label to show
+    if (player->getPlayerNum() == MISS_SCARLET)
+    {
+        m_ui->lbCurrentPlayerScarlet->show();
+    }
+    else if (player->getPlayerNum() == COL_MUSTARD)
+    {
+        m_ui->lbCurrentPlayerMustard->show();
+    }
+    else if (player->getPlayerNum() == MRS_WHITE)
+    {
+        m_ui->lbCurrentPlayerWhite->show();
+    }
+    else if (player->getPlayerNum() == MR_GREEN)
+    {
+        m_ui->lbCurrentPlayerGreen->show();
+    }
+    else if (player->getPlayerNum() == MRS_PEACOCK)
+    {
+        m_ui->lbCurrentPlayerPeacock->show();
+    }
+    else
+    {
+        m_ui->lbCurrentPlayerPlum->show();
+    }
+}
+
+void ClientWindow::updateStartGamePage()
+{
+    //gets the number of connected players
+    int numPlayers = ClientManager::getInstance()->getNumberOfPlayers();
+
+    //sets all players to not ready
+    m_ui->lbReadyPlayer1->setText(NOT_READY_TEXT);
+    m_ui->lbReadyPlayer2->setText(NOT_READY_TEXT);
+    m_ui->lbReadyPlayer3->setText(NOT_READY_TEXT);
+    m_ui->lbReadyPlayer4->setText(NOT_READY_TEXT);
+    m_ui->lbReadyPlayer5->setText(NOT_READY_TEXT);
+    m_ui->lbReadyPlayer6->setText(NOT_READY_TEXT);
+
+    //updates the player ready status
+    if (numPlayers >= 1)
+    {
+        m_ui->lbReadyPlayer1->setText(READY_TEXT);
+    }
+    if (numPlayers >= 2)
+    {
+        m_ui->lbReadyPlayer2->setText(READY_TEXT);
+    }
+    if (numPlayers >= 3)
+    {
+        m_ui->lbReadyPlayer3->setText(READY_TEXT);
+    }
+    if (numPlayers >= 4)
+    {
+        m_ui->lbReadyPlayer4->setText(READY_TEXT);
+    }
+    if (numPlayers >= 5)
+    {
+        m_ui->lbReadyPlayer5->setText(READY_TEXT);
+    }
+    if (numPlayers == 6)
+    {
+        m_ui->lbReadyPlayer6->setText(READY_TEXT);
+    }
+
+    //enables/disables the start button
+    bool startGame = numPlayers >= 3;
+    m_ui->btnStartGame->setEnabled(startGame);
+}
+
+void ClientWindow::updateActionButtons()
+{
+    //disables all action buttons
+    m_ui->btnNavigateBoard->setEnabled(false);
+    m_ui->btnMakeSuggestion->setEnabled(false);
+    m_ui->btnRefute->setEnabled(false);
+    m_ui->btnMakeAccusation->setEnabled(false);
+    m_ui->btnEndTurn->setEnabled(false);
+
+    //gets the current player and their location
+    Player* player = ClientManager::getInstance()->getCurrentPlayer();
+    BoardElement* elem = player->getCurrentLocation();
+
+    //checks if it is the current players turn or not
+    if (ClientManager::getInstance()->getCurrentPlayer() ==
+        ClientManager::getInstance()->getCurrentPlayerTurn())
+    {
+        //Gets the current game phase
+        GamePhaseEnum phase =
+                ClientManager::getInstance()->getCurrentGamePhase();
+
+        //determines the Game Phase
+        if (phase == MOVE)
+        {
+            //enables the navigate board button
+            m_ui->btnNavigateBoard->setEnabled(true);
+        }
+        else if (phase == SUGGESTION)
+        {
+            //checks if the player is in a rooom
+            if (elem->getBoardElementType() == ROOM)
+            {
+                //enables the make suggetsion button
+                m_ui->btnMakeSuggestion->setEnabled(true);
+            }
+
+            //enables the end turn button
+            m_ui->btnEndTurn->setEnabled(true);
+        }
+        else if (phase == REFUTATION)
+        {
+            //enables the refute button
+            m_ui->btnRefute->setEnabled(true);
+        }
+        else if (phase == ACCUSATION)
+        {
+            //checks if the player is in a room
+            if (elem->getBoardElementType() == ROOM)
+            {
+                //enables the make accusation button
+                m_ui->btnMakeAccusation->setEnabled(true);
+            }
+
+            //enables the end turn button
+            m_ui->btnEndTurn->setEnabled(true);
+        }
+    }
 }

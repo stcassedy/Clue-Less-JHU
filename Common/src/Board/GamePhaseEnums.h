@@ -14,7 +14,6 @@ enum GamePhaseEnum
     ACCUSATION,
     REFUTATION,
     START_GAME,
-    GAME_LOBBY,
     WIN_GAME
 };
 

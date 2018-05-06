@@ -27,10 +27,11 @@ private:
     // Member Variables
     static ClientManager m_instance;
     PlayerEnum m_currentPlayer;
-    bool m_currentPlayerTurn;
+    PlayerEnum m_currentPlayerTurn;
     GamePhaseEnum m_currentPhase;
     int m_numberOfPlayers;
     ClientWindow* m_clientWindow;
+    bool m_serverConnection;
 
 public:
     /**
@@ -50,6 +51,11 @@ public:
      * @return clientWindow*
      */
     ClientWindow* getClientWindow();
+
+    /**
+     * @brief startGame commands server to start the game
+     */
+    void startGame();
 
     /**
      * @brief movePlayer
@@ -89,11 +95,6 @@ public:
     void changePlayerCharacter(PlayerEnum character, std::string playerName);
 
     /**
-     * @brief startGame
-     */
-    void startGame();
-
-    /**
      * @brief sendGameUpdate
      * @param clientUpdate
      */
@@ -104,6 +105,11 @@ public:
      * @param gameState
      */
     void receiveGameState(std::string gameState);
+
+    /**
+     * @brief endTurn handles a player choosing to end their turn
+     */
+    void endTurn();
 
     /**
      * @brief connectToServer
@@ -117,6 +123,12 @@ public:
     Player* getCurrentPlayer();
 
     /**
+     * @brief getCurrentPlayerTurn return the player whose turn it is
+     * @return Player*
+     */
+    Player* getCurrentPlayerTurn();
+
+    /**
      * @brief getCurrentGamePhase returns the current game phase
      * @return GamePhaseEnum
      */
@@ -127,6 +139,12 @@ public:
      * @return int
      */
     int getNumberOfPlayers();
+
+    /**
+     * @brief serverConnected determines if connected to the server
+     * @return bool true if server is connected, false otherwise
+     */
+    bool serverConnected();
 
 };
 

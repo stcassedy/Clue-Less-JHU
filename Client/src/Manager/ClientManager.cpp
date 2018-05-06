@@ -22,12 +22,15 @@ ClientManager ClientManager::m_instance;
 //Constructor:
 ClientManager::ClientManager() :
     m_currentPlayer(MISS_SCARLET),
-    m_currentPlayerTurn(false),
-    m_currentPhase(GAME_LOBBY),
-    m_numberOfPlayers(1),
-    m_clientWindow(NULL)
+    m_currentPlayerTurn(MISS_SCARLET),
+    m_currentPhase(MOVE),
+    m_numberOfPlayers(4),
+    m_clientWindow(NULL),
+    m_serverConnection(true)
 {
-
+    //TODO: game phase should start in GAME START phase
+    //TODO: number of players should not start at 3
+    //TODO: server connection should not start as true
 }
 
 //---------------------------------------------------------------
@@ -55,6 +58,12 @@ ClientWindow* ClientManager::getClientWindow()
 {
     //returns a pointer to the client window
     return m_clientWindow;
+}
+
+void ClientManager::startGame()
+{
+    //tell server to start the game!
+    qDebug() << "Start Game!";
 }
 
 void ClientManager::movePlayer(BoardElement* destination)
@@ -132,6 +141,12 @@ bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
     return win_game;
 }
 
+void ClientManager::endTurn()
+{
+    //TODO: Notify server the player ends their turn without an accusation
+    qDebug() << "End Turn.";
+}
+
 Player* ClientManager::getCurrentPlayer()
 {
     //returns the client player
@@ -139,8 +154,27 @@ Player* ClientManager::getCurrentPlayer()
     return player;
 }
 
+Player* ClientManager::getCurrentPlayerTurn()
+{
+    //returns the player whose turn it is
+    Player* player = Board::getInstance()->getPlayer(m_currentPlayerTurn);
+    return player;
+}
+
 GamePhaseEnum ClientManager::getCurrentGamePhase()
 {
     //returns the current game phase
     return m_currentPhase;
+}
+
+int ClientManager::getNumberOfPlayers()
+{
+    //returns the current number of players
+    return m_numberOfPlayers;
+}
+
+bool ClientManager::serverConnected()
+{
+    //returns the server connection status
+    return m_serverConnection;
 }

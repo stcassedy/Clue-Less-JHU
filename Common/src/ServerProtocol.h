@@ -40,21 +40,21 @@ public:
 class Suggestion : public Action
 {
 public:
-    Suggestion(PlayerEnum playerSource, PlayerEnum playerSuggested, LocationEnum location, WeaponEnum weapon)
+    Suggestion(PlayerEnum playerSource, CardEnum playerSuggested, CardEnum location, CardEnum weapon)
         : Action(playerSource, MessageType::SUGGESTION), playerSuggested(playerSuggested), location(location), weapon(weapon) {}
-    PlayerEnum playerSuggested;
-    LocationEnum location;
-    WeaponEnum weapon;
+    CardEnum playerSuggested;
+    CardEnum location;
+    CardEnum weapon;
 };
 
 class Accusation : public Action
 {
 public:
-    Accusation(PlayerEnum playerSource, PlayerEnum playerAccused, LocationEnum location, WeaponEnum weapon)
+    Accusation(PlayerEnum playerSource, CardEnum playerAccused, CardEnum location, CardEnum weapon)
         : Action(playerSource, MessageType::ACCUSATION), playerAccused(playerAccused), location(location), weapon(weapon) {}
-    PlayerEnum playerAccused;
-    LocationEnum location;
-    WeaponEnum weapon;
+    CardEnum playerAccused;
+    CardEnum location;
+    CardEnum weapon;
 };
 
 class Refutation : public Action

@@ -113,13 +113,13 @@ namespace protocol
             {
                 return action;
             }
-            action = new Suggestion((PlayerEnum)(int)ba[3], (PlayerEnum)(int)ba[4], (LocationEnum)(int)ba[5], (WeaponEnum)(int)ba[6]);
+            action = new Suggestion((PlayerEnum)(int)ba[3], (CardEnum)(int)ba[4], (CardEnum)(int)ba[5], (CardEnum)(int)ba[6]);
         case MessageType::ACCUSATION :
             if (messageLength < 7)
             {
                 return action;
             }
-            action = new Accusation((PlayerEnum)(int)ba[3], (PlayerEnum)(int)ba[4], (LocationEnum)(int)ba[5], (WeaponEnum)(int)ba[6]);
+            action = new Accusation((PlayerEnum)(int)ba[3], (CardEnum)(int)ba[4], (CardEnum)(int)ba[5], (CardEnum)(int)ba[6]);
         case MessageType::REFUTATION :
             if (messageLength < 6)
             {

@@ -86,6 +86,19 @@ namespace protocol
         return ba;
     }
 
+    QByteArray form_change_turn(ChangeTurn turn)
+    {
+        QByteArray ba;
+        ba.resize(6);
+        ba[0] = 0x06;
+        ba[1] = 0x00;
+        ba[2] = MessageType::CHANGE_TURN;
+        ba[3] = turn.playerSource;
+        ba[4] = turn.activePlayer;
+        ba[5] = turn.gamePhase;
+        return ba;
+    }
+
     // Use DerivedClass * c = static_cast<DerivedClass>(baseClassPointer) to retrieve the derived class
     // once you've checked baseClassPointer->messageType.
     Action * parse_message(QByteArray ba)
@@ -98,7 +111,6 @@ namespace protocol
             return action;
         }
         MessageType messageType = (MessageType)(int)ba[2];
-
 
         switch(messageType) // No 'break' means all cases continue to default.
         {
@@ -153,6 +165,12 @@ namespace protocol
                 return action;
             }
             action = new PlayerConnect((PlayerEnum)(int)ba[3]);
+        case MessageType::CHANGE_TURN :
+            if (messageLength < 6)
+            {
+                return action;
+            }
+            action = new ChangeTurn((PlayerEnum)(int)ba[3], (PlayerEnum)(int)ba[4], (GamePhaseEnum)(int)ba[5]);
         default:
             return action;
         }

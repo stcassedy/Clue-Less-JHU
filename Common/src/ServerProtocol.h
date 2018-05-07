@@ -3,6 +3,7 @@
 
 #include <QByteArray>
 #include <BoardEnums.h>
+#include <GamePhaseEnums.h>
 #include <Board.h>
 #include <Card.h>
 #include <Player.h>
@@ -16,7 +17,8 @@ enum MessageType
     ACCUSATION,
     REFUTATION,
     INITIALIZATION = 0x20,
-    PLAYER_CONNECT
+    PLAYER_CONNECT,
+    CHANGE_TURN
 };
 
 class Action
@@ -83,12 +85,23 @@ public:
     PlayerEnum playerAssignment;
 };
 
+class ChangeTurn : public Action
+{
+public:
+    // prevPlayer and nextPlayer can be the same.
+    ChangeTurn(PlayerEnum playerSource, PlayerEnum activePlayer, GamePhaseEnum gamePhase)
+        : Action(playerSource, MessageType::CHANGE_TURN), activePlayer(activePlayer), gamePhase(gamePhase) {}
+    PlayerEnum activePlayer;
+    GamePhaseEnum gamePhase;
+};
+
     QByteArray form_movement(Movement movement);
     QByteArray form_suggestion(Suggestion suggestion);
     QByteArray form_accusation(Accusation accusation);
     QByteArray form_refutation(Refutation refutation);
     QByteArray form_initialization(Initialization init);
     QByteArray form_player_connect(PlayerConnect conn);
+    QByteArray form_change_turn(ChangeTurn turn);
     Action * parse_message(QByteArray ba);
 
 }

@@ -92,63 +92,106 @@ void ClientManager::movePlayer(BoardElement* destination)
 bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
                                    WeaponCard* weapon)
 {
-    //NOTE: Win game logic belongs more in the server manager than client
-    //we should just be sending the suggestion information to the server
+    //Get current player info
+    Player* curPlayer = Board::getInstance()->getPlayer(m_currentPlayer);
 
-    bool win_game = false;
-
-    //creates suggestion envelope
-    Envelope suggestionEnv;
-    suggestionEnv.setRoomCard(room);
-    suggestionEnv.setPlayerCard(player);
-    suggestionEnv.setWeaponCard(weapon);
-
-    qDebug() << "Accused Room: " << room->getCardName();
-    qDebug() << "Accused Player: " << player->getCardName();
+    qDebug() << "Suggested Room: " << room->getCardName();
+    qDebug() << "Suggested Player: " << player->getCardName();
     qDebug() << "Accused Weapon: " << weapon->getCardName();
 
-    //gets the hidden envelope
-    Envelope* env = Board::getInstance()->getHiddenEnvelope();
 
-    //compares suggestion to hidden envelope
-    if(env->isAccusationCorrect(&suggestionEnv))
-    {
-        win_game = true;
-    }
-    return win_game;
+    //Build up message to send to server
+    //Uncomment below once enums are figured out
+//    protocol::Suggestion* suggestion =
+//            new protocol::Suggestion(curPlayer->getPlayerNum(), player->getCardIdentifier(), room->getCardIdentifier(), weapon->getCardIdentifier());
+//    QByteArray suggestionMessage = protocol::form_suggestion(*suggestion);
+
+    //Send message through connection
+//    m_tcpConnection->send(suggestionMessage);
+
+    //Leaving in below code since we're still returning a bool. Probably wanna change this
+    bool suggestion_refuted = false;
+
+    //creates suggestion envelope
+//    Envelope suggestionEnv;
+//    suggestionEnv.setRoomCard(room);
+//    suggestionEnv.setPlayerCard(player);
+//    suggestionEnv.setWeaponCard(weapon);
+
+//    qDebug() << "Accused Room: " << room->getCardName();
+//    qDebug() << "Accused Player: " << player->getCardName();
+//    qDebug() << "Accused Weapon: " << weapon->getCardName();
+
+//    //gets the hidden envelope
+//    Envelope* env = Board::getInstance()->getHiddenEnvelope();
+
+//    //compares suggestion to hidden envelope
+//    if(env->isAccusationCorrect(&suggestionEnv))
+//    {
+//        win_game = true;
+//    }
+    return suggestion_refuted;
 }
 
 void ClientManager::refuteSuggestion(Card* card)
 {
+    //Get player info
+    Player* curPlayer = Board::getInstance()->getPlayer(m_currentPlayer);
+
+    //Get info for player's whos turn it is (suggesting player)
+    Player* suggestingPlayer = Board::getInstance()->getPlayer(m_currentPlayerTurn);
+
+    qDebug() << "Suggesting Player: " << suggestingPlayer->getPlayerNum();
+    qDebug() << "Refuting Player: " << curPlayer->getPlayerNum();
     qDebug() << "Refute Card: " << card->getCardName();
+
+    protocol::Refutation* refutation
+            = new protocol::Refutation(curPlayer->getPlayerNum(), suggestingPlayer->getPlayerNum(), card->getCardIdentifier());
+    QByteArray refutationMessage = protocol::form_refutation(*refutation);
+
+    //Send message through connection
+    m_tcpConnection->send(refutationMessage);
 }
 
 bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
                                    WeaponCard *weapon)
-{
-    //NOTE: Win game logic belongs more in the server manager than client
-    //we should just be sending the accusation information to the server
+{ 
+    //Get player info
+    Player* curPlayer = Board::getInstance()->getPlayer(m_currentPlayer);
 
-    bool win_game = false;
-
-    //creates accusation envelope
-    Envelope accusationEnv;
-    accusationEnv.setRoomCard(room);
-    accusationEnv.setPlayerCard(player);
-    accusationEnv.setWeaponCard(weapon);
-
+    qDebug() << "Accusing Player: " << curPlayer->getPlayerNum();
     qDebug() << "Accused Room: " << room->getCardName();
     qDebug() << "Accused Player: " << player->getCardName();
     qDebug() << "Accused Weapon: " << weapon->getCardName();
 
-    //gets the hidden envelope
-    Envelope* env = Board::getInstance()->getHiddenEnvelope();
+    //Uncomment below once enums are figured out
+//    protocol::Accusation* accusation
+//            = new protocol::Accusation(curPlayer->getPlayerNum(), player->getCardIdentifier(), room->getCardIdentifier(), weapon->getCardIdentifier());
+//    QByteArray accusationMessage = protocol::form_refutation(*accusation);
 
-    //compares suggestion to hidden envelope
-    if(env->isAccusationCorrect(&accusationEnv))
-    {
-        win_game = true;
-    }
+    //Send message through connection
+//    m_tcpConnection->send(accusationMessage);
+
+    bool win_game = false;
+
+    //creates accusation envelope
+//    Envelope accusationEnv;
+//    accusationEnv.setRoomCard(room);
+//    accusationEnv.setPlayerCard(player);
+//    accusationEnv.setWeaponCard(weapon);
+
+//    qDebug() << "Accused Room: " << room->getCardName();
+//    qDebug() << "Accused Player: " << player->getCardName();
+//    qDebug() << "Accused Weapon: " << weapon->getCardName();
+
+//    //gets the hidden envelope
+//    Envelope* env = Board::getInstance()->getHiddenEnvelope();
+
+//    //compares suggestion to hidden envelope
+//    if(env->isAccusationCorrect(&accusationEnv))
+//    {
+//        win_game = true;
+//    }
     return win_game;
 }
 

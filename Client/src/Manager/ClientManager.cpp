@@ -89,7 +89,7 @@ void ClientManager::movePlayer(BoardElement* destination)
     m_tcpConnection->send(moveMessage);
 }
 
-bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
+void ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
                                    WeaponCard* weapon)
 {
     //Get current player info
@@ -101,36 +101,12 @@ bool ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
 
 
     //Build up message to send to server
-    //Uncomment below once enums are figured out
-//    protocol::Suggestion* suggestion =
-//            new protocol::Suggestion(curPlayer->getPlayerNum(), player->getCardIdentifier(), room->getCardIdentifier(), weapon->getCardIdentifier());
-//    QByteArray suggestionMessage = protocol::form_suggestion(*suggestion);
+    protocol::Suggestion* suggestion =
+            new protocol::Suggestion(curPlayer->getPlayerNum(), player->getCardIdentifier(), room->getCardIdentifier(), weapon->getCardIdentifier());
+    QByteArray suggestionMessage = protocol::form_suggestion(*suggestion);
 
     //Send message through connection
-//    m_tcpConnection->send(suggestionMessage);
-
-    //Leaving in below code since we're still returning a bool. Probably wanna change this
-    bool suggestion_refuted = false;
-
-    //creates suggestion envelope
-//    Envelope suggestionEnv;
-//    suggestionEnv.setRoomCard(room);
-//    suggestionEnv.setPlayerCard(player);
-//    suggestionEnv.setWeaponCard(weapon);
-
-//    qDebug() << "Accused Room: " << room->getCardName();
-//    qDebug() << "Accused Player: " << player->getCardName();
-//    qDebug() << "Accused Weapon: " << weapon->getCardName();
-
-//    //gets the hidden envelope
-//    Envelope* env = Board::getInstance()->getHiddenEnvelope();
-
-//    //compares suggestion to hidden envelope
-//    if(env->isAccusationCorrect(&suggestionEnv))
-//    {
-//        win_game = true;
-//    }
-    return suggestion_refuted;
+    m_tcpConnection->send(suggestionMessage);
 }
 
 void ClientManager::refuteSuggestion(Card* card)
@@ -153,7 +129,7 @@ void ClientManager::refuteSuggestion(Card* card)
     m_tcpConnection->send(refutationMessage);
 }
 
-bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
+void ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
                                    WeaponCard *weapon)
 { 
     //Get player info
@@ -164,35 +140,13 @@ bool ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
     qDebug() << "Accused Player: " << player->getCardName();
     qDebug() << "Accused Weapon: " << weapon->getCardName();
 
-    //Uncomment below once enums are figured out
-//    protocol::Accusation* accusation
-//            = new protocol::Accusation(curPlayer->getPlayerNum(), player->getCardIdentifier(), room->getCardIdentifier(), weapon->getCardIdentifier());
-//    QByteArray accusationMessage = protocol::form_refutation(*accusation);
+    //Build up accusation message
+    protocol::Accusation* accusation
+            = new protocol::Accusation(curPlayer->getPlayerNum(), player->getCardIdentifier(), room->getCardIdentifier(), weapon->getCardIdentifier());
+    QByteArray accusationMessage = protocol::form_accusation(*accusation);
 
     //Send message through connection
-//    m_tcpConnection->send(accusationMessage);
-
-    bool win_game = false;
-
-    //creates accusation envelope
-//    Envelope accusationEnv;
-//    accusationEnv.setRoomCard(room);
-//    accusationEnv.setPlayerCard(player);
-//    accusationEnv.setWeaponCard(weapon);
-
-//    qDebug() << "Accused Room: " << room->getCardName();
-//    qDebug() << "Accused Player: " << player->getCardName();
-//    qDebug() << "Accused Weapon: " << weapon->getCardName();
-
-//    //gets the hidden envelope
-//    Envelope* env = Board::getInstance()->getHiddenEnvelope();
-
-//    //compares suggestion to hidden envelope
-//    if(env->isAccusationCorrect(&accusationEnv))
-//    {
-//        win_game = true;
-//    }
-    return win_game;
+    m_tcpConnection->send(accusationMessage);
 }
 
 void ClientManager::endTurn()

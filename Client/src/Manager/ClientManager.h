@@ -72,9 +72,8 @@ public:
      * @param room
      * @param player
      * @param weapon
-     * @return
      */
-    bool makeSuggestion(RoomCard *room, PlayerCard *player, WeaponCard *weapon);
+    void makeSuggestion(RoomCard *room, PlayerCard *player, WeaponCard *weapon);
 
     /**
      * @brief refuteSuggestion
@@ -87,9 +86,8 @@ public:
      * @param room
      * @param player
      * @param weapon
-     * @return
      */
-    bool makeAccusation(RoomCard* room, PlayerCard* player, WeaponCard* weapon);
+    void makeAccusation(RoomCard* room, PlayerCard* player, WeaponCard* weapon);
 
     /**
      * @brief changePlayerCharacter

@@ -151,8 +151,23 @@ void ClientManager::makeAccusation(RoomCard *room, PlayerCard *player,
 
 void ClientManager::endTurn()
 {
-    //TODO: Notify server the player ends their turn without an accusation
-    qDebug() << "End Turn.";
+    //Get player info
+    Player* curPlayer = Board::getInstance()->getPlayer(m_currentPlayer);
+
+    //TODO: Get next player
+    Player* nextPlayer = Board::getInstance()->getPlayer(m_currentPlayer);
+
+    qDebug() << "End Turn for Player " << curPlayer->getPlayerNum();
+    qDebug() << "Transition to Player " << nextPlayer->getPlayerNum();
+
+    //Build up the change turn message
+    protocol::ChangeTurn* changeTurn
+            = new protocol::ChangeTurn(curPlayer->getPlayerNum(), nextPlayer->getPlayerNum(), m_currentPhase);
+    QByteArray changeTurnMessage = protocol::form_change_turn(*changeTurn);
+
+    //Send message through connection
+    m_tcpConnection->send(changeTurnMessage);
+
 }
 
 void ClientManager::connectToServer()

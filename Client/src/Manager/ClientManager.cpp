@@ -170,17 +170,17 @@ void ClientManager::endTurn()
 
 }
 
-void ClientManager::connectToServer()
+void ClientManager::connectToServer(QString host, int port)
 {
-    QString host = "placeholder";
-    int port = 12321;
-
     //deletes the old connection
     if (m_tcpConnection != NULL)
     {
         delete m_tcpConnection;
         m_tcpConnection = NULL;
     }
+
+    qDebug() << "Host Address: " << host;
+    qDebug() << "Port: " << QString::number(port);
 
     //creates a new connection and attempts to open the connection
     m_tcpConnection = new Connection(host, port);

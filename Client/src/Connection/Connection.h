@@ -18,7 +18,7 @@ public:
     bool openConnection();
 
 private slots:
-    void error(QTcpSocket::SocketError err);
+    void onError(QAbstractSocket::SocketError err);
     void read();
 
 private:

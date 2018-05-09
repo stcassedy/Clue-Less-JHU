@@ -29,7 +29,7 @@
        <number>0</number>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pgStartPage">
        <layout class="QGridLayout" name="gridLayout_2">
@@ -92,6 +92,58 @@ border: none
               <set>Qt::AlignCenter</set>
              </property>
             </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="1" column="0">
+              <widget class="QLabel" name="lbServerPort">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+font-weight: bold;
+border: none;
+}</string>
+               </property>
+               <property name="text">
+                <string>Server Port:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="lbServerAddress">
+               <property name="styleSheet">
+                <string notr="true">QLabel {
+font-weight: bold;
+border: none;
+}</string>
+               </property>
+               <property name="text">
+                <string>Server Address:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="leServerAddress">
+               <property name="styleSheet">
+                <string notr="true">QLineEdit {
+color: black;
+background-color: white;
+border: 1px solid black;
+}</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leServerPort">
+               <property name="styleSheet">
+                <string notr="true">QLineEdit {
+color: black;
+background-color: white;
+border: 1px solid black;
+}</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">

@@ -1,5 +1,6 @@
 #include "Server.h"
 #include <QDebug>
+#include <QNetworkInterface>
 
 Server::Server(int maxPlayers) : maxPlayers_(maxPlayers)
 {
@@ -9,6 +10,11 @@ Server::Server(int maxPlayers) : maxPlayers_(maxPlayers)
         socketUsed_.append(false);
     }
     numConnected_ = 0;
+
+    foreach (const QHostAddress &address, QNetworkInterface::allAddresses()) {
+        if (address.protocol() == QAbstractSocket::IPv4Protocol && address != QHostAddress(QHostAddress::LocalHost))
+             qDebug() << address.toString();
+    }
 }
 
 void Server::incomingConnection(qintptr socketDescriptor)

@@ -9,8 +9,8 @@ Connection::Connection(QString host, int port)
     //connects signals/slots
     connect(socket_, SIGNAL(readyRead()),
                this, SLOT(read()));
-    connect(socket_, SIGNAL(error(QAbstractSocket::SocketError)),
-            this, SLOT(error(QAbstractSocket::SocketError)));
+    connect(socket_, SIGNAL(error(QTcpSocket::SocketError)),
+            this, SLOT(error(QTcpSocket::SocketError)));
     host_ = host;
     port_ = port;
 }
@@ -20,8 +20,8 @@ Connection::~Connection()
     //disconnects signal/slots
     disconnect(socket_, SIGNAL(readyRead()),
                this, SLOT(read()));
-    disconnect(socket_, SIGNAL(error(QAbstractSocket::SocketError)),
-            this, SLOT(error(QAbstractSocket::SocketError)));
+    disconnect(socket_, SIGNAL(error(QTcpSocket::SocketError)),
+            this, SLOT(error(QTcpSocket::SocketError)));
 
     //closes the socket on destruction
     socket_->close();
@@ -35,16 +35,11 @@ bool Connection::openConnection()
     return socket_->waitForConnected(1000);
 }
 
-void Connection::send(QString data)
+void Connection::send(QByteArray data)
 {
-    QByteArray block;
-    QDataStream out(&block, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_4_0);
-    out << data;
-
-    if (socket_->state() == QAbstractSocket::ConnectedState)
+    if (socket_->state() == QTcpSocket::ConnectedState)
     {
-        socket_->write(block);
+        socket_->write(data);
     }
 }
 
@@ -59,7 +54,7 @@ void Connection::read()
     ClientManager::getInstance()->processServerAction(act);
 }
 
-void Connection::error(QAbstractSocket::SocketError err)
+void Connection::error(QTcpSocket::SocketError err)
 {
     Q_UNUSED(err);
     qDebug() << "Socket Error: " << socket_->errorString();

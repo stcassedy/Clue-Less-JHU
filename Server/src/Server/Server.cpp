@@ -25,11 +25,15 @@ void Server::incomingConnection(qintptr socketDescriptor)
             break;
         }
     }
+    // Socket connects in if statement.
     if (!sockets_[openSlot]->setSocketDescriptor(socketDescriptor))
     {
         emit error(sockets_[openSlot]->error());
         return;
     }
+
+    connect(sockets_[openSlot], SIGNAL(QTcpSocket::readyRead()), this, SLOT(readyRead()), Qt::DirectConnection);
+
     socketUsed_[openSlot] = true;
     ++numConnected_;
 
@@ -40,16 +44,18 @@ void Server::incomingConnection(qintptr socketDescriptor)
 
 }
 
-void Server::send(QString data, int playerIndex)
+void Server::readyRead()
 {
-    QByteArray block;
-    QDataStream out(&block, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_4_0);
-    out << data;
-    sockets_[playerIndex]->write(block);
+    int playerIndex = read_sockets();
+    emit new_message(playerIndex, buffer_);
 }
 
-void Server::send_all(QString data)
+void Server::send(QByteArray data, int playerIndex)
+{
+    sockets_[playerIndex]->write(data);
+}
+
+void Server::send_all(QByteArray data)
 {
     for (int playerIndex = 0; playerIndex < maxPlayers_; ++playerIndex)
     {

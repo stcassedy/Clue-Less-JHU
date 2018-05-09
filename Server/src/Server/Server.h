@@ -13,15 +13,20 @@ class Server : public QTcpServer
 
 public:
     Server(int maxPlayers);
-    void send(QString data, int playerIndex);
-    void send_all(QString data);
+    void send(QByteArray data, int playerIndex);
+    void send_all(QByteArray data);
     int read_sockets();
+    QByteArray get_buffer() {return buffer_;}
     void disconnect(int playerIndex);
     void disconnect_all();
     int num_connected() {return numConnected_;}
 
 signals:
+    void new_message(int playerIndex, QByteArray data);
     void error(QTcpSocket::SocketError socketError);
+
+public slots:
+    void readyRead();
 
 protected:
     void incomingConnection(qintptr socketDescriptor) override;

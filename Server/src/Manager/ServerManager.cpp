@@ -2,6 +2,7 @@
 
 //---------------------------------------------------------------
 //Static Variables:
+
 ServerManager ServerManager::instance_;
 
 ServerWindow * ServerManager::window_ = NULL;
@@ -18,6 +19,11 @@ ServerManager::ServerManager(int numPlayers) : numPlayers_(numPlayers)
     window_->setAddress(server_->serverAddress().toString());
     window_->setPort(QString("%1").arg(server_->serverPort()));
     board_ = Board::remakeInstance();
+}
+
+void ServerManager::new_message(int playerIndex, QByteArray data)
+{
+    server_->send_all(data);
 }
 
 ServerManager* ServerManager::start_server_manager(int numPlayers)

@@ -5,6 +5,7 @@
 #include <Board.h>
 #include <ServerWindow.h>
 #include <ServerProtocol.h>
+#include <QEventLoop>
 
 class ServerWindow;
 
@@ -18,6 +19,9 @@ public:
     static void set_window_pointer(ServerWindow * serverWindow);
 
     void stop();
+
+public slots:
+    void new_message(int playerIndex, QByteArray data);
 
 private:
     ServerManager(int numPlayers = 0); // This constructor should continue until victory or end.

@@ -185,6 +185,10 @@ void ClientManager::connectToServer(QString host, int port)
     //creates a new connection and attempts to open the connection
     m_tcpConnection = new Connection(host, port);
     m_serverConnection = m_tcpConnection->openConnection();
+    if (!m_serverConnection)
+    {
+        qDebug() << "Connection timed out";
+    }
 }
 
 Player* ClientManager::getCurrentPlayer()
@@ -215,9 +219,6 @@ int ClientManager::getNumberOfPlayers()
 
 bool ClientManager::serverConnected()
 {
-    //returns the server connection status
-    //TODO: REMOVE FORCE TO TRUE (for testing purposes)
-    m_serverConnection = true;
     return m_serverConnection;
 }
 

@@ -31,6 +31,10 @@ Connection::~Connection()
 bool Connection::openConnection()
 {
     //attempts a connection
+    if (host_ == "Cheat")
+    {
+        return true;
+    }
     socket_->connectToHost(host_, port_);
     return socket_->waitForConnected(10000);
 }

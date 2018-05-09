@@ -52,6 +52,8 @@ void Connection::read()
     //reads message from socket
     buffer_ = socket_->readAll();
 
+    qDebug() << buffer_;
+
     //gets the protocol action and forwards it to the client manager for
     //processing
     protocol::Action* act = protocol::parse_message(buffer_);

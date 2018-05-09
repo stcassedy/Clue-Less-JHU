@@ -1,4 +1,5 @@
 #include "Server.h"
+#include <QDebug>
 
 Server::Server(int maxPlayers) : maxPlayers_(maxPlayers)
 {
@@ -36,6 +37,7 @@ void Server::incomingConnection(qintptr socketDescriptor)
 
     socketUsed_[openSlot] = true;
     ++numConnected_;
+    qDebug() << "Player " << openSlot + 1 << " connected.";
 
     send_all(protocol::form_player_connect(protocol::PlayerConnect((PlayerEnum) openSlot)));
 
@@ -50,11 +52,13 @@ void Server::incomingConnection(qintptr socketDescriptor)
 void Server::readyRead()
 {
     read_sockets();
+    qDebug() << "Received " << buffer_;
     send_all(buffer_);
 }
 
 void Server::send(QByteArray data, int playerIndex)
 {
+    qDebug() << "Sent " << data << " to player " << playerIndex + 1;
     sockets_[playerIndex]->write(data);
 }
 

@@ -16,9 +16,10 @@ public:
     void send(QByteArray data);
     QByteArray get_buffer() {return buffer_;}
     bool openConnection();
+    QString errorString() {return socket_->errorString();}
 
 private slots:
-    void error(QTcpSocket::SocketError err);
+    void error(QAbstractSocket::SocketError err);
     void read();
 
 private:

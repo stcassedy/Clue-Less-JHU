@@ -6,6 +6,7 @@
 #include <QTcpServer>
 #include <QVector>
 #include <stdlib.h>
+#include <ServerProtocol.h>
 
 class Server : public QTcpServer
 {
@@ -22,7 +23,7 @@ public:
     int num_connected() {return numConnected_;}
 
 signals:
-    void new_message(int playerIndex, QByteArray data);
+    void new_message(QByteArray data);
     void error(QTcpSocket::SocketError socketError);
 
 public slots:

@@ -37,11 +37,12 @@ void Server::incomingConnection(qintptr socketDescriptor)
     socketUsed_[openSlot] = true;
     ++numConnected_;
 
-    emit new_message(protocol::form_player_connect(protocol::PlayerConnect((PlayerEnum) openSlot)));
+    send_all(protocol::form_player_connect(protocol::PlayerConnect((PlayerEnum) openSlot)));
 
     if (numConnected_ == maxPlayers_)
     {
         close();
+        send_all(protocol::form_initialization(protocol::Initialization()));
     }
 
 }
@@ -49,7 +50,7 @@ void Server::incomingConnection(qintptr socketDescriptor)
 void Server::readyRead()
 {
     read_sockets();
-    emit new_message(buffer_);
+    send_all(buffer_);
 }
 
 void Server::send(QByteArray data, int playerIndex)

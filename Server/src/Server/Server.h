@@ -23,7 +23,6 @@ public:
     int num_connected() {return numConnected_;}
 
 signals:
-    void new_message(QByteArray data);
     void error(QTcpSocket::SocketError socketError);
 
 public slots:

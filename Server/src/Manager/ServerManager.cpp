@@ -21,11 +21,6 @@ ServerManager::ServerManager(int numPlayers) : numPlayers_(numPlayers)
     board_ = Board::remakeInstance();
 }
 
-void ServerManager::new_message(QByteArray data)
-{
-    server_->send_all(data);
-}
-
 ServerManager* ServerManager::start_server_manager(int numPlayers)
 {
     instance_ = ServerManager(numPlayers);

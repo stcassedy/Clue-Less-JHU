@@ -20,9 +20,6 @@ public:
 
     void stop();
 
-public slots:
-    void new_message(QByteArray data);
-
 private:
     ServerManager(int numPlayers = 0); // This constructor should continue until victory or end.
     void wait_for_players();

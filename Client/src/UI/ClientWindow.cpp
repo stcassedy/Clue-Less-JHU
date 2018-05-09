@@ -34,6 +34,9 @@ ClientWindow::ClientWindow(QWidget *parent) :
     m_ui->setupUi(this);
     setWindowTitle("Clue-Less");
 
+    //restricts line edit input
+    m_ui->leServerPort->setValidator(new QIntValidator(0, 99999, this));
+
     //defaults to start page
     m_ui->stackedWidget->setCurrentIndex(START_PAGE);
 
@@ -95,8 +98,11 @@ void ClientWindow::updateUI()
 // Private Slots:
 void ClientWindow::on_btnJoinGame_clicked()
 {
+    QString address = m_ui->leServerAddress->text();
+    int port = m_ui->leServerPort->text().toInt();
+
     //Attempts to connect to the server
-    ClientManager::getInstance()->connectToServer();
+    ClientManager::getInstance()->connectToServer(address, port);
 
     //Updates page depending on connection status
     if (ClientManager::getInstance()->serverConnected())

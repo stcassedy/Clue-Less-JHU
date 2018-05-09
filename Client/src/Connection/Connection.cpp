@@ -10,7 +10,7 @@ Connection::Connection(QString host, int port)
     connect(socket_, SIGNAL(readyRead()),
                this, SLOT(read()));
     connect(socket_, SIGNAL(error(QAbstractSocket::SocketError)),
-            this, SLOT(error(QAbstractSocket::SocketError)));
+            this, SLOT(onError(QAbstractSocket::SocketError)));
     host_ = host;
     port_ = port;
 }
@@ -21,7 +21,7 @@ Connection::~Connection()
     disconnect(socket_, SIGNAL(readyRead()),
                this, SLOT(read()));
     disconnect(socket_, SIGNAL(error(QAbstractSocket::SocketError)),
-            this, SLOT(error(QAbstractSocket::SocketError)));
+            this, SLOT(onError(QAbstractSocket::SocketError)));
 
     //closes the socket on destruction
     socket_->close();
@@ -54,7 +54,7 @@ void Connection::read()
     ClientManager::getInstance()->processServerAction(act);
 }
 
-void Connection::error(QAbstractSocket::SocketError err)
+void Connection::onError(QAbstractSocket::SocketError err)
 {
     Q_UNUSED(err);
     qDebug() << "Socket Error: " << socket_->errorString();

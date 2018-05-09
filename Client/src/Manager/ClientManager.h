@@ -114,9 +114,11 @@ public:
     void endTurn();
 
     /**
-     * @brief connectToServer
+     * @brief connectToServer connects to server based on inputs
+     * @param host QString
+     * @param port int
      */
-    void connectToServer();
+    void connectToServer(QString host, int port);
 
     /**
      * @brief getCurrentPlayer returns the client player

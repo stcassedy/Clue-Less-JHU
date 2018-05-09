@@ -19,7 +19,7 @@ public:
     QString errorString() {return socket_->errorString();}
 
 private slots:
-    void error(QAbstractSocket::SocketError err);
+    void onError(QAbstractSocket::SocketError err);
     void read();
 
 private:

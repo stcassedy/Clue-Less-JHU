@@ -12,12 +12,10 @@
 
 // -----------------------------------------------------------------------------
 // Constants:
-static const int START_PAGE = 0;
+static const int JOIN_PAGE = 0;
 static const int START_GAME_PAGE = 1;
 static const int GAME_BOARD_PAGE = 2;
 static const int CONNECTION_ERROR_PAGE = 3;
-static const QString READY_TEXT = "Ready!";
-static const QString NOT_READY_TEXT = "Not Ready Yet";
 
 // -----------------------------------------------------------------------------
 // Constructor:
@@ -38,7 +36,7 @@ ClientWindow::ClientWindow(QWidget *parent) :
     m_ui->leServerPort->setValidator(new QIntValidator(0, 99999, this));
 
     //defaults to start page
-    m_ui->stackedWidget->setCurrentIndex(START_PAGE);
+    m_ui->stackedWidget->setCurrentIndex(JOIN_PAGE);
 
     //updates board elements with pointers to UI elements
     updateBoardElementUI();
@@ -88,10 +86,6 @@ void ClientWindow::updateUI()
 
     //updates the action buttons
     updateActionButtons();
-
-    //update the UI page
-    //TODO: Enable Update Page once games phases are implemented
-    //updatePage();
 }
 
 // -----------------------------------------------------------------------------
@@ -116,21 +110,6 @@ void ClientWindow::on_btnJoinGame_clicked()
         m_ui->stackedWidget->setCurrentIndex(CONNECTION_ERROR_PAGE);
     }
 
-    //Prepares the start game widgets
-    m_ui->btnStartGame->setDisabled(true);
-
-    //updates the UI
-    updateUI();
-}
-
-void ClientWindow::on_btnStartGame_clicked()
-{
-    //show game board page
-    m_ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
-
-    //notifies ClientManager of start command
-    ClientManager::getInstance()->startGame();
-
     //updates the UI
     updateUI();
 }
@@ -138,7 +117,7 @@ void ClientWindow::on_btnStartGame_clicked()
 void ClientWindow::on_btnAckNoServer_clicked()
 {
     //show the start page
-    m_ui->stackedWidget->setCurrentIndex(START_PAGE);
+    m_ui->stackedWidget->setCurrentIndex(JOIN_PAGE);
 }
 
 void ClientWindow::on_btnNavigateBoard_clicked()
@@ -572,46 +551,11 @@ void ClientWindow::updatePlayerTurn()
 
 void ClientWindow::updateStartGamePage()
 {
-    //gets the number of connected players
-    int numPlayers = ClientManager::getInstance()->getNumberOfPlayers();
-
-    //sets all players to not ready
-    m_ui->lbReadyPlayer1->setText(NOT_READY_TEXT);
-    m_ui->lbReadyPlayer2->setText(NOT_READY_TEXT);
-    m_ui->lbReadyPlayer3->setText(NOT_READY_TEXT);
-    m_ui->lbReadyPlayer4->setText(NOT_READY_TEXT);
-    m_ui->lbReadyPlayer5->setText(NOT_READY_TEXT);
-    m_ui->lbReadyPlayer6->setText(NOT_READY_TEXT);
-
-    //updates the player ready status
-    if (numPlayers >= 1)
-    {
-        m_ui->lbReadyPlayer1->setText(READY_TEXT);
-    }
-    if (numPlayers >= 2)
-    {
-        m_ui->lbReadyPlayer2->setText(READY_TEXT);
-    }
-    if (numPlayers >= 3)
-    {
-        m_ui->lbReadyPlayer3->setText(READY_TEXT);
-    }
-    if (numPlayers >= 4)
-    {
-        m_ui->lbReadyPlayer4->setText(READY_TEXT);
-    }
-    if (numPlayers >= 5)
-    {
-        m_ui->lbReadyPlayer5->setText(READY_TEXT);
-    }
-    if (numPlayers == 6)
-    {
-        m_ui->lbReadyPlayer6->setText(READY_TEXT);
-    }
-
-    //enables/disables the start button
-    bool startGame = numPlayers >= 3;
-    m_ui->btnStartGame->setEnabled(startGame);
+    //sets player assignment label
+    m_ui->lbPlayerAssignment->setText(
+                ClientManager::getInstance()->getPlayerStringFromEnum(
+                    ClientManager::getInstance()->getCurrentPlayer()->
+                    getPlayerNum()));
 }
 
 void ClientWindow::updateActionButtons()
@@ -673,21 +617,8 @@ void ClientWindow::updateActionButtons()
     }
 }
 
-void ClientWindow::updatePage()
+void ClientWindow::moveToGameBoardView()
 {
-    //gets the current page
-    int page = m_ui->stackedWidget->currentIndex();
-    GamePhaseEnum phase = ClientManager::getInstance()->getCurrentGamePhase();
-
-    //determines if the UI needs to transition to the Game Board Page
-    //(needed because only one client will start the game, so the other
-    //clients need to transition to gameboard page on game phase change)
-    if (page == START_GAME_PAGE &&
-        (phase == MOVE ||
-         phase == SUGGESTION ||
-         phase == REFUTATION ||
-         phase == ACCUSATION))
-    {
-        m_ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
-    }
+    //updates UI to the game board view
+    m_ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
 }

@@ -4,12 +4,12 @@
 
 // -----------------------------------------------------------------------------
 // Constructor:
-Player::Player(PlayerEnum playerNumIn, LocationEnum loc)
+Player::Player(PlayerEnum playerNumIn, LocationEnum loc) :
+    playerNum(playerNumIn),
+    currentLocation(loc),
+    connected(false),
+    m_stillInGame(true)
 {
-    playerNum = playerNumIn;
-    currentLocation = loc;
-    //by deafult connected will be false
-    connected = false;
 }
 
 // -----------------------------------------------------------------------------
@@ -90,4 +90,14 @@ bool Player::isConnected()
 void Player::setConnected(bool connectedIn)
 {
     connected = connectedIn;
+}
+
+void Player::playerLost()
+{
+    m_stillInGame = false;
+}
+
+bool Player::playerStillInGame()
+{
+    return m_stillInGame;
 }

@@ -14,6 +14,7 @@ ServerWindow::ServerWindow(QWidget *parent) :
     m_ui->setupUi(this);
     setWindowTitle("Clue-Less Server");
     setWindowFlags(windowFlags() & ~Qt::WindowMinMaxButtonsHint);
+    ServerManager::init();
 }
 
 // -----------------------------------------------------------------------------
@@ -21,6 +22,7 @@ ServerWindow::ServerWindow(QWidget *parent) :
 ServerWindow::~ServerWindow()
 {
     delete m_ui;
+    ServerManager::destroy();
 }
 
 // -----------------------------------------------------------------------------

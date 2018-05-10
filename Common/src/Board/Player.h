@@ -90,12 +90,25 @@ public:
      * @param connected bool
      */
     void setConnected(bool connectedIn);
+
+    /**
+     * @brief playerLost sets player as out of game
+     */
+    void playerLost();
+
+    /**
+     * @brief playerStillInGame determines if the player is still in the game
+     * @return bool true if still in game, false otherwise
+     */
+    bool playerStillInGame();
+
 private:
     //Member variables
     PlayerEnum playerNum;
     LocationEnum currentLocation;
     Hand hand;
     bool connected;
+    bool m_stillInGame;
 };
 
 #endif // PLAYER_H

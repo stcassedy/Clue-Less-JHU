@@ -304,21 +304,9 @@ font-weight: bold;
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_29">
            <item>
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="4" column="1">
-              <widget class="QLabel" name="lbReadyPlayer5">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="1" column="1">
+              <widget class="QLabel" name="lbPlayerAssignment">
                <property name="styleSheet">
                 <string notr="true">QLabel {
 color: rgb(0,0,0);
@@ -326,93 +314,12 @@ font-weight: bold;
 }</string>
                </property>
                <property name="text">
-                <string> Not Ready Yet</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0">
-              <widget class="QLabel" name="lbSelectionPlayer6">
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string>Player 6: </string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="lbSelectionPlayer4">
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string>Player 4: </string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLabel" name="lbReadyPlayer4">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string> Not Ready Yet</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                <string> TBD</string>
                </property>
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QLabel" name="lbSelectionPlayer2">
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
+              <widget class="QLabel" name="lbPlayerAssignmentText">
                <property name="styleSheet">
                 <string notr="true">QLabel {
 color: rgb(0,0,0);
@@ -420,185 +327,7 @@ font-weight: bold;
 }</string>
                </property>
                <property name="text">
-                <string>Player 2: </string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QLabel" name="lbReadyPlayer6">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string> Not Ready Yet</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="lbReadyPlayer1">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string> Not Ready Yet</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="lbReadyPlayer2">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string> Not Ready Yet</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="lbSelectionPlayer5">
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string>Player 5: </string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="lbReadyPlayer3">
-               <property name="minimumSize">
-                <size>
-                 <width>80</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string> Not Ready Yet</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="lbSelectionPlayer3">
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string>Player 3: </string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLabel" name="lbSelectionPlayer1">
-               <property name="maximumSize">
-                <size>
-                 <width>110</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QLabel {
-color: rgb(0,0,0);
-font-weight: bold;
-}</string>
-               </property>
-               <property name="text">
-                <string>Player 1: </string>
+                <string>Player Assignment: </string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -608,72 +337,20 @@ font-weight: bold;
             </layout>
            </item>
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <spacer name="horizontalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <widget class="QPushButton" name="btnStartGame">
-               <property name="minimumSize">
-                <size>
-                 <width>75</width>
-                 <height>25</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
+            <widget class="QLabel" name="lbWaitingOnOtherPlayers">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
 color: rgb(0,0,0);
 font-weight: bold;
-background-color: rgb(150,160,180);
-border: 1px solid black;
-border-radius: 5px;
-}
-
-QPushButton:hover {
-color: rgb(0,0,0);
-font-weight: bold;
-background-color: rgb(250,250,250);
-border: 1px solid black;
-border-radius: 5px;
-}
-
-QPushButton:disabled {
-color: darkgrey;
-font-weight: bold;
-background-color:lightgrey;
-border: 1px solid darkgrey;
-border-radius: 5px;
 }</string>
-               </property>
-               <property name="text">
-                <string>Start Game</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_6">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
+             </property>
+             <property name="text">
+              <string>Waiting on other players to join the game...</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

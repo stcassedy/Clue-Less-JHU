@@ -35,7 +35,8 @@ private:
     ClientWindow* m_clientWindow;
     bool m_serverConnection;
     Connection* m_tcpConnection;
-
+    PlayerEnum m_suggestor;
+    bool m_stillPlaying;
 
 public:
     /**
@@ -192,6 +193,25 @@ public:
      */
     void processPlayerConnect(protocol::PlayerConnect* con);
 
+    /**
+     * @brief processChangeTurn process turn change
+     * @param turn protocol::ChangeTurn*
+     */
+    void processChangeTurn(protocol::ChangeTurn* turn);
+
+    /**
+     * @brief getPlayerStringFromEnum gets the player string from an enum
+     * @param pEnum PlayerEnum
+     * @return QString
+     */
+    QString getPlayerStringFromEnum(PlayerEnum pEnum);
+
+private:
+    /**
+     * @brief getNextPlayer determines which player takes the next action
+     * @return Player*
+     */
+    Player* getNextPlayer();
 };
 
 #endif // CLIENTMANAGER_H

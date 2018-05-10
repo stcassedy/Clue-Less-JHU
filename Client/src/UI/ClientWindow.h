@@ -41,17 +41,16 @@ public:
      */
     void updateUI();
 
+    /**
+     * @brief moveToGameBoardView updates the UI to the game board view
+     */
+    void moveToGameBoardView();
+
 private slots:
     /**
      * @brief on_btnJoinGame_clicked handles the join button being clicked
      */
     void on_btnJoinGame_clicked();
-
-    /**
-     * @brief on_btnStartGame_clicked handles the start game button being
-     * clicked
-     */
-    void on_btnStartGame_clicked();
 
     /**
      * @brief on_btnAckNoServer_clicked handles the No Server Connection OK
@@ -165,11 +164,6 @@ private:
      * @brief updateActionButtons enables/disables action buttons
      */
     void updateActionButtons();
-
-    /**
-     * @brief updatePage updates the UI page shown
-     */
-    void updatePage();
 
     //Member Variables
     Ui::ClientWindow *m_ui;

@@ -3,7 +3,7 @@
 //---------------------------------------------------------------
 //Static Variables:
 
-ServerManager ServerManager::instance_;
+ServerManager* ServerManager::instance_ = NULL;
 
 ServerWindow * ServerManager::window_ = NULL;
 
@@ -29,8 +29,8 @@ ServerManager::ServerManager(int numPlayers) : numPlayers_(numPlayers)
 
 ServerManager* ServerManager::start_server_manager(int numPlayers)
 {
-    instance_ = ServerManager(numPlayers);
-    return &instance_;
+    instance_ = new ServerManager(numPlayers);
+    return instance_;
 }
 
 void ServerManager::set_window_pointer(ServerWindow * serverWindow)
@@ -42,4 +42,14 @@ void ServerManager::stop()
 {
     delete(server_);
     window_->Notify("Disconnected.");
+}
+
+void ServerManager::init()
+{
+    instance_ = new ServerManager();
+}
+
+void ServerManager::destroy()
+{
+    delete instance_;
 }

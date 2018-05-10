@@ -13,7 +13,8 @@ class Server : public QTcpServer
     Q_OBJECT
 
 public:
-    Server(int maxPlayers);
+    Server(int maxPlayers, int port);
+    ~Server();
     void send(QByteArray data, int playerIndex);
     void send_all(QByteArray data);
     int read_sockets();
@@ -38,6 +39,7 @@ private:
     int maxPlayers_;
     QByteArray buffer_;
 
+    int port_;
 };
 
 #endif // SERVER_H

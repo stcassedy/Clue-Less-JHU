@@ -2,7 +2,8 @@
 #include <QDebug>
 #include <QNetworkInterface>
 
-Server::Server(int maxPlayers) : maxPlayers_(maxPlayers)
+Server::Server(int maxPlayers, int port)
+    : maxPlayers_(maxPlayers), port_(port)
 {
     for (int i = 0; i < maxPlayers_; ++i)
     {
@@ -15,6 +16,11 @@ Server::Server(int maxPlayers) : maxPlayers_(maxPlayers)
         if (address.protocol() == QAbstractSocket::IPv4Protocol && address != QHostAddress(QHostAddress::LocalHost))
              qDebug() << address.toString();
     }
+}
+
+Server::~Server()
+{
+    disconnect_all();
 }
 
 void Server::incomingConnection(qintptr socketDescriptor)
@@ -107,6 +113,8 @@ void Server::disconnect(int playerIndex)
     {
         sockets_[playerIndex]->disconnectFromHost();
         sockets_[playerIndex]->waitForDisconnected();
+        delete(sockets_[playerIndex]);
+        sockets_[playerIndex] = new QTcpSocket(this);
         socketUsed_[playerIndex] = false;
         --numConnected_;
     }

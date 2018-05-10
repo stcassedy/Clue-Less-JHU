@@ -13,12 +13,18 @@ ServerManager::ServerManager(int numPlayers) : numPlayers_(numPlayers)
     {
         return;
     }
-    server_ = new Server(numPlayers);
-    server_->listen();
+    // TODO make change-able
+    server_ = new Server(numPlayers, 53635);
+    server_->listen(QHostAddress::Any, 53635);
+    if (server_->isListening())
+    {
+        qDebug() << "listening";
+    }
     window_->Notify(QString("Server started with %1 players.").arg(numPlayers_));
     window_->setAddress(server_->serverAddress().toString());
     window_->setPort(QString("%1").arg(server_->serverPort()));
     board_ = Board::remakeInstance();
+    protocol::form_initialization(protocol::Initialization());
 }
 
 ServerManager* ServerManager::start_server_manager(int numPlayers)
@@ -34,6 +40,6 @@ void ServerManager::set_window_pointer(ServerWindow * serverWindow)
 
 void ServerManager::stop()
 {
-    server_->disconnect_all();
+    delete(server_);
     window_->Notify("Disconnected.");
 }

@@ -21,7 +21,7 @@ public:
     void stop();
 
 private:
-    ServerManager(int numPlayers = 0); // This constructor should continue until victory or end.
+    ServerManager(int numPlayers = 0);
     void wait_for_players();
 
     int numPlayers_;

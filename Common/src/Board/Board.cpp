@@ -230,3 +230,111 @@ void Board::initializeBoardElementLookup()
     m_boardElementLookup[HALLWAY_12] =
             new Hallway(HALLWAY_12);
 }
+
+Player* Board::getPlayerForCard(PlayerCard* card)
+{
+    //gets the card enum
+    CardEnum cardEnum = card->getCardIdentifier();
+
+    //determines the player
+    if (cardEnum == SCARLET_CARD)
+    {
+        return getPlayer(MISS_SCARLET);
+    }
+    else if (cardEnum == MUSTARD_CARD)
+    {
+        return getPlayer(COL_MUSTARD);
+    }
+    else if (cardEnum == WHITE_CARD)
+    {
+        return getPlayer(MRS_WHITE);
+    }
+    else if (cardEnum == GREEN_CARD)
+    {
+        return getPlayer(MR_GREEN);
+    }
+    else if (cardEnum == PEACOCK_CARD)
+    {
+        return getPlayer(MRS_PEACOCK);
+    }
+    else
+    {
+        return getPlayer(PROF_PLUM);
+    }
+}
+
+Room* Board::getRoomForCard(RoomCard* card)
+{
+    //gets the card enum
+    CardEnum cardEnum = card->getCardIdentifier();
+
+    //determines the room
+    if (cardEnum == KITCHEN_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(KITCHEN));
+    }
+    else if (cardEnum == BALLROOM_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(BALLROOM));
+    }
+    else if (cardEnum == CONSERVATORY_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(CONSERVATORY));
+    }
+    else if (cardEnum == DINING_ROOM_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(DINING_ROOM));
+    }
+    else if (cardEnum == BILLIARD_ROOM_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(BILLIARD_ROOM));
+    }
+    else if (cardEnum == LIBRARY_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(LIBRARY));
+    }
+    else if (cardEnum == LOUNGE_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(LOUNGE));
+    }
+    else if (cardEnum == HALL_CARD)
+    {
+        return dynamic_cast<Room*>(getBoardElement(HALL));
+    }
+    else
+    {
+        return dynamic_cast<Room*>(getBoardElement(STUDY));
+    }
+}
+
+QString Board::getPlayerStringFromEnum(PlayerEnum pEnum)
+{
+    //determines string based on current player enum
+    QString currentPlayerString;
+    if (pEnum == MISS_SCARLET)
+    {
+        currentPlayerString = QString("Miss Scarlet");
+    }
+    else if (pEnum == COL_MUSTARD)
+    {
+        currentPlayerString = QString("Col. Mustard");
+    }
+    else if (pEnum == MRS_WHITE)
+    {
+        currentPlayerString = QString("Mrs. White");
+    }
+    else if (pEnum == MR_GREEN)
+    {
+        currentPlayerString = QString("Mr. Green");
+    }
+    else if (pEnum == MRS_PEACOCK)
+    {
+        currentPlayerString = QString("Mrs. Peacock");
+    }
+    else
+    {
+        currentPlayerString = QString("Prof. Plum");
+    }
+
+    return currentPlayerString;
+}

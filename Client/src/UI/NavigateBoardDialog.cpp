@@ -434,6 +434,5 @@ bool NavigateBoardDialog::isValidMove(BoardElement* elem)
     QList<BoardElement*> elemList = currentLocation->getConnectedElements();
 
     //checks if the board element is connected and open for a new player
-    return (elemList.contains(elem) && elem->openForNewPlayer()) ||
-            currentLocation == elem;
+    return (elemList.contains(elem) && elem->openForNewPlayer());
 }

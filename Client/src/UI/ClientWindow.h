@@ -165,6 +165,11 @@ private:
      */
     void updateActionButtons();
 
+    /**
+     * @brief updateGamePhase updates the game phase label
+     */
+    void updateGamePhase();
+
     //Member Variables
     Ui::ClientWindow *m_ui;
     NavigateBoardDialog m_navigateBoardDlg;

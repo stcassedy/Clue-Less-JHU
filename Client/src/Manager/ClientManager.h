@@ -7,6 +7,7 @@
 #include "Card.h"
 #include "GamePhaseEnums.h"
 #include "ServerProtocol.h"
+#include <QMessageBox>
 
 //Foward Declarations
 class Player;
@@ -36,7 +37,13 @@ private:
     bool m_serverConnection;
     Connection* m_tcpConnection;
     PlayerEnum m_suggestor;
-    bool m_stillPlaying;
+    bool m_movedForSuggestion;
+    bool m_refuted;
+    QMessageBox* m_sugMsgBox;
+    QMessageBox* m_sugNotRefBox;
+    QMessageBox* m_refMsgBox;
+    QMessageBox* m_accMsgBox;
+    QMessageBox* m_accResultMsgBox;
 
 public:
     /**
@@ -158,6 +165,36 @@ public:
     void processServerAction(protocol::Action* act);
 
     /**
+     * @brief movedForSuggestion determines if the player was moved for a
+     * suggestion
+     * @return bool true if last move was for a suggestion
+     */
+    bool movedForSuggestion();
+
+    /**
+     * @brief refutedThisTurn determines if a suggestion was refuted for this
+     * player's turn
+     * @return bool true if refuted this turn, false otherwise
+     */
+    bool refutedThisTurn();
+
+    /**
+     * @brief initMsgBoxes initializes the msg boxes
+     */
+    void initMsgBoxes();
+
+    /**
+     * @brief destroyMsgBoxes destroys the msg boxes
+     */
+    void destroyMsgBoxes();
+
+    /**
+     * @brief closeApplication closes the clien
+     */
+    void closeApplication();
+
+private:
+    /**
      * @brief processMovement process movement action from server
      * @param mov protocol::Movement*
      */
@@ -200,19 +237,6 @@ public:
     void processChangeTurn(protocol::ChangeTurn* turn);
 
     /**
-     * @brief getPlayerStringFromEnum gets the player string from an enum
-     * @param pEnum PlayerEnum
-     * @return QString
-     */
-    QString getPlayerStringFromEnum(PlayerEnum pEnum);
-
-    /**
-     * @brief closeApplication closes the clien
-     */
-    void closeApplication();
-
-private:
-    /**
      * @brief getNextPlayer determines which player takes the next action
      * @param player Player*
      * @return Player*
@@ -240,6 +264,21 @@ private:
      */
     Player* getRefutationPlayer(Player* player, WeaponCard* wCard,
                                 PlayerCard* pCard, RoomCard* rCard);
+
+    /**
+     * @brief getNextPlayerIncludingDead gets the next player including players
+     * who have already lost
+     * @param player Player*
+     * @return Player*
+     */
+    Player* getNextPlayerIncludingDead(Player* player);
+
+    /**
+     * @brief playersDead determines if all of the players have lost
+     * @return bool true if all the players have lost, false otherwise
+     */
+    bool playersDead();
+
 };
 
 #endif // CLIENTMANAGER_H

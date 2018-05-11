@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>550</width>
     <height>160</height>
    </rect>
   </property>
@@ -18,13 +18,13 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>400</width>
+    <width>550</width>
     <height>130</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>400</width>
+    <width>550</width>
     <height>160</height>
    </size>
   </property>
@@ -85,6 +85,19 @@ font-weight: bold;
       <string>Accusation</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="3">
+       <widget class="QLabel" name="lbInThe">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string> in the </string>
+        </property>
+       </widget>
+      </item>
       <item row="0" column="2">
        <widget class="QLabel" name="lbWeapon">
         <property name="maximumSize">
@@ -195,6 +208,65 @@ font-weight: bold;
         </property>
         <property name="text">
          <string>with the</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QComboBox" name="cbRoom">
+        <item>
+         <property name="text">
+          <string>Study</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Hall</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Lounge</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Library</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Billiard Room</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Dining Room</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Conservatory</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Ballroom</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Kitchen</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="lbRoom">
+        <property name="text">
+         <string>Room</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>

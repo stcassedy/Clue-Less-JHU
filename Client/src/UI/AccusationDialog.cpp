@@ -95,40 +95,35 @@ CardEnum AccusationDialog::getWeaponCardEnum()
 
 CardEnum AccusationDialog::getRoomCardEnum()
 {
-    //returns the room card for the current player's location
-    Player* player = ClientManager::getInstance()->getCurrentPlayer();
-    BoardElement* elem = player->getCurrentLocation();
-
-    //determines the card based on the room
-    if(elem->getBoardElementEnum() == STUDY)
+    if(m_ui->cbRoom->currentIndex() == 0)
     {
         return STUDY_CARD;
     }
-    else if (elem->getBoardElementEnum() == HALL)
+    else if (m_ui->cbRoom->currentIndex() == 1)
     {
         return HALL_CARD;
     }
-    else if (elem->getBoardElementEnum() == LOUNGE)
+    else if (m_ui->cbRoom->currentIndex() == 2)
     {
         return LOUNGE_CARD;
     }
-    else if (elem->getBoardElementEnum() == LIBRARY)
+    else if (m_ui->cbRoom->currentIndex() == 3)
     {
         return LIBRARY_CARD;
     }
-    else if (elem->getBoardElementEnum() == BILLIARD_ROOM)
+    else if (m_ui->cbRoom->currentIndex() == 4)
     {
         return BILLIARD_ROOM_CARD;
     }
-    else if (elem->getBoardElementEnum() == DINING_ROOM)
+    else if (m_ui->cbRoom->currentIndex() == 5)
     {
         return DINING_ROOM_CARD;
     }
-    else if (elem->getBoardElementEnum() == CONSERVATORY)
+    else if (m_ui->cbRoom->currentIndex() == 6)
     {
         return CONSERVATORY_CARD;
     }
-    else if (elem->getBoardElementEnum() == BALLROOM)
+    else if (m_ui->cbRoom->currentIndex() == 7)
     {
         return BALLROOM_CARD;
     }

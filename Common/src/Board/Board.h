@@ -12,6 +12,7 @@
 class Card;
 class Player;
 class BoardElement;
+class Room;
 
 /**
  * @brief The Board class is a singleton class that primarily provides lookup
@@ -85,6 +86,27 @@ public:
      * @return Envelope*
      */
     Envelope* getHiddenEnvelope();
+
+    /**
+     * @brief getPlayerForCard returns the player associated with a card
+     * @param card PlayerCard*
+     * @return Player*
+     */
+    Player* getPlayerForCard(PlayerCard* card);
+
+    /**
+     * @brief getRoomForCard returns the room associated with a card
+     * @param card RoomCard*
+     * @return Room*
+     */
+    Room* getRoomForCard(RoomCard* card);
+
+    /**
+     * @brief getPlayerStringFromEnum gets the player string from an enum
+     * @param pEnum PlayerEnum
+     * @return QString
+     */
+    QString getPlayerStringFromEnum(PlayerEnum pEnum);
 
 private:
     /**

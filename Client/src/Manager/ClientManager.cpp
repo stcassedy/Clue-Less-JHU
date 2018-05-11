@@ -12,6 +12,7 @@
 #include "Board.h"
 #include "ClientWindow.h"
 #include "Connection.h"
+#include "Room.h"
 #include <QMessageBox>
 
 #include <QDebug>
@@ -31,7 +32,13 @@ ClientManager::ClientManager() :
     m_serverConnection(false),
     m_tcpConnection(NULL),
     m_suggestor(MISS_SCARLET),
-    m_stillPlaying(true)
+    m_movedForSuggestion(false),
+    m_refuted(false),
+    m_sugMsgBox(NULL),
+    m_sugNotRefBox(NULL),
+    m_refMsgBox(NULL),
+    m_accMsgBox(NULL),
+    m_accResultMsgBox(NULL)
 {
     //initializes the board
     Board::makeInstance();
@@ -92,6 +99,9 @@ void ClientManager::movePlayer(BoardElement* destination)
                             destination->getBoardElementEnum());
     QByteArray moveMessage = protocol::form_movement(move);
 
+    //last move was made by a move command
+    m_movedForSuggestion = false;
+
     //Send message through connection
     m_tcpConnection->send(moveMessage);
 
@@ -115,6 +125,9 @@ void ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
     qDebug() << "Suggested Room: " << room->getCardName();
     qDebug() << "Suggested Player: " << player->getCardName();
     qDebug() << "Accused Weapon: " << weapon->getCardName();
+
+    //making a suggestion clears flag
+    m_movedForSuggestion = false;
 
     //Build up message to send to server
     protocol::Suggestion suggestion(curPlayer->getPlayerNum(),
@@ -144,15 +157,32 @@ void ClientManager::makeSuggestion(RoomCard* room, PlayerCard* player,
     }
     else
     {
-        //Form change turn message
-        protocol::ChangeTurn turn(curPlayer->getPlayerNum(),
-                                  getRefutationPlayer(curPlayer, weapon, player,
-                                                      room)->getPlayerNum(),
-                                  REFUTATION);
-        QByteArray turnMessage = protocol::form_change_turn(turn);
+        //gets the player for refuting
+        Player* refPlayer = getRefutationPlayer(curPlayer, weapon, player,room);
 
-        //Send message through connection
-        m_tcpConnection->send(turnMessage);
+        //checks if none of the other players could refute the suggestion
+        if (refPlayer == curPlayer)
+        {
+            //Form change turn message
+            protocol::ChangeTurn turn(curPlayer->getPlayerNum(),
+                                      curPlayer->getPlayerNum(),
+                                      ACCUSATION);
+            QByteArray turnMessage = protocol::form_change_turn(turn);
+
+            //Send message through connection
+            m_tcpConnection->send(turnMessage);
+        }
+        else
+        {
+            //Form change turn message
+            protocol::ChangeTurn turn(curPlayer->getPlayerNum(),
+                                      refPlayer->getPlayerNum(),
+                                      REFUTATION);
+            QByteArray turnMessage = protocol::form_change_turn(turn);
+
+            //Send message through connection
+            m_tcpConnection->send(turnMessage);
+        }
     }
 }
 
@@ -242,6 +272,9 @@ void ClientManager::endTurn()
                                     nextPlayer->getPlayerNum(),
                                     MOVE);
     QByteArray changeTurnMessage = protocol::form_change_turn(changeTurn);
+
+    //clears refuted flag
+    m_refuted = false;
 
     //Send message through connection
     m_tcpConnection->send(changeTurnMessage);
@@ -355,6 +388,73 @@ void ClientManager::processServerAction(protocol::Action* act)
     }
 }
 
+bool ClientManager::movedForSuggestion()
+{
+    return m_movedForSuggestion;
+}
+
+bool ClientManager::refutedThisTurn()
+{
+    return m_refuted;
+}
+
+void ClientManager::initMsgBoxes()
+{
+    m_sugMsgBox = new QMessageBox();
+    m_sugMsgBox->setModal(false);
+    m_sugNotRefBox = new QMessageBox();
+    m_sugNotRefBox->setModal(false);
+    m_refMsgBox = new QMessageBox();
+    m_refMsgBox->setModal(false);
+    m_accMsgBox = new QMessageBox();
+    m_accMsgBox->setModal(false);
+    m_accResultMsgBox = new QMessageBox();
+    m_accResultMsgBox->setModal(false);
+}
+
+void ClientManager::destroyMsgBoxes()
+{
+    if (m_sugMsgBox != NULL)
+    {
+        delete m_sugMsgBox;
+        m_sugMsgBox = NULL;
+    }
+    if (m_sugNotRefBox != NULL)
+    {
+        delete m_sugNotRefBox;
+        m_sugNotRefBox = NULL;
+    }
+    if (m_refMsgBox != NULL)
+    {
+        delete m_refMsgBox;
+        m_refMsgBox = NULL;
+    }
+    if (m_accMsgBox != NULL)
+    {
+        delete m_accMsgBox;
+        m_accMsgBox = NULL;
+    }
+    if (m_accResultMsgBox != NULL)
+    {
+        delete m_accResultMsgBox;
+        m_accResultMsgBox = NULL;
+    }
+}
+
+void ClientManager::closeApplication()
+{
+    //notifies user of closure
+    QString msg = "Connection with server was lost. Closing application.";
+    QMessageBox msgBox;
+    msgBox.setText(msg);
+    msgBox.exec();
+
+    //closes the client window
+    m_clientWindow->close();
+}
+
+//---------------------------------------------------------------
+//Private:
 void ClientManager::processMovement(protocol::Movement* mov)
 {
     //moves the player and updates the UI
@@ -376,36 +476,47 @@ void ClientManager::processSuggestion(protocol::Suggestion* sug)
     Card* pCard = Board::getInstance()->getCard(sug->playerSuggested);
     Card* wCard = Board::getInstance()->getCard(sug->weapon);
     Card* rCard = Board::getInstance()->getCard(sug->location);
+    PlayerCard* playerCard = dynamic_cast<PlayerCard*>(pCard);
+    WeaponCard* weaponCard = dynamic_cast<WeaponCard*>(wCard);
+    RoomCard* roomCard = dynamic_cast<RoomCard*>(rCard);
+
+    //moves suggested player
+    Player* suggested = Board::getInstance()->getPlayerForCard(playerCard);
+    Room* suggestedRoom = Board::getInstance()->getRoomForCard(roomCard);
+    suggested->move(suggestedRoom);
 
     //shows message box describing the action
-    QString msg = getPlayerStringFromEnum(sug->playerSource) +
+    QString msg = Board::getInstance()->
+            getPlayerStringFromEnum(sug->playerSource) +
             QString( " suggests ") +
             pCard->getCardName() + QString(" did it with the ") +
             wCard->getCardName() + QString(" in the ") +
             rCard->getCardName() + QString(".");
-    QMessageBox msgBox;
-    msgBox.setText(msg);
-    msgBox.exec();
+    m_sugMsgBox->setText(msg);
+    m_sugMsgBox->show();
 
-    //determines if the suggestor is correct
-    Envelope env;
-    PlayerCard* playerCard = dynamic_cast<PlayerCard*>(pCard);
-    WeaponCard* weaponCard = dynamic_cast<WeaponCard*>(wCard);
-    RoomCard* roomCard = dynamic_cast<RoomCard*>(rCard);
-    env.setPlayerCard(playerCard);
-    env.setWeaponCard(weaponCard);
-    env.setRoomCard(roomCard);
-    if (Board::getInstance()->getHiddenEnvelope()->isAccusationCorrect(&env))
+    //determines if the suggestor can be refuted
+    Player* suggestor = Board::getInstance()->getPlayer(m_suggestor);
+    Player* refutor =
+            getRefutationPlayer(suggestor, weaponCard, playerCard, roomCard);
+    if (refutor == suggestor)
     {
-        //player was correct, the game is over and closing
-        QString resultMsg = getPlayerStringFromEnum(sug->playerSource) +
+        //player could not be refuted
+        QString resultMsg = Board::getInstance()->
+                getPlayerStringFromEnum(sug->playerSource) +
                 QString(" cannot be refuted!");
-        msgBox.setText(resultMsg);
-        msgBox.exec();
+        m_sugNotRefBox->setText(resultMsg);
+        m_sugNotRefBox->show();
     }
 
     //sets suggestion cards in the refutation dialog
     RefutationDialog::setSuggestionCards(weaponCard, roomCard, playerCard);
+
+    //tracks if current player was moved for a suggestion
+    if (suggested->getPlayerNum() == m_currentPlayer)
+    {
+        m_movedForSuggestion = true;
+    }
 
     //deletes pointer to prevent memory leak
     delete sug;
@@ -419,14 +530,14 @@ void ClientManager::processAccusation(protocol::Accusation* acc)
     Card* rCard = Board::getInstance()->getCard(acc->location);
 
     //shows message box describing the action
-    QString msg = getPlayerStringFromEnum(acc->playerSource) +
+    QString msg = Board::getInstance()->
+            getPlayerStringFromEnum(acc->playerSource) +
             QString( " claims ") +
             pCard->getCardName() + QString(" did it with the ") +
             wCard->getCardName() + QString(" in the ") +
             rCard->getCardName() + QString(".");
-    QMessageBox msgBox;
-    msgBox.setText(msg);
-    msgBox.exec();
+    m_accMsgBox->setText(msg);
+    m_accMsgBox->show();
 
     //determines if the accusor wins or loses
     Envelope env;
@@ -439,31 +550,42 @@ void ClientManager::processAccusation(protocol::Accusation* acc)
     if (Board::getInstance()->getHiddenEnvelope()->isAccusationCorrect(&env))
     {
         //player was correct, the game is over and closing
-        QString resultMsg = getPlayerStringFromEnum(acc->playerSource) +
+        QString resultMsg = Board::getInstance()->
+                getPlayerStringFromEnum(acc->playerSource) +
                 QString(" wins the game! The game will now close. "
                         "Thanks for playing!");
-        msgBox.setText(resultMsg);
-        msgBox.exec();
+        m_accResultMsgBox->setText(resultMsg);
+        m_accResultMsgBox->show();
         m_clientWindow->close();
     }
     else
     {
         //player was wrong and are now tracked as lost
         Player* deadPlayer = Board::getInstance()->getPlayer(acc->playerSource);
-        QString resultMsg = getPlayerStringFromEnum(acc->playerSource) +
-                QString(" has lost the game. Known Cards: \n");
-        QList<Card*> cList = deadPlayer->getHandCards();
-        for (int i = 0; i < cList.size(); ++i)
-        {
-            resultMsg = resultMsg + cList.at(i)->getCardName() + QString("\n");
-        }
-        msgBox.setText(resultMsg);
-        msgBox.exec();
+        QString resultMsg = Board::getInstance()->
+                getPlayerStringFromEnum(acc->playerSource) +
+                QString(" has lost the game.");
+        m_accResultMsgBox->setText(resultMsg);
+        m_accResultMsgBox->show();
         deadPlayer->playerLost();
     }
 
     //deletes pointer to prevent memory leak
     delete acc;
+
+    //ends game if all players are dead :(
+    if (playersDead())
+    {
+        QMessageBox gameOver;
+        gameOver.setText("All  players have lost! The game is now closing.");
+        gameOver.exec();
+        m_sugMsgBox->close();
+        m_sugNotRefBox->close();
+        m_refMsgBox->close();
+        m_accMsgBox->close();
+        m_accResultMsgBox->close();
+        m_clientWindow->close();
+    }
 }
 
 void ClientManager::processRefutation(protocol::Refutation* ref)
@@ -471,15 +593,21 @@ void ClientManager::processRefutation(protocol::Refutation* ref)
     //gets the refuted card
     Card* card = Board::getInstance()->getCard(ref->card);
 
+    if (m_currentPlayer == m_suggestor)
+    {
+        m_refuted = true;
+    }
+
     //shows message box describing the action
-    QString msg = getPlayerStringFromEnum(ref->playerSource) +
+    QString msg = Board::getInstance()->
+            getPlayerStringFromEnum(ref->playerSource) +
             QString( " refuted ") +
+            Board::getInstance()->
             getPlayerStringFromEnum(ref->playerRefuted) +
             QString("'s suggestion with the ") +
             card->getCardName() + QString(" card.");
-    QMessageBox msgBox;
-    msgBox.setText(msg);
-    msgBox.exec();
+    m_refMsgBox->setText(msg);
+    m_refMsgBox->show();
 
     //deletes pointer to prevent memory leak
     delete ref;
@@ -541,6 +669,23 @@ void ClientManager::processInitialization(protocol::Initialization* init)
     p6->giveCard(Board::getInstance()->getCard(init->p6Card2));
     p6->giveCard(Board::getInstance()->getCard(init->p6Card3));
 
+    //sets players not playing as lost
+    if (m_numberOfPlayers == 3)
+    {
+        Board::getInstance()->getPlayer(MR_GREEN)->playerLost();
+        Board::getInstance()->getPlayer(MRS_PEACOCK)->playerLost();
+        Board::getInstance()->getPlayer(PROF_PLUM)->playerLost();
+    }
+    else if (m_numberOfPlayers == 4)
+    {
+        Board::getInstance()->getPlayer(MRS_PEACOCK)->playerLost();
+        Board::getInstance()->getPlayer(PROF_PLUM)->playerLost();
+    }
+    else if (m_numberOfPlayers == 5)
+    {
+        Board::getInstance()->getPlayer(PROF_PLUM)->playerLost();
+    }
+
     //updates the UI
     m_clientWindow->moveToGameBoardView();
     m_clientWindow->updateUI();
@@ -570,52 +715,6 @@ void ClientManager::processChangeTurn(protocol::ChangeTurn* turn)
     delete turn;
 }
 
-QString ClientManager::getPlayerStringFromEnum(PlayerEnum pEnum)
-{
-    //determines string based on current player enum
-    QString currentPlayerString;
-    if (pEnum == MISS_SCARLET)
-    {
-        currentPlayerString = QString("Miss Scarlet");
-    }
-    else if (pEnum == COL_MUSTARD)
-    {
-        currentPlayerString = QString("Col. Mustard");
-    }
-    else if (pEnum == MRS_WHITE)
-    {
-        currentPlayerString = QString("Mrs. White");
-    }
-    else if (pEnum == MR_GREEN)
-    {
-        currentPlayerString = QString("Mr. Green");
-    }
-    else if (pEnum == MRS_PEACOCK)
-    {
-        currentPlayerString = QString("Mrs. Peacock");
-    }
-    else
-    {
-        currentPlayerString = QString("Prof. Plum");
-    }
-
-    return currentPlayerString;
-}
-
-void ClientManager::closeApplication()
-{
-    //notifies user of closure
-    QString msg = "Connection with server was lost. Closing application.";
-    QMessageBox msgBox;
-    msgBox.setText(msg);
-    msgBox.exec();
-
-    //closes the client window
-    m_clientWindow->close();
-}
-
-//---------------------------------------------------------------
-//Private:
 Player* ClientManager::getNextPlayer(Player* player)
 {
     //determines current player
@@ -739,7 +838,7 @@ Player* ClientManager::getNextPlayer(Player* player)
 bool ClientManager::refutable(Player* player, WeaponCard* wCard,
                               PlayerCard* pCard, RoomCard* rCard)
 {
-    //gets teh player card lists
+    //gets the player card lists
     QList<WeaponCard*> weaponCardList = player->getWeaponCards();
     QList<RoomCard*> roomCardList = player->getRoomCards();
     QList<PlayerCard*> playerCardList = player->getPlayerCards();
@@ -776,16 +875,107 @@ Player* ClientManager::getRefutationPlayer(Player* player, WeaponCard* wCard,
     bool playerFound = false;
     Player* foundPlayer = player;
 
+    //loops until a player is found or complete circle is made
     while(!playerFound)
     {
-        //NOTE: Will loop indefinitely if suggestion cannot be refuted
-        //be sure to check the suggestion is refutable first
-        foundPlayer = getNextPlayer(foundPlayer);
-        if (refutable(foundPlayer, wCard, pCard, rCard))
+        //gets next player
+        foundPlayer = getNextPlayerIncludingDead(foundPlayer);
+
+        //checks if the player can refute
+        if (foundPlayer == player ||
+            refutable(foundPlayer, wCard, pCard, rCard))
         {
             playerFound = true;
         }
     }
 
     return foundPlayer;
+}
+
+Player* ClientManager::getNextPlayerIncludingDead(Player* player)
+{
+    //determines current player
+    if (player->getPlayerNum() == MISS_SCARLET)
+    {
+        //gets the next player
+        Player* next = Board::getInstance()->getPlayer(COL_MUSTARD);
+        return next;
+    }
+    else if (player->getPlayerNum() == COL_MUSTARD)
+    {
+        //gets the next player
+        Player* next = Board::getInstance()->getPlayer(MRS_WHITE);
+        return next;
+    }
+    else if (player->getPlayerNum() == MRS_WHITE)
+    {
+        //gets the next player
+        Player* next = NULL;
+        if (m_numberOfPlayers == 3)
+        {
+            next = Board::getInstance()->getPlayer(MISS_SCARLET);
+        }
+        else
+        {
+            next = Board::getInstance()->getPlayer(MR_GREEN);
+        }
+
+        return next;
+
+    }
+    else if (player->getPlayerNum() == MR_GREEN)
+    {
+        //gets the next player
+        Player* next = NULL;
+        if (m_numberOfPlayers == 4)
+        {
+            next = Board::getInstance()->getPlayer(MISS_SCARLET);
+        }
+        else
+        {
+            next = Board::getInstance()->getPlayer(MRS_PEACOCK);
+        }
+
+        return getNextPlayer(next);
+    }
+    else if (player->getPlayerNum() == MRS_PEACOCK)
+    {
+        //gets the next player
+        Player* next = NULL;
+        if (m_numberOfPlayers == 5)
+        {
+            next = Board::getInstance()->getPlayer(MISS_SCARLET);
+        }
+        else
+        {
+            next = Board::getInstance()->getPlayer(PROF_PLUM);
+        }
+
+        return getNextPlayer(next);
+    }
+    else
+    {
+        //gets the next player
+        Player* next = Board::getInstance()->getPlayer(MISS_SCARLET);
+        return next;
+    }
+}
+
+bool ClientManager::playersDead()
+{
+    //gets a list of all the players
+    QList<Player*> pList = Board::getInstance()->getAllPlayers();
+
+    //checks if any player is still alive
+    for (int i = 0; i < pList.size(); ++i)
+    {
+        //check if someone is still playing
+        if (pList.at(i)->playerStillInGame())
+        {
+            return false;
+        }
+    }
+
+    //everyone has lost :(
+    return true;
 }

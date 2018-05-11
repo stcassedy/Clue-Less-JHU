@@ -46,6 +46,9 @@ ClientWindow::ClientWindow(QWidget *parent) :
 
     //updates the UI
     updateUI();
+
+    //intializes client manager message boxes
+    ClientManager::getInstance()->initMsgBoxes();
 }
 
 // -----------------------------------------------------------------------------
@@ -53,6 +56,7 @@ ClientWindow::ClientWindow(QWidget *parent) :
 ClientWindow::~ClientWindow()
 {
     delete m_ui;
+    ClientManager::getInstance()->destroyMsgBoxes();
 }
 
 // -----------------------------------------------------------------------------
@@ -86,6 +90,9 @@ void ClientWindow::updateUI()
 
     //updates the action buttons
     updateActionButtons();
+
+    //updates the game phase
+    updateGamePhase();
 }
 
 // -----------------------------------------------------------------------------
@@ -553,7 +560,7 @@ void ClientWindow::updateStartGamePage()
 {
     //sets player assignment label
     m_ui->lbPlayerAssignment->setText(
-                ClientManager::getInstance()->getPlayerStringFromEnum(
+                Board::getInstance()->getPlayerStringFromEnum(
                     ClientManager::getInstance()->getCurrentPlayer()->
                     getPlayerNum()));
 }
@@ -579,11 +586,24 @@ void ClientWindow::updateActionButtons()
         GamePhaseEnum phase =
                 ClientManager::getInstance()->getCurrentGamePhase();
 
+        //buttons are enabled during your turn
+        if (!ClientManager::getInstance()->refutedThisTurn())
+        {
+            m_ui->btnMakeAccusation->setEnabled(true);
+        }
+        m_ui->btnEndTurn->setEnabled(true);
+
         //determines the Game Phase
         if (phase == MOVE)
         {
             //enables the navigate board button
             m_ui->btnNavigateBoard->setEnabled(true);
+
+            //allows player to make a suggestion if moved by a suggestion
+            if (ClientManager::getInstance()->movedForSuggestion())
+            {
+                m_ui->btnMakeSuggestion->setEnabled(true);
+            }
         }
         else if (phase == SUGGESTION)
         {
@@ -593,26 +613,13 @@ void ClientWindow::updateActionButtons()
                 //enables the make suggetsion button
                 m_ui->btnMakeSuggestion->setEnabled(true);
             }
-
-            //enables the end turn button
-            m_ui->btnEndTurn->setEnabled(true);
         }
         else if (phase == REFUTATION)
         {
             //enables the refute button
             m_ui->btnRefute->setEnabled(true);
-        }
-        else if (phase == ACCUSATION)
-        {
-            //checks if the player is in a room
-            if (elem->getBoardElementType() == ROOM)
-            {
-                //enables the make accusation button
-                m_ui->btnMakeAccusation->setEnabled(true);
-            }
-
-            //enables the end turn button
-            m_ui->btnEndTurn->setEnabled(true);
+            m_ui->btnEndTurn->setEnabled(false);
+            m_ui->btnMakeAccusation->setEnabled(false);
         }
     }
 }
@@ -621,4 +628,27 @@ void ClientWindow::moveToGameBoardView()
 {
     //updates UI to the game board view
     m_ui->stackedWidget->setCurrentIndex(GAME_BOARD_PAGE);
+}
+
+void ClientWindow::updateGamePhase()
+{
+    //gets game phase from the client
+    GamePhaseEnum gPhase = ClientManager::getInstance()->getCurrentGamePhase();
+
+    if (gPhase == MOVE)
+    {
+        m_ui->lbGamePhase->setText("Move");
+    }
+    else if (gPhase == SUGGESTION)
+    {
+        m_ui->lbGamePhase->setText("Suggestion");
+    }
+    else if (gPhase == ACCUSATION)
+    {
+        m_ui->lbGamePhase->setText("Accustaion");
+    }
+    else if (gPhase == REFUTATION)
+    {
+        m_ui->lbGamePhase->setText("Refutation");
+    }
 }

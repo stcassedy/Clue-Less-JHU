@@ -517,9 +517,23 @@ QString ClientManager::getPlayerStringFromEnum(PlayerEnum pEnum)
 //Private:
 Player* ClientManager::getNextPlayer()
 {
-    //TODO:
-    //should skip players who have lost (tracked in player class)
+    //Get board instance to pull players from
+    Board* board = Board::getInstance();
 
+    //Start off with cur + 1
+    int nextPlayerNumber = (m_currentPlayerTurn+1) % 6;
 
-    return Board::getInstance()->getPlayer(MISS_SCARLET);
+    //Loop until you get back to the current turn
+    while(nextPlayerNumber != m_currentPlayerTurn) {
+        Player* p = board->getPlayer(static_cast<PlayerEnum>(nextPlayerNumber));
+        //If connected and haven't lost yet, that should be the one!
+        if(p->isConnected() && p->playerStillInGame()) {
+            return p;
+        }
+        //Increment counter
+        nextPlayerNumber = (nextPlayerNumber+1) % 6;
+    }
+
+    //Return a nullptr if can't find another player to go to
+    return nullptr;
 }

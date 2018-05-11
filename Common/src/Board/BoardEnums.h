@@ -19,6 +19,7 @@ enum CardTypeEnum
  */
 enum CardEnum
 {
+    INVALID_CARD = -1,
     CANDLESTICK_CARD = 0,
     KNIFE_CARD,
     LEAD_PIPE_CARD,

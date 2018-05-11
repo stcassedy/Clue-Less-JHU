@@ -13,15 +13,7 @@
 
 // -----------------------------------------------------------------------------
 // Constructor:
-Board Board::m_instance;
-
-// -----------------------------------------------------------------------------
-// Constructor:
-Board* Board::remakeInstance()
-{
-    m_instance = Board();
-    return &m_instance;
-}
+Board* Board::m_instance = NULL;
 
 // -----------------------------------------------------------------------------
 // Constructor:
@@ -52,10 +44,34 @@ Board::~Board()
 
 // -----------------------------------------------------------------------------
 // Public Functions:
+Board* Board::makeInstance()
+{
+    //deletes instance if one exists
+    if (m_instance != NULL)
+    {
+        delete m_instance;
+        m_instance = NULL;
+    }
+
+    //creates a new instance
+    m_instance = new Board();
+    return m_instance;
+}
+
+void Board::destroyInstance()
+{
+    //deletes instance if one exists
+    if (m_instance != NULL)
+    {
+        delete m_instance;
+        m_instance = NULL;
+    }
+}
+
 Board* Board::getInstance()
 {
     //returns the board instance
-    return &m_instance;
+    return m_instance;
 }
 
 Card* Board::getCard(CardEnum card)
@@ -147,6 +163,8 @@ void Board::initializeCardLookup()
             new RoomCard(HALL_CARD, "Hall");
     m_cardLookup[STUDY_CARD] =
             new RoomCard(STUDY_CARD, "Study");
+    m_cardLookup[INVALID_CARD] =
+            new PlayerCard(INVALID_CARD, "Invalid");
 }
 
 void Board::initializePlayerLookup()

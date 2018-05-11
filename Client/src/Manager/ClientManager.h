@@ -206,12 +206,40 @@ public:
      */
     QString getPlayerStringFromEnum(PlayerEnum pEnum);
 
+    /**
+     * @brief closeApplication closes the clien
+     */
+    void closeApplication();
+
 private:
     /**
      * @brief getNextPlayer determines which player takes the next action
+     * @param player Player*
      * @return Player*
      */
-    Player* getNextPlayer();
+    Player* getNextPlayer(Player* player);
+
+    /**
+     * @brief refutable determines if a player can refute a suggestion
+     * @param player Player*
+     * @param wCard WeaponCard*
+     * @param pCard PlayerCard*
+     * @param rCard RoomCard*
+     * @return bool true if player can refute, false otherwise
+     */
+    bool refutable(Player* player, WeaponCard* wCard,
+                   PlayerCard* pCard, RoomCard* rCard);
+
+    /**
+     * @brief getRefutationPlayer returns the player to refute a suggestion
+     * @param player Player*
+     * @param wCard WeaponCard*
+     * @param pCard PlayerCard*
+     * @param rCard RoomCard*
+     * @return Player*
+     */
+    Player* getRefutationPlayer(Player* player, WeaponCard* wCard,
+                                PlayerCard* pCard, RoomCard* rCard);
 };
 
 #endif // CLIENTMANAGER_H

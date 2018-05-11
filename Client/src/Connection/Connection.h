@@ -21,6 +21,7 @@ public:
 private slots:
     void onError(QAbstractSocket::SocketError err);
     void read();
+    void connectionLost();
 
 private:
     QTcpSocket *socket_ = nullptr;

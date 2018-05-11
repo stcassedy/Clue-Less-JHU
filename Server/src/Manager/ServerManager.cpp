@@ -9,6 +9,7 @@ ServerWindow * ServerManager::window_ = NULL;
 
 ServerManager::ServerManager(int numPlayers) : numPlayers_(numPlayers)
 {
+    board_ = Board::makeInstance();
     if (numPlayers_ == 0)
     {
         return;
@@ -23,8 +24,12 @@ ServerManager::ServerManager(int numPlayers) : numPlayers_(numPlayers)
     window_->Notify(QString("Server started with %1 players.").arg(numPlayers_));
     window_->setAddress(server_->serverAddress().toString());
     window_->setPort(QString("%1").arg(server_->serverPort()));
-    board_ = Board::remakeInstance();
-    protocol::form_initialization(protocol::Initialization());
+}
+
+ServerManager::~ServerManager()
+{
+    //destroys the board
+    Board::destroyInstance();
 }
 
 ServerManager* ServerManager::start_server_manager(int numPlayers)

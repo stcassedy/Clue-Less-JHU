@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Board.h"
+#include "Card.h"
 
 
 // -----------------------------------------------------------------------------
@@ -44,8 +45,12 @@ QList<Card*> Player::getHandCards()
 
 void Player::giveCard(Card* card)
 {
-    //Add card pointer to Hand object
-    hand.addCard(card);
+    //tosses invalid cards
+    if (card->getCardIdentifier() != INVALID_CARD)
+    {
+        //Add card pointer to Hand object
+        hand.addCard(card);
+    }
 }
 
 

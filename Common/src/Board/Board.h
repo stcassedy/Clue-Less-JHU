@@ -22,10 +22,15 @@ class Board
 public:
 
     /**
-     * @brief getInstance Creates the board instance and returns pointer.
+     * @brief makeInstance Creates the board instance and returns pointer.
      * @return Board*
      */
-    static Board* remakeInstance();
+    static Board* makeInstance();
+
+    /**
+     * @brief destroyInstance Destroys the board instance
+     */
+    static void destroyInstance();
 
     /**
      * @brief getInstance Returns a pointer to the board instance
@@ -111,7 +116,7 @@ private:
     void initializeBoardElementLookup();
 
     //Member Variables
-    static Board m_instance;
+    static Board* m_instance;
     QMap<int, Card*> m_cardLookup;
     QMap<int, Player*> m_playerLookup;
     QMap<int, BoardElement*> m_boardElementLookup;

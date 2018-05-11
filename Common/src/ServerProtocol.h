@@ -7,6 +7,13 @@
 #include <Board.h>
 #include <Card.h>
 #include <Player.h>
+#include <QList>
+#include <algorithm>
+#include <random>
+#include <vector>
+#include <chrono>
+
+using namespace std;
 
 namespace protocol
 {
@@ -71,10 +78,40 @@ public:
 class Initialization : public Action
 {
 public:
-    Initialization() : Action(PlayerEnum::SERVER, MessageType::INITIALIZATION) {}
+    Initialization() : Action(PlayerEnum::SERVER, MessageType::INITIALIZATION){}
     // Constructor would be too complicated if it took parameters. Instead, construct empty and add parameters.
-    int numConnected;
-    Player * players[6];
+    CardEnum hiddenSuspect;
+    CardEnum hiddenWeapon;
+    CardEnum hiddenRoom;
+    CardEnum p1Card1;
+    CardEnum p1Card2;
+    CardEnum p1Card3;
+    CardEnum p1Card4;
+    CardEnum p1Card5;
+    CardEnum p1Card6;
+    CardEnum p2Card1;
+    CardEnum p2Card2;
+    CardEnum p2Card3;
+    CardEnum p2Card4;
+    CardEnum p2Card5;
+    CardEnum p2Card6;
+    CardEnum p3Card1;
+    CardEnum p3Card2;
+    CardEnum p3Card3;
+    CardEnum p3Card4;
+    CardEnum p3Card5;
+    CardEnum p3Card6;
+    CardEnum p4Card1;
+    CardEnum p4Card2;
+    CardEnum p4Card3;
+    CardEnum p4Card4;
+    CardEnum p5Card1;
+    CardEnum p5Card2;
+    CardEnum p5Card3;
+    CardEnum p6Card1;
+    CardEnum p6Card2;
+    CardEnum p6Card3;
+    qint8 numConnected;
 };
 
 class PlayerConnect : public Action
@@ -103,6 +140,7 @@ public:
     QByteArray form_player_connect(PlayerConnect conn);
     QByteArray form_change_turn(ChangeTurn turn);
     Action * parse_message(QByteArray ba);
+    QList<QByteArray> splitMessages(QByteArray msg);
 
 }
 

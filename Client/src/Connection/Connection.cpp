@@ -11,8 +11,13 @@ Connection::Connection(QString host, int port)
                this, SLOT(read()));
     connect(socket_, SIGNAL(error(QAbstractSocket::SocketError)),
             this, SLOT(onError(QAbstractSocket::SocketError)));
+    connect(socket_, SIGNAL(disconnected()),
+            this, SLOT(connectionLost()));
     host_ = host;
     port_ = port;
+
+    //set socket settings
+    socket_->setSocketOption(QAbstractSocket::LowDelayOption, 1);
 }
 
 Connection::~Connection()
@@ -22,6 +27,8 @@ Connection::~Connection()
                this, SLOT(read()));
     disconnect(socket_, SIGNAL(error(QAbstractSocket::SocketError)),
             this, SLOT(onError(QAbstractSocket::SocketError)));
+    disconnect(socket_, SIGNAL(disconnected()),
+            this, SLOT(connectionLost()));
 
     //closes the socket on destruction
     socket_->close();
@@ -44,6 +51,7 @@ void Connection::send(QByteArray data)
     if (socket_->state() == QTcpSocket::ConnectedState)
     {
         socket_->write(data);
+        socket_->waitForBytesWritten();
     }
 }
 
@@ -56,12 +64,21 @@ void Connection::read()
 
     //gets the protocol action and forwards it to the client manager for
     //processing
-    protocol::Action* act = protocol::parse_message(buffer_);
-    ClientManager::getInstance()->processServerAction(act);
+    QList<QByteArray> msgList = protocol::splitMessages(buffer_);
+    for (int i = 0; i < msgList.size(); ++i)
+    {
+        protocol::Action* act = protocol::parse_message(msgList.at(i));
+        ClientManager::getInstance()->processServerAction(act);
+    }
 }
 
 void Connection::onError(QAbstractSocket::SocketError err)
 {
     Q_UNUSED(err);
     qDebug() << "Socket Error: " << socket_->errorString();
+}
+
+void Connection::connectionLost()
+{
+    ClientManager::getInstance()->closeApplication();
 }

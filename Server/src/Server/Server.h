@@ -27,7 +27,12 @@ signals:
     void error(QTcpSocket::SocketError socketError);
 
 public slots:
-    void readyRead();
+    void readyRead0();
+    void readyRead1();
+    void readyRead2();
+    void readyRead3();
+    void readyRead4();
+    void readyRead5();
 
 protected:
     void incomingConnection(qintptr socketDescriptor) override;
@@ -35,8 +40,8 @@ protected:
 private:
     QVector<QTcpSocket*> sockets_;
     QVector<bool> socketUsed_;
-    int numConnected_;
-    int maxPlayers_;
+    qint8 numConnected_;
+    qint8 maxPlayers_;
     QByteArray buffer_;
 
     int port_;

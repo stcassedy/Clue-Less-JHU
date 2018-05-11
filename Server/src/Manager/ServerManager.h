@@ -26,6 +26,7 @@ public:
 
 private:
     ServerManager(int numPlayers = 0);
+    ~ServerManager();
     void wait_for_players();
 
     int numPlayers_;
